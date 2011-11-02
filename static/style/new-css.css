@@ -1,0 +1,495 @@
+body {
+	font-family: Verdana,Arial,sans-serif;
+	margin: 0px;
+	font-size: 12px;
+}
+
+a {
+	color: #009cd3;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #009cd3;
+}
+
+a:hover {
+	color: #c02350;
+}
+
+a:active {
+	position: relative;
+	top: 1px;
+}
+
+a.homepage-blurb, a.read-more {
+	font-weight: bold;
+	background: transparent url('../images/circle-arrow.png') 1 right no-repeat;
+	display: block;
+	float: left;
+	padding-right: 20px;
+}
+
+a.homepage-blurb:hover, a.read-more:hover {
+	background: transparent url('../images/circle-arrow-hover.png') top right no-repeat;
+}
+
+.big-butt {
+	background: #009cd3;
+	border: #009cd3 solid 1px;
+	border-radius: 5px;
+	color: #fff;
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.big-butt:active {
+	border-color: #a3203f;
+	color: #a3203f;
+}
+
+.calendar-alternatives {
+	font-size: 11px;
+	margin-top: 10px;
+	text-align: right;
+	width: 100%;
+}
+
+.carousel-bullets {
+	clear: both;
+	float: right;
+	position: relative;
+	right: -10px;
+	top: -15px;
+}
+
+.carousel-bullets ul {
+	margin: 0;
+	padding: 0;
+}
+
+.carousel-bullets ul li {
+	float: left;
+	font-size: 18px;
+	margin: 0 0 0 5px;
+	padding: 0;
+}
+
+.carousel-bullets ul li.selected {
+	color: #009cd3;
+}
+
+.column-one {
+	float:left;
+	overflow: hidden;
+	width:650px;
+}
+
+.column-two {
+	float:right;
+	text-align: right;
+	width:280px;
+}
+
+.comment {
+	margin-top: 25px;
+}
+
+#content {
+	margin: 0 auto;
+	width: 980px;
+}
+
+.current {
+	font-weight: bold;
+}
+
+.first {
+	margin-top: 0;
+}
+
+footer {
+	border-bottom: 5px #000 solid;
+	clear: both;
+	font-size: 11px;
+	margin:auto;
+	padding-bottom: 10px;
+	text-align: center;
+	width: 980px;
+}
+
+.footer-top-border {
+	margin: 10px 0;
+}
+
+h1, h2, h3, h4, h5 {
+	font-family:  'myriad pro', myriad, 'trebuchet ms', sans-serif;
+	font-weight: 500px;
+}
+
+h1 {
+	background: transparent url('../images/hacker-dojo.png') no-repeat;
+	float: left;
+	margin:20px 0;
+	text-indent: -5000px;
+	height: 71px;
+	width: 197px;
+}
+
+h2 {
+	font-size: 39px;
+	line-height: 39px;
+	font-weight: 600;
+	margin: 20px 0 0;
+}
+
+h2.tagline {
+	margin: 24px 0 14px;
+	text-align: center;
+}
+
+h3 {
+	font-size: 25px;
+	margin-bottom: 10px;
+	font-weight: 600;
+	margin-top: 0px;
+	text-transform: capitalize;
+}
+
+.header h3 {
+	font-size: 12px;
+}
+
+h3.comments-header {
+	color: #fff;
+	font-size: 14px;
+	background-color: #a3203f;
+	margin-top: 30px;
+	padding: 3px 5px 1px;
+	text-transform:uppercase
+}
+
+h4 {
+	font-size: 14px;
+	font-weight: bold;
+	margin: 10px 0;
+	text-transform: uppercase;
+}
+
+h5 {
+	font-size: 18px;
+	font-weight: bold;
+	margin:0;
+	padding: 0;
+	line-height: 18px;
+}
+
+.hero-image {
+	background: transparent url('../images/dotted-background.jpg') repeat;
+	height: 235px;
+	padding: 10px;
+	width: 960px;
+}
+
+.hero-caption {
+	background: transparent url('../images/transparent-80.png') repeat;
+	float: right;
+	font-size: 10px;
+	font-weight: bold;
+	line-height: 10px;
+	padding: 8px;
+	position: relative;
+	right: 0;
+	top: -26px;
+	z-index: 2;
+}
+
+hr {
+	clear: both;
+	border: 0;
+	height: 14px;
+	margin: 0;
+	width: 980px;
+}
+
+hr.black {
+	background-color: #000;
+}
+
+hr.red {
+	background-color: #a3203f;
+}
+
+hr.clear {
+	clear: both;
+	color:  transparent;
+	height: 1px;
+	width: 1px;
+}
+
+hr.decorative {
+	background: transparent url("../images/footer-top-border.png");
+	height: 1px;
+	margin: 10px 0 15px;
+	width: 980px;
+}
+
+a.individual-tag {
+	background-color: #009cd3;
+	color: #fff;
+	display: block;
+	float: left;
+	margin: 5px 10px 5px 0;
+	padding: 1px 12px;
+	-webkit-border-radius: 15px;
+	-moz-border-radius:15px;
+}
+
+a.individual-tag:hover {
+	background-color: #a3203f;
+	text-decoration: none !important;
+}
+
+.image-border {
+	border: #ccc solid 1px;
+}
+
+#input-search {
+	width: 280px !important;
+}
+
+input[type=search] {
+	width: 292px !important;
+}
+
+.map {
+	margin-bottom: 20px;
+	position: relative;
+	top: 4px;
+	width: 290px;
+}
+p {
+	line-height: 17px;
+	margin-top: 0;
+	padding-top: 0;
+}
+
+p.timedate {
+	border-top: #000 dotted 1px;
+	font-size: 10px;
+	margin-left: 58px;
+	padding-top: 5px;
+	position: relative;
+	top: -10px;
+}
+
+p#comments-nopermission {
+	color: #666;
+	font-size: 11px;
+}
+
+p.event {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.p-border {
+	float: left;
+	margin-right: 10px;
+	position:relative;
+	top: 3px;
+	width: 7px;
+}
+
+#page-info-tab {
+	background: #eee;
+	float: left;
+	margin: 0 0 17px 0;
+	padding: 3px 0 3px 5px;
+	list-style: none;
+	width: 975px;
+}
+
+#page-info-tab li {
+	display: block;
+	float: left;
+	font-size: 10px;
+	margin-right: 25px;
+	text-transform: uppercase;
+}
+
+.past-events {
+	font-weight: bold;
+}
+
+nav {
+	font-family: 'myriad pro', myriad, 'trebuchet ms',sans-serif;
+	float: right;
+	margin-top: 71px;
+	width: 750px;
+}
+
+nav a {
+	color: #000;
+	display: block;
+	float: right;
+	font-size: 14px;
+	font-weight: 10000;
+	margin-left: 55px;
+	text-transform: uppercase;
+}
+
+nav a.selected {
+	color: #009cd3;
+	font-weight: bold;
+}
+
+.sidebox {
+	
+}
+
+.span-two {
+	float: left;
+	width: 640px;
+}
+
+.span-one {
+	float: right;
+}
+
+#tag-list {
+	margin:20px 0;
+	width: 100%;
+	text-align: left;
+}
+
+.one, .two, .three, .four, .five {
+	float: left;
+	height: 150px;
+	width: 310px;
+}
+
+.one, .three {
+	margin-right: 20px;
+}
+
+.one, .two {
+	margin-bottom: 24px;
+}
+
+.small-table {
+	border: #ccc dotted 1px;
+	margin-bottom: 20px;
+}
+
+.small-table td {
+	padding: 10px 20px;
+
+}
+
+.wikicontext-module {
+	position: relative;
+	background: white;
+	border: 2px solid white;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	margin-bottom: 12px;
+	overflow: hidden;
+	text-align: left;
+	width: 100%;
+}
+
+.wikicontext-module .header, #tag-list .header {
+	height: 18px;
+	color: #000;
+	border-top: #a3203f solid 4px;
+	font-size: 12px;
+	padding: 1px 2px 2px 0;
+	cursor: move;
+	letter-spacing: normal;
+	margin-top: 20px;
+}
+
+.wikicontext-module .content {
+	padding: 8px
+}
+
+.wikicontext-module .footer {
+	display: none
+}
+
+.wikicontext-module .resizeable {
+	clear: both;
+	overflow: hidden;
+	cursor: row-resize;
+	display: block;
+	height: 6px;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	}
+
+.wikicontext-module .header h3, #tag-list h3 {
+	cursor: move;
+	text-transform: uppercase;
+}
+
+.wikicontext-module .header .close {
+	float: right;
+	background: url(data:image/png);
+	height: 13px;
+	text-decoration: none !important
+}
+
+#side-content .minimized .content {
+	display: none
+}
+
+#side-content .minimized .header .close {
+	background-position: 0px 0px
+}
+
+.wikicontext-module div.addfolder {
+	border-top: 1px solid #eee;
+	padding-top: 0.5em
+}
+
+#wiki-nav {
+	height: 20px;
+	margin: 0;
+	padding: 5px 0;
+	text-align: left;
+}
+
+#wiki-nav a {
+	display: block;
+	float: left;
+	margin-right: 15px;
+	padding: 2px;
+}
+
+#wiki-nav a.selected {
+	color: #000;
+	font-weight: bold;
+}
+
+.wiki-nav a{
+	background-color: #000;
+}
+
+div#view-tab.active {
+	font-weight: bold;
+	padding-top: 8px;
+	padding-left: 19px;
+	float: left
+}
+
+div#view-tab {
+	text-transform: uppercase;
+	padding-top: 8px;
+	padding-left: 19px;
+	float: left
+}
+
+div#view-tab.active a {
+	color: #333
+}
