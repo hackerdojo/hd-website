@@ -1,56 +1,76 @@
 <html>
-  <head>
-    <title>SuperHappyDevHouse :: A party for hackers and thinkers</title>
-    <link href="/static/style.css" type="text/css" rel="stylesheet" />
-    <!--[if IE]>
-      <link rel="stylesheet" type="text/css" href="/static/style-ie.css" />
-    <![endif]-->
-    <link href="//fonts.googleapis.com/css?family=Just+Another+Hand:regular" rel="stylesheet" type="text/css" />
-    <link href="//fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
-    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
-    <script type="text/javascript" src="/static/supersleight.plugin.js"></script>
-    
-    <link rel="stylesheet" href="/static/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
-    	<script src="/static/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-    	
-    <script type="text/javascript">
-      $(document).ready(function() {
-        if ($.browser.msie) { $('body').supersleight({shim: '/static/images/transparent.gif'}); }
-        if ($.browser.opera || ($.browser.mozilla && $.browser.version.substr(0,5)=="1.9.0")) {
-          $('#menu').css('font-size', '11pt');
-        }
-        $("a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded'});
-      });
-    </script>
-  </head>
-  <body>
-    <div id="wrapper">
-      <div id="header">
-        <a href="/"><img src="/static/images/logo.png" alt="SuperHappyDevHouse" title="SuperHappyDevHouse" /></a>
-        <h2>A Party for Hackers and Thinkers</h2>
-      </div>
-      <ul id="menu">
-        <li><a href="/attend">Attend</a></li>
-        <li><a href="/what-is-devhouse">What is DevHouse?</a></li>
-        <li><a href="/sister-events">Sister Events</a></li>
-        <li><a href="/start-a-devhouse">Start a DevHouse</a></li>
-        <li><a href="/contact">Contact</a></li>
-        <li><a href="https://shdh.pbworks.com/">Wiki</a></li>
-      </ul>
-      <div id="left">
+    <head>
+        <title>Hacker Dojo</title>
+    <link href="/static/style/style.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/jquery-ui-1.8.1.custom.css" type="text/css" rel="stylesheet">
+    <link href="/static/style/new-css.css" type="text/css" rel="stylesheet">
+    </head>
+
+<body>
+
+    <div id="content">
+
+    <hr class="black">
+
+    <section>
+
+    <a href="/static/index.html"><h1>Hacker Dojo</h1></a>
+
+    <nav>
+        <a href="/static/member-login.html">Member Login</a>
+        <a href="/static/join-us.html">Join Us</a>
+        <a href="/static/about.html">About</a>
+        <a href="/static/contact-us.html">Contact Us</a>
+        <a href="/static/events.html" class="selected">Events</a>
+        <a href="/static/donations.html">Donations</a>
+    </nav>
+
+    <hr class="red">
+
+    <h2 class="tagline">Welcome to the community center for hackers + thinkers.</h2>
+
+    </section>
+
+
+    <section class="hero-image">
+        <img src="/static/images/hero-image.png">
+        <div class="hero-caption">Group hack day, March 11, 2010</div>
+        <div class="carousel-bullets">
+            <ul>
+                <li>&bull;</li>
+                <li class="selected">&bull;</li>
+                <li>&bull;</li>
+                <li>&bull;</li>
+                <li>&bull;</li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="clear">
+
+    <article class="span-two">
         {% block content %}{% endblock %}
-      </div>
-      <div id="right">
-        <a href="http://www.youtube.com/watch?v=sYQcCgSu9YI" rel="prettyPhoto" title="SHDH 17 covered by San Jose Mercury News in 2007">
-          <img src="/static/images/video.png" alt="SuperHappyDevHouse" width="258" height="160" />
-        </a><br />
-        <a href="/videos"><img src="/static/images/showmore.png" width="258" height="51" /></a>
-        {% block side %}{% endblock %}
-        <a href="/what-is-devhouse"><img src="/static/images/spirit.png" class="button" width="258" height="183" /></a>
-        <a href="/people"><img src="/static/images/people.png" class="button" width="258" height="138" /></a>
-      </div>
-      <a href="/sister-events"><img src="/static/images/aroundtheworld.png" width="1000" height="75" /></a>
-      <a href="/sponsors"><img src="/static/images/sponsors.png" width="1009" height="128" /></a>
-    </div>
-  </body>
+    <hr class="clear">
+    </article>
+
+    <article class="span-one">
+        <section class="five">
+            <h3>Visit us</h3>
+
+                <p><img src="/static/images/vertical-stripe-long.png" class="p-border"> <img src="/static/images/map.png" class="image-border map">We're located at 140A South Whisman Road in Mountain View, CA. Our phone number is
+(650) 898-7925, and you can <a href="/static/">email us</a> or <a href="/static/">follow us on Twitter</a>.</p>
+        </section>
+    <hr class="clear">
+    </article>
+
+    <img src="/static/images/footer-top-border.png" class="footer-top-border">
+
+    <footer>
+        Hacker Dojo &bull; 140A South Whisman Road &bull; Mountain View, CA 94041  &bull; <a href="/static/">info@hackerdojo.com</a> &bull; twitter: <a href="/static/">@hackerdojo</a>
+    </footer>
+
+</body>
+
+</div>
+
 </html>
