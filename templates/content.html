@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id="content">
+    {{page.html}}
+  </div>
+  {% include "related.html" %}
+{% endblock %}
+{% block side %}
+  <ul id="side">
+    <li><a href="/attend"><img src="/static/images/next.png" width="231" height="41" /></a></li>
+  </ul>
+{% endblock %}

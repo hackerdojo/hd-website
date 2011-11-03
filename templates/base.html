@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>SuperHappyDevHouse :: A party for hackers and thinkers</title>
+    <link href="/static/style.css" type="text/css" rel="stylesheet" />
+    <!--[if IE]>
+      <link rel="stylesheet" type="text/css" href="/static/style-ie.css" />
+    <![endif]-->
+    <link href="//fonts.googleapis.com/css?family=Just+Another+Hand:regular" rel="stylesheet" type="text/css" />
+    <link href="//fonts.googleapis.com/css?family=Ubuntu:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css" >
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/supersleight.plugin.js"></script>
+    
+    <link rel="stylesheet" href="/static/prettyPhoto.css" type="text/css" media="screen" charset="utf-8" />
+    	<script src="/static/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+    	
+    <script type="text/javascript">
+      $(document).ready(function() {
+        if ($.browser.msie) { $('body').supersleight({shim: '/static/images/transparent.gif'}); }
+        if ($.browser.opera || ($.browser.mozilla && $.browser.version.substr(0,5)=="1.9.0")) {
+          $('#menu').css('font-size', '11pt');
+        }
+        $("a[rel^='prettyPhoto']").prettyPhoto({theme: 'dark_rounded'});
+      });
+    </script>
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="header">
+        <a href="/"><img src="/static/images/logo.png" alt="SuperHappyDevHouse" title="SuperHappyDevHouse" /></a>
+        <h2>A Party for Hackers and Thinkers</h2>
+      </div>
+      <ul id="menu">
+        <li><a href="/attend">Attend</a></li>
+        <li><a href="/what-is-devhouse">What is DevHouse?</a></li>
+        <li><a href="/sister-events">Sister Events</a></li>
+        <li><a href="/start-a-devhouse">Start a DevHouse</a></li>
+        <li><a href="/contact">Contact</a></li>
+        <li><a href="https://shdh.pbworks.com/">Wiki</a></li>
+      </ul>
+      <div id="left">
+        {% block content %}{% endblock %}
+      </div>
+      <div id="right">
+        <a href="http://www.youtube.com/watch?v=sYQcCgSu9YI" rel="prettyPhoto" title="SHDH 17 covered by San Jose Mercury News in 2007">
+          <img src="/static/images/video.png" alt="SuperHappyDevHouse" width="258" height="160" />
+        </a><br />
+        <a href="/videos"><img src="/static/images/showmore.png" width="258" height="51" /></a>
+        {% block side %}{% endblock %}
+        <a href="/what-is-devhouse"><img src="/static/images/spirit.png" class="button" width="258" height="183" /></a>
+        <a href="/people"><img src="/static/images/people.png" class="button" width="258" height="138" /></a>
+      </div>
+      <a href="/sister-events"><img src="/static/images/aroundtheworld.png" width="1000" height="75" /></a>
+      <a href="/sponsors"><img src="/static/images/sponsors.png" width="1009" height="128" /></a>
+    </div>
+  </body>
+</html>

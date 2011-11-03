@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% block content %}
+  <div id="content">
+    <div class="image" style="margin-bottom: 0px;">
+      <img id="photo" src="/static/images/main.png" width="717" height="361" />
+      <img id="over-1" class="over" src="/static/images/main/001.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-2" class="over" src="/static/images/main/002.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-3" class="over" src="/static/images/main/003.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-4" class="over" src="/static/images/main/004.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-5" class="over" src="/static/images/main/005.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-6" class="over" src="/static/images/main/006.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-7" class="over" src="/static/images/main/007.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-8" class="over" src="/static/images/main/008.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-9" class="over" src="/static/images/main/009.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-10" class="over" src="/static/images/main/010.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-11" class="over" src="/static/images/main/011.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-12" class="over" src="/static/images/main/012.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-13" class="over" src="/static/images/main/013.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-14" class="over" src="/static/images/main/014.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-15" class="over" src="/static/images/main/015.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-16" class="over" src="/static/images/main/016.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-17" class="over" src="/static/images/main/017.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-18" class="over" src="/static/images/main/018.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-19" class="over" src="/static/images/main/019.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-20" class="over" src="/static/images/main/020.jpg" width="717" height="361" style="display: none;" />
+      <img id="over-21" class="over" src="/static/images/main/021.jpg" width="717" height="361" style="display: none;" />
+    </div>
+    
+    <script type="text/javascript">
+      var photos = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21];
+      photos.sort(function() {return 0.5 - Math.random()})
+      var i = 0;
+      function next() { 
+        if (i == photos.length-1) {
+          n = 0;
+        } else {
+          n = i+1;
+        }
+        $("#over-"+photos[i]).css('z-index', 10);
+        $("#over-"+(photos[n])).css('z-index', 100);
+        $("#over-"+(photos[n])).fadeIn(600, function() { 
+          $("#over-"+photos[i]).hide(); 
+          i = n;
+          setTimeout(next, 3000) 
+        }) 
+      }
+      $(window).load(next);
+    </script>
+    <div id="next">
+      <img src="/static/images/next.png" width="231" height="41" />
+      <span>SuperHappyDevHouse 42</span>
+      Saturday, February 19th @ 1pm in San Jose
+    </div>
+  </div>
+  {% include "said.html" %}
+{% endblock %}
