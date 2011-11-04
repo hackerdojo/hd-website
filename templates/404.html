@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}{{page.name|title}}{% endblock %}
+{% block title %}404 Not Found{% endblock %}
 
 {% block content %}
   <style>
@@ -8,8 +8,8 @@
     #content p {margin:0}
   </style>
   <div id="content">
-    <h3 style="margin-top:1em">{{page.name|title}}</h3>
-    {{page.html}}
+    <h3 style="margin-top:1em">404 Not Found</h3>
+    <p>Sorry, we could not find the page.</p>
   </div>
 
 {% endblock %}

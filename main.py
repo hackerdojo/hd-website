@@ -23,16 +23,23 @@ def _request(url, cache_ttl=3600, force=False):
                 resp = {}
     return resp
 
+class IndexHandler(webapp.RequestHandler):
+    def get(self):
+        self.response.out.write(template.render('templates/index.html', locals()))
+
 class MainHandler(webapp.RequestHandler):
-    def get(self, page, site = "dojowebsite"):
+    def get(self, pagename, site = "dojowebsite"):
         skip_cache = self.request.get('cache') == '0'
         try:
-            if not(page):
-                page = 'FrontPage'
-            page = _request('https://%s.pbworks.com/api_v2/op/GetPage/page/%s' %
-                    (site, page), force=skip_cache)
-            self.response.out.write(template.render('templates/content.html', locals()))
+            if not(pagename):
+                pagename = 'FrontPage'
+            page = _request('http://%s.pbworks.com/api_v2/op/GetPage/page/%s' % (site, pagename), force=skip_cache)
+            if page and "name" in page:
+              self.response.out.write(template.render('templates/content.html', locals()))
+            else:
+              raise LookupError
         except LookupError:
+            self.response.out.write(template.render('templates/404.html', locals()))
             self.error(404)
 
 class WikiHandler(MainHandler):
@@ -42,7 +49,8 @@ class WikiHandler(MainHandler):
 def main():
     application = webapp.WSGIApplication([
         ('/wiki/(.*)', WikiHandler),
-        ('/(.*)', MainHandler)],
+        ('/', IndexHandler),
+        ('/(.+)', MainHandler)],
         debug=True)
     util.run_wsgi_app(application)
 

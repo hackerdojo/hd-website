@@ -1,7 +1,6 @@
 <html>
     <head>
-        <title>Hacker Dojo</title>
-        <link href="/static/style/style.css" type="text/css" rel="stylesheet">
+        <title>{% block title %}Hacker Dojo{% endblock %}</title>
         <link href="/static/style/jquery-ui-1.8.1.custom.css" type="text/css" rel="stylesheet">
         <link href="/static/style/new-css.css" type="text/css" rel="stylesheet">
     </head>
@@ -10,12 +9,12 @@
         <hr class="black"/>
 
         <section>
-            <a href="/"><h1>Hacker Dojo</h1></a>
+            <a href="/"><h1 class="logo">Hacker Dojo</h1></a>
 
             <nav>
-                <a href="/JoinTheDojo">Join Us</a>
+                <a href="/Join%20The%20Dojo">Join Us</a>
                 <a href="/About">About</a>
-                <a href="/Contact">Contact Us</a>
+                <a href="/Contact%20Us">Contact Us</a>
                 <a href="/Events">Events</a>
                 <a href="/Donations">Donations</a>
             </nav>
@@ -24,32 +23,15 @@
             <h2 class="tagline">Welcome to the community center for hackers + thinkers.</h2>
         </section>
 
-
-        <section class="hero-image">
-            <img src="/static/images/hero-image.png">
-            <div class="hero-caption">Group hack day, March 11, 2010</div>
-            <div class="carousel-bullets">
-                <ul>
-                    <li>&bull;</li>
-                    <li class="selected">&bull;</li>
-                    <li>&bull;</li>
-                    <li>&bull;</li>
-                    <li>&bull;</li>
-                </ul>
-            </div>
-        </section>
-
         <hr class="clear"/>
 
-        <article class="span-two">
-            {% block content %}{% endblock %}
-        </article>
+        {% block content %}
+        {% endblock %}
 
-        <img src="/static/images/footer-top-border.png"
-        class="footer-top-border"/>
+        <img src="/static/images/footer-top-border.png" class="footer-top-border"/>
 
         <footer>
-            Hacker Dojo &bull; 140A South Whisman Road &bull; Mountain View, CA 94041  &bull; <a href="/static/">info@hackerdojo.com</a> &bull; twitter: <a href="/static/">@hackerdojo</a>
+            Hacker Dojo &bull; 140A South Whisman Road &bull; Mountain View, CA 94041  &bull; <a href="mailto:info@hackerdojo.com">info@hackerdojo.com</a> &bull; twitter: <a href="https://twitter.com/#!/hackerdojo">@hackerdojo</a>
         </footer>
     </div>
 </body>

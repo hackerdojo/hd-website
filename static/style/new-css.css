@@ -127,7 +127,7 @@ h1, h2, h3, h4, h5 {
 	font-weight: 500px;
 }
 
-h1 {
+h1.logo {
 	background: transparent url('../images/hacker-dojo.png') no-repeat;
 	float: left;
 	margin:20px 0;
