@@ -24,18 +24,25 @@ def _request(url, cache_ttl=3600, force=False):
     return resp
 
 class MainHandler(webapp.RequestHandler):
-    def get(self, page):
+    def get(self, page, site = "dojowebsite"):
         skip_cache = self.request.get('cache') == '0'
         try:
             if page:
-                page = _request('https://hackerdojo.pbworks.com/api_v2/op/GetPage/page/%s' % page, force=skip_cache)
+                page = _request('https://%s.pbworks.com/api_v2/op/GetPage/page/%s' %
+                        (site, page), force=skip_cache)
             self.response.out.write(template.render('templates/content.html', locals()))
         except LookupError:
             self.error(404)
 
+class WikiHandler(MainHandler):
+    def get(self, page):
+        super(self.__class__, self).get(page, "hackerdojo")
+
 def main():
-    application = webapp.WSGIApplication([('/(.*)', MainHandler)],
-                                         debug=True)
+    application = webapp.WSGIApplication([
+        ('/wiki/(.*)', WikiHandler),
+        ('/(.*)', MainHandler)],
+        debug=True)
     util.run_wsgi_app(application)
 
 
