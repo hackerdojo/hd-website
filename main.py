@@ -24,12 +24,13 @@ def _request(url, cache_ttl=3600, force=False):
     return resp
 
 class MainHandler(webapp.RequestHandler):
-    def get(self, page = "FrontPage", site = "dojowebsite"):
+    def get(self, page, site = "dojowebsite"):
         skip_cache = self.request.get('cache') == '0'
         try:
-            if page:
-                page = _request('https://%s.pbworks.com/api_v2/op/GetPage/page/%s' %
-                        (site, page), force=skip_cache)
+            if not(page):
+                page = 'FrontPage'
+            page = _request('https://%s.pbworks.com/api_v2/op/GetPage/page/%s' %
+                    (site, page), force=skip_cache)
             self.response.out.write(template.render('templates/content.html', locals()))
         except LookupError:
             self.error(404)
