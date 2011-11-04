@@ -24,7 +24,7 @@ def _request(url, cache_ttl=3600, force=False):
     return resp
 
 class MainHandler(webapp.RequestHandler):
-    def get(self, page, site = "dojowebsite"):
+    def get(self, page = "FrontPage", site = "dojowebsite"):
         skip_cache = self.request.get('cache') == '0'
         try:
             if page:
