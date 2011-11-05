@@ -1,19 +1,108 @@
 {% extends 'base.html' %}
 {% block content %}
 
-	<section class="hero-image">
-		<img src="static/images/hero-image.png">
-		<div class="hero-caption">Group hack day, March 11, 2010</div>
-		<div class="carousel-bullets">
+<script type="text/javascript" src="/static/js/jquery-1.4.2.min.js"></script>
+<script type="text/javascript" src="/static/js/jquery.jcarousel.min.js"></script>
+<xlink rel="stylesheet" type="text/css" href="http://sorgalla.com/projects/jcarousel/skins/tango/skin.css" />
+
+
+
+<script type="text/javascript">
+
+function mycarousel_itemVisibleInCallbackAfterAnimation(carousel, item, idx, state) {
+    jQuery(jQuery('.carousel-bullets ul li')[idx-1]).addClass("selected");
+};
+
+
+function mycarousel_itemVisibleOutCallbackAfterAnimation(carousel, item, idx, state) {
+    jQuery(jQuery('.carousel-bullets ul li')[idx-1]).removeClass("selected");
+};
+
+
+
+function mycarousel_initCallback(carousel) {
+    jQuery('.carousel-bullets ul li').bind('click', function() {
+      
+        carousel.scroll(jQuery.jcarousel.intval(jQuery(this).attr("value")));
+        return false;
+    });
+
+    jQuery('.jcarousel-scroll select').bind('change', function() {
+        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
+        return false;
+    });
+};
+
+// Ride the carousel...
+jQuery(document).ready(function() {
+    jQuery("#mycarousel").jcarousel({
+        scroll: 1,
+        initCallback: mycarousel_initCallback,
+        itemVisibleInCallback: {
+            // onBeforeAnimation: mycarousel_itemVisibleInCallbackBeforeAnimation,
+            onAfterAnimation:  mycarousel_itemVisibleInCallbackAfterAnimation
+        },
+        itemVisibleOutCallback: {
+            // onBeforeAnimation: mycarousel_itemVisibleOutCallbackBeforeAnimation,
+            onAfterAnimation:  mycarousel_itemVisibleOutCallbackAfterAnimation
+        },
+        buttonNextHTML: null,
+        buttonPrevHTML: null,
+        auto: 5,
+        wrap: 'last',
+    });
+});
+
+</script>
+
+ 
+	
+
+          
+  <section class="hero-image" >
+    <div id="mycarousel" style="overflow:hidden">
+    <ul style="overflow:none">
+        <li>
+            <img width="960" height="235" src="static/images/hero-image.png" alt="" />
+            <div class="hero-caption">Group hack day, March 11, 2010</div>
+        </li>
+        <li>
+            <img width="960" height="235" src="static/images/hero2.jpeg" alt="" />
+            <div class="hero-caption">Group hack day, March 11, 2010</div>
+        </li>
+        <li>
+            <img width="960" height="235" src="static/images/hero3.jpeg" alt="" />
+            <div class="hero-caption">Group hack day, March 11, 2010</div>
+        </li>
+        <li>
+            <img width="960" height="235" src="static/images/hero4.jpeg" alt="" />
+            <div class="hero-caption">Group hack day, March 11, 2010</div>
+        </li>
+        <li>
+            <img width="960" height="235" src="static/images/hero5.jpeg" alt="" />
+            <div class="hero-caption">Group hack day, March 11, 2010</div>
+        </li>
+    </ul>
+    </div>
+  </section>
+    
+    <div class="carousel-bullets">
 			<ul>
-				<li>&bull;</li>
-				<li class="selected">&bull;</li>
-				<li>&bull;</li>
-				<li>&bull;</li>
-				<li>&bull;</li>
+				<li value="1" class="selected">&bull;</li>
+				<li value="2">&bull;</li>
+				<li value="3">&bull;</li>
+				<li value="4">&bull;</li>
+				<li value="5">&bull;</li>
 			</ul>
+    </div>
+    
+
+     
+		
+		<div style="clear:both">
+&nbsp;
 		</div>
-	</section>
+
 	
 	<hr class="clear">	
 	
