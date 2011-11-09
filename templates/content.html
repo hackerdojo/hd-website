@@ -9,7 +9,7 @@
   </style>
   <div id="content">
     <h3 style="margin-top:1em">{{page.name|title}}</h3>
-    {{page.html}}
+    {% autoescape off %}{{page.html}}{% endautoescape %}
   </div>
 
 {% endblock %}
