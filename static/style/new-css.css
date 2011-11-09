@@ -124,7 +124,7 @@ footer {
 	margin: 10px 0;
 }
 
-h1, h2, h3, h4, h5 {
+h1, h2, h3, h4, h5, h6 {
 	font-family:  'myriad pro', myriad, 'trebuchet ms', sans-serif;
 	font-weight: 500px;
 }
@@ -138,7 +138,7 @@ h1.logo {
 	width: 197px;
 }
 
-h2 {
+h2.tagline {
 	font-size: 39px;
 	line-height: 39px;
 	font-weight: 600;
@@ -150,12 +150,11 @@ h2.tagline {
 	text-align: center;
 }
 
-h3 {
+.callouts h3 {
 	font-size: 25px;
 	margin-bottom: 10px;
 	font-weight: 600;
 	margin-top: 0px;
-	text-transform: capitalize;
 }
 
 .header h3 {
@@ -171,20 +170,7 @@ h3.comments-header {
 	text-transform:uppercase
 }
 
-h4 {
-	font-size: 14px;
-	font-weight: bold;
-	margin: 10px 0;
-	text-transform: uppercase;
-}
 
-h5 {
-	font-size: 18px;
-	font-weight: bold;
-	margin:0;
-	padding: 0;
-	line-height: 18px;
-}
 
 .hero-image {
 	background: transparent url('../images/dotted-background.jpg') repeat;
@@ -498,4 +484,25 @@ div#view-tab {
 
 div#view-tab.active a {
 	color: #333
+}
+
+ul {
+  margin:0;
+}
+
+.tooltip{
+   position: absolute;
+   top: 0;
+   left: -150px;
+   z-index: 3;
+   display: none;
+   border:1px solid #81b0ff;
+   -webkit-border-radius: 12px;
+   -moz-border-radius: 12px;
+   border-radius: 12px; 
+   background:white;
+   padding:1.5em;
+   color:black;
+   font-weight:normal;
+   font-size:12px
 }
