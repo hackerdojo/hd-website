@@ -13,8 +13,10 @@ from google.appengine.ext import webapp
 from google.appengine.ext.webapp import util, template
 import logging
 import pprint
+import urllib
 
-
+PB_WIKI = 'dojowebsite'
+PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
 
 def _request(url, cache_ttl=3600, force=False):
     request_cache_key = 'request:%s' % url
@@ -30,12 +32,23 @@ def _request(url, cache_ttl=3600, force=False):
             memcache.set(request_cache_key, resp, cache_ttl)
             memcache.set(failure_cache_key, resp, cache_ttl*10)
         except (ValueError, urlfetch.DownloadError), e:
-            # Not valid JSON or request timeout
             resp = memcache.get(failure_cache_key)
             if not resp:
                 resp = {}
     return resp
 
+class PBWebHookHandler(webapp.RequestHandler):
+    def post(self):
+        page = self.request.get('page')
+        if page:
+            url = PB_API_URL % (PB_WIKI, urllib.pathname2url(page))
+            request_cache_key = 'request:%s' % url
+            failure_cache_key = 'failure:%s' % url
+            memcache.delete(request_cache_key)
+            memcache.delete(failure_cache_key)
+        self.response.out.write("200 OK")
+            
+            
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         staff = _request('http://hackerdojo-signin.appspot.com/staffjson')
@@ -44,12 +57,12 @@ class IndexHandler(webapp.RequestHandler):
         self.response.out.write(template.render('templates/index.html', locals()))
 
 class MainHandler(webapp.RequestHandler):
-    def get(self, pagename, site = "dojowebsite"):
+    def get(self, pagename, site = PB_WIKI):
         skip_cache = self.request.get('cache') == '0'
         try:
             if not(pagename):
                 pagename = 'FrontPage'
-            page = _request('http://%s.pbworks.com/api_v2/op/GetPage/page/%s' % (site, pagename), force=skip_cache)
+            page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
             if page and "name" in page:
               self.response.out.write(template.render('templates/content.html', locals()))
             else:
@@ -65,6 +78,7 @@ class WikiHandler(MainHandler):
 def main():
     application = webapp.WSGIApplication([
         ('/wiki/(.*)', WikiHandler),
+        ('/api/pbwebhook', PBWebHookHandler),
         ('/', IndexHandler),
         ('/(.+)', MainHandler)],
         debug=True)
