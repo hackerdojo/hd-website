@@ -18,12 +18,16 @@ import re
 
 PB_WIKI = 'dojowebsite'
 PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
+CACHE_ENABLED = 1
 
+if os.environ['SERVER_SOFTWARE'].startswith('Dev'):
+     CACHE_ENABLED = 0
+              
 def _request(url, cache_ttl=3600, force=False):
     request_cache_key = 'request:%s' % url
     failure_cache_key = 'failure:%s' % url
     resp = memcache.get(request_cache_key)
-    if force or not resp:
+    if force or not resp or not CACHE_ENABLED:
         try:
             data = urlfetch.fetch(url)
             if 'pbworks.com' in url:

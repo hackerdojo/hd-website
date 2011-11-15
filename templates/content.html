@@ -8,7 +8,7 @@
     #content p {margin:0}
   </style>
   <div id="content">
-    <h3 style="margin-top:1em">{{page.name|title}}</h3>
+    <p style="margin-top:1em; padding-bottom:1em; margin-bottom:2em; border-bottom:1px dotted #ccc; font-size:12px; font-weight:bold"><a href="/">Home</a> &gt; {{page.name|title}}</p>
     {% autoescape off %}{{page.html}}{% endautoescape %}
   </div>
 

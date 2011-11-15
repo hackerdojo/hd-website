@@ -511,16 +511,26 @@ ul {
 
 table.contact {
   width:100%;
-  //border:1px solid #eee;
   font-size:12px;
+  border:1px solid #ccc;
+
 }
 table.contact td {
-  border-bottom:1px solid #eee;
+  border-top:1px dashed #ddd;
   padding:3px
 }
+table.contact tr:first-child td {
+  border-top:none;
+}
+
 table.contact td:nth-child(1) {
   width:20%;
 }
 table.contact td:nth-child(2) {
   width:30%;
+}
+#content h2, #content h3, #content h4, #content h5, #content h6 {
+  margin-bottom:0.15em;
+  margin-top:.5em;
+
 }
