@@ -118,6 +118,7 @@ footer {
 	padding-bottom: 10px;
 	text-align: center;
 	width: 980px;
+	display: block;
 }
 
 .footer-top-border {
@@ -139,8 +140,8 @@ h1.logo {
 }
 
 h2.tagline {
-	font-size: 39px;
-	line-height: 39px;
+	font-size: 38px;
+	line-height: 38px;
 	font-weight: 600;
 	margin: 20px 0 0;
 }
@@ -505,4 +506,21 @@ ul {
    color:black;
    font-weight:normal;
    font-size:12px
+}
+
+
+table.contact {
+  width:100%;
+  //border:1px solid #eee;
+  font-size:12px;
+}
+table.contact td {
+  border-bottom:1px solid #eee;
+  padding:3px
+}
+table.contact td:nth-child(1) {
+  width:20%;
+}
+table.contact td:nth-child(2) {
+  width:30%;
 }

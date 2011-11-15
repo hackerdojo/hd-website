@@ -14,6 +14,7 @@ from google.appengine.ext.webapp import util, template
 import logging
 import pprint
 import urllib
+import re
 
 PB_WIKI = 'dojowebsite'
 PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
@@ -27,6 +28,8 @@ def _request(url, cache_ttl=3600, force=False):
             data = urlfetch.fetch(url)
             if 'pbworks.com' in url:
                 resp = simplejson.loads(data.content[11:-3])
+                if "html" in resp:
+                    resp["html"] = re.sub("/w/page/\d*", "", resp["html"])
             else:
                 resp = simplejson.loads(data.content)            
             memcache.set(request_cache_key, resp, cache_ttl)
