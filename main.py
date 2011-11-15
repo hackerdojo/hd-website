@@ -19,9 +19,11 @@ import re
 PB_WIKI = 'dojowebsite'
 PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
 CACHE_ENABLED = 1
+CDN_ENABLED = 1
+CDN_HOSTNAME = 'http://cdn.hackerdojo.com'
 
 if os.environ['SERVER_SOFTWARE'].startswith('Dev'):
-     CACHE_ENABLED = 0
+    CACHE_ENABLED = 0
               
 def _request(url, cache_ttl=3600, force=False):
     request_cache_key = 'request:%s' % url
@@ -55,17 +57,18 @@ class PBWebHookHandler(webapp.RequestHandler):
             memcache.delete(failure_cache_key)
         self.response.out.write("200 OK")
             
-            
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         staff = _request('http://hackerdojo-signin.appspot.com/staffjson')
-        pp = pprint.PrettyPrinter(depth=6)
-        pp.pprint(staff)
+        if CDN_ENABLED:
+            cdn = CDN_HOSTNAME
         self.response.out.write(template.render('templates/index.html', locals()))
 
 class MainHandler(webapp.RequestHandler):
     def get(self, pagename, site = PB_WIKI):
         skip_cache = self.request.get('cache') == '0'
+        if CDN_ENABLED:
+            cdn = CDN_HOSTNAME        
         try:
             if not(pagename):
                 pagename = 'FrontPage'
@@ -78,20 +81,13 @@ class MainHandler(webapp.RequestHandler):
             self.response.out.write(template.render('templates/404.html', locals()))
             self.error(404)
 
-class WikiHandler(MainHandler):
-    def get(self, page):
-        super(self.__class__, self).get(page, "hackerdojo")
-
 def main():
     application = webapp.WSGIApplication([
-        ('/wiki/(.*)', WikiHandler),
         ('/api/pbwebhook', PBWebHookHandler),
         ('/', IndexHandler),
         ('/(.+)', MainHandler)],
         debug=True)
     util.run_wsgi_app(application)
 
-
 if __name__ == '__main__':
     main()
-
