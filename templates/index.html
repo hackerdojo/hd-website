@@ -1,70 +1,19 @@
 {% extends 'base.html' %}
-{% block content %}
-
-<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js"></script>
-
 {% comment %}
 <script type="text/javascript" src="{{cdn}}/static/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.simpletip-1.3.1.pack.js"></script>
 {% endcomment %}
+{% block extrahead %}<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=2"></script>{% endblock %}
+{% block content %}
 
-<script type="text/javascript">
-
-function mycarousel_itemVisibleInCallbackAfterAnimation(carousel, item, idx, state) {
-    jQuery(jQuery('.carousel-bullets ul li')[idx-1]).addClass("selected");
-};
-
-
-function mycarousel_itemVisibleOutCallbackAfterAnimation(carousel, item, idx, state) {
-    jQuery(jQuery('.carousel-bullets ul li')[idx-1]).removeClass("selected");
-};
-
-
-function mycarousel_initCallback(carousel) {
-    jQuery('.carousel-bullets ul li').bind('click', function() {
-      
-        carousel.scroll(jQuery.jcarousel.intval(jQuery(this).attr("value")));
-        return false;
-    });
-
-    jQuery('.jcarousel-scroll select').bind('change', function() {
-        carousel.options.scroll = jQuery.jcarousel.intval(this.options[this.selectedIndex].value);
-        return false;
-    });
-};
-
-// Ride the carousel...
-jQuery(document).ready(function() {
-    jQuery("#mycarousel").jcarousel({
-        scroll: 1,
-        initCallback: mycarousel_initCallback,
-        itemVisibleInCallback: {
-            // onBeforeAnimation: mycarousel_itemVisibleInCallbackBeforeAnimation,
-            onAfterAnimation:  mycarousel_itemVisibleInCallbackAfterAnimation
-        },
-        itemVisibleOutCallback: {
-            // onBeforeAnimation: mycarousel_itemVisibleOutCallbackBeforeAnimation,
-            onAfterAnimation:  mycarousel_itemVisibleOutCallbackAfterAnimation
-        },
-        buttonNextHTML: null,
-        buttonPrevHTML: null,
-        auto: 5,
-        wrap: 'last',
-    });
-    $("#open").simpletip({
-         content:"Hacker Dojo is currently open,<br>and being staffed by the following<br> volunteers:</p> {% for s in staff %}<p><img src='{{s.image_url}}' height=24 width=24 align=absmiddle hspace=3>{{s.name}}</p>{% endfor %}"
-    });
-    $("#closed").simpletip({
-         content:"The Dojo is usually open 9AM-10PM<br/>on weekdays.  Weekend coverage will vary."
-    });
-    
-    // {s.created|timesince} not working :(
-});
-
-</script>
-
-          
+  <div id="opencontent" style="display:none">
+    <p>Hacker Dojo is currently open,<br> and being staffed by the following<br>volunteers:</p>
+    {% for s in staff %}
+      <p><img src='{{s.image_url}}' height=24 width=24 align=absmiddle hspace=3>{{s.name}}{% comment %}, {s.created|timesince} ago{% endcomment %}</p>
+    {% endfor %}
+  </div>
+     
   <section class="hero-image" >
     <div id="mycarousel" style="overflow:hidden">
     <ul style="overflow:none">
@@ -100,25 +49,19 @@ jQuery(document).ready(function() {
     </div>
   </section>
     
-    <div class="carousel-bullets">
-			<ul>
-				<li value="1" class="selected">&bull;</li>
-				<li value="2">&bull;</li>
-				<li value="3">&bull;</li>
-				<li value="4">&bull;</li>
-				<li value="5">&bull;</li>
-				<li value="6">&bull;</li>
-				<li value="7">&bull;</li>
-			</ul>
-    </div>
-    
+  <div class="carousel-bullets">
+	<ul>
+		<li value="1" class="selected">&bull;</li>
+		<li value="2">&bull;</li>
+		<li value="3">&bull;</li>
+		<li value="4">&bull;</li>
+		<li value="5">&bull;</li>
+		<li value="6">&bull;</li>
+		<li value="7">&bull;</li>
+	</ul>
+  </div>
 
-     
-		
-		<div style="clear:both">
-      &nbsp;
-		</div>
-
+  <div style="clear:both">&nbsp;</div>
 	
 	<hr class="clear">	
 	
@@ -167,6 +110,5 @@ jQuery(document).ready(function() {
 		
 	<hr class="clear">	
 	</article>
-	
-  
+	  
 {% endblock %}

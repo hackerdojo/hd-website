@@ -532,5 +532,6 @@ table.contact td:nth-child(2) {
 #content h2, #content h3, #content h4, #content h5, #content h6 {
   margin-bottom:0.15em;
   margin-top:.5em;
-
 }
+#content {font-size:11pt;}
+#content p {margin:0}
