@@ -1,7 +1,8 @@
-{% spaceless %}<html>
+{% spaceless %}<!doctype html><html lang="en" public "l☺lz">
     <head>
+        <meta charset="utf-8">
         <title>{% block title %}Hacker Dojo{% endblock %}</title>
-        <link href="{{cdn}}/static/style/hackerdojo.css" type="text/css" rel="stylesheet">
+        <link href="{{cdn}}/static/style/hackerdojo.css?v=v{{version}}" type="text/css" rel="stylesheet">
         {% block extrahead %}{% endblock %}
     </head>
 <body>
@@ -33,6 +34,12 @@
 
         <footer>Hacker Dojo &bull; 140A South Whisman Road &bull; Mountain View, CA 94041  &bull; <a href="mailto:info@hackerdojo.com">info@hackerdojo.com</a> &bull; twitter: <a href="https://twitter.com/#!/hackerdojo">@hackerdojo</a></footer>
     </div>
+<script>
+//	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']]; 
+//	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+//	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+//	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 </body>
 </html>
 {% endspaceless %}

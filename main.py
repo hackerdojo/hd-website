@@ -60,6 +60,7 @@ class PBWebHookHandler(webapp.RequestHandler):
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         staff = _request('http://hackerdojo-signin.appspot.com/staffjson')
+        version = os.environ['CURRENT_VERSION_ID']
         if CDN_ENABLED:
             cdn = CDN_HOSTNAME
         self.response.out.write(template.render('templates/index.html', locals()))
@@ -67,6 +68,7 @@ class IndexHandler(webapp.RequestHandler):
 class MainHandler(webapp.RequestHandler):
     def get(self, pagename, site = PB_WIKI):
         skip_cache = self.request.get('cache') == '0'
+        version = os.environ['CURRENT_VERSION_ID']
         if CDN_ENABLED:
             cdn = CDN_HOSTNAME        
         try:

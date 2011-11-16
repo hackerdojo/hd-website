@@ -533,5 +533,5 @@ table.contact td:nth-child(2) {
   margin-bottom:0.15em;
   margin-top:.5em;
 }
-#content {font-size:11pt;}
-#content p {margin:0}
+.wikihtml {font-size:11pt;}
+.wikihtml p {margin:0}

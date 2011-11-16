@@ -4,13 +4,13 @@
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.simpletip-1.3.1.pack.js"></script>
 {% endcomment %}
-{% block extrahead %}<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=2"></script>{% endblock %}
+{% block extrahead %}<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>{% endblock %}
 {% block content %}
 
   <div id="opencontent" style="display:none">
     <p>Hacker Dojo is currently open,<br> and being staffed by the following<br>volunteers:</p>
     {% for s in staff %}
-      <p><img src='{{s.image_url}}' height=24 width=24 align=absmiddle hspace=3>{{s.name}}{% comment %}, {s.created|timesince} ago{% endcomment %}</p>
+      <p><img src='{{s.image_url}}' height="24" width="24" align="absmiddle" hspace="3">{{s.name}}{% comment %}, {s.created|timesince} ago{% endcomment %}</p>
     {% endfor %}
   </div>
      
@@ -104,7 +104,7 @@
 		  </div>
 			<h3>Visit Us</h3>
 				
-				<p><img src="{{cdn}}/static/images/vertical-stripe-long.png" class="p-border"> <img height="175" width="288"  src="{{cdn}}/static/images/map.gif" class="image-border map">We're located at 140A South Whisman Road in Mountain View, CA. Our phone number is
+				<p><img src="{{cdn}}/static/images/vertical-stripe-long.png" class="p-border"> <img height="175" width="288" src="{{cdn}}/static/images/map.gif" class="image-border map">We're located at 140A South Whisman Road in Mountain View, CA. Our phone number is
 (650) 898-7925, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
 		</section>
 		
