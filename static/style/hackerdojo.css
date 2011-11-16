@@ -104,7 +104,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 #contentwrapper {
   margin: 0 auto;
-  margin:0 2.5em;
+  margin:0 0em;
 }
 .current {
 	font-weight: bold;
