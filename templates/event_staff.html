@@ -1,0 +1,4 @@
+<p>Hacker Dojo is currently open,<br> and being staffed by the following<br>volunteers:</p>
+{% for s in staff %}
+  <p><img src='{{s.image_url}}' height="24" width="24" align="absmiddle" hspace="3">{{s.name}}{% comment %}, {s.created|timesince} ago{% endcomment %}</p>
+{% endfor %}

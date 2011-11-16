@@ -66,6 +66,14 @@ class IndexHandler(webapp.RequestHandler):
             cdn = CDN_HOSTNAME
         self.response.out.write(template.render('templates/index.html', locals()))
 
+class StaffHandler(webapp.RequestHandler):
+    def get(self):
+        staff = _request('http://hackerdojo-signin.appspot.com/staffjson')
+        version = os.environ['CURRENT_VERSION_ID']
+        if CDN_ENABLED:
+            cdn = CDN_HOSTNAME
+        self.response.out.write(template.render('templates/event_staff.html', locals()))
+
 class MainHandler(webapp.RequestHandler):
     def get(self, pagename, site = PB_WIKI):
         skip_cache = self.request.get('cache') == '0'
@@ -87,6 +95,7 @@ class MainHandler(webapp.RequestHandler):
 def main():
     application = webapp.WSGIApplication([
         ('/api/pbwebhook', PBWebHookHandler),
+        ('/api/event_staff', StaffHandler),
         ('/', IndexHandler),
         ('/(.+)', MainHandler)],
         debug=True)

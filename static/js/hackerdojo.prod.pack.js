@@ -163,23 +163,35 @@ function mycarousel_initCallback(carousel) {
     });
 };
 
+
+
 jQuery(document).ready(function() {
-    jQuery("#mycarousel").jcarousel({
-        scroll: 1,
-        initCallback: mycarousel_initCallback,
-        itemVisibleInCallback: {
-            onAfterAnimation:  mycarousel_itemVisibleInCallbackAfterAnimation
-        },
-        itemVisibleOutCallback: {
-            onAfterAnimation:  mycarousel_itemVisibleOutCallbackAfterAnimation
-        },
-        buttonNextHTML: null,
-        buttonPrevHTML: null,
-        auto: 5,
-        wrap: 'last',
-    });
+
+    lazyload = function() {
+        jQuery(".lazyload").each(function() { 
+           $(this).attr("src",$(this).attr("futuresrc"));
+        });       
+    };
+    setTimeout("lazyload();",1000);
+
+        jQuery("#mycarousel").jcarousel({
+            scroll: 1,
+            initCallback: mycarousel_initCallback,
+            itemVisibleInCallback: {
+                onAfterAnimation:  mycarousel_itemVisibleInCallbackAfterAnimation
+            },
+            itemVisibleOutCallback: {
+                onAfterAnimation:  mycarousel_itemVisibleOutCallbackAfterAnimation
+            },
+            buttonNextHTML: null,
+            buttonPrevHTML: null,
+            auto: 4,
+            wrap: 'last',
+        }); 
+
     $("#open").simpletip({
-         content:jQuery("#opencontent").html()
+         onBeforeShow: function(){ this.load('/api/event_staff'); },
+         content:"<p>Hacker Dojo is currently open,<br> and being staffed by the following<br>volunteers:</p><p>loading...</p>"
     });
     $("#closed").simpletip({
          content:"The Dojo is usually open 9AM-10PM<br/>on weekdays.  Weekend coverage will vary."

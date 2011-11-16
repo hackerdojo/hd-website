@@ -6,13 +6,6 @@
 {% endcomment %}
 {% block extrahead %}<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>{% endblock %}
 {% block content %}
-
-  <div id="opencontent" style="display:none">
-    <p>Hacker Dojo is currently open,<br> and being staffed by the following<br>volunteers:</p>
-    {% for s in staff %}
-      <p><img src='{{s.image_url}}' height="24" width="24" align="absmiddle" hspace="3">{{s.name}}{% comment %}, {s.created|timesince} ago{% endcomment %}</p>
-    {% endfor %}
-  </div>
      
   <section class="hero-image" >
     <div id="mycarousel" style="overflow:hidden">
@@ -22,27 +15,27 @@
             <div class="hero-caption">Group hack day, March 11, 2010</div>
         </li>
         <li>
-            <img width="960" height="235" src="{{cdn}}/static/images/hero2.jpeg" alt="" />
+            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero2.jpeg" alt="" />
             <div class="hero-caption">Opening Party</div>
         </li>
         <li>
-            <img width="960" height="235" src="{{cdn}}/static/images/hero3.jpeg" alt="" />
+            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero3.jpeg" alt="" />
             <div class="hero-caption">TIGJam: Indie Game Developers Confernce</div>
         </li>
         <li>
-            <img width="960" height="235" src="{{cdn}}/static/images/hero4.jpeg" alt="" />
+            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero4.jpeg" alt="" />
             <div class="hero-caption">Interaction Design Class</div>
         </li>
         <li>
-            <img width="960" height="235" src="{{cdn}}/static/images/hero5.jpeg" alt="" />
+            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero5.jpeg" alt="" />
             <div class="hero-caption">Hackers getting some sunshine =D</div>
         </li>
         <li>
-            <img width="960" height="235" src="{{cdn}}/static/images/hero6.jpg" alt="" />
+            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero6.jpg" alt="" />
             <div class="hero-caption">Our Official Policy Bear Meeting</div>
         </li>
         <li>
-            <img width="960" height="235" src="{{cdn}}/static/images/hero7.jpg" alt="" />
+            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero7.jpg" alt="" />
             <div class="hero-caption">Designing a TARDIS - wanna help?</div>
         </li>
     </ul>
