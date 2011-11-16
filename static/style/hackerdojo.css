@@ -100,9 +100,12 @@ a.homepage-blurb:hover, a.read-more:hover {
 #content {
 	margin: 0 auto;
 	width: 980px;
-	padding:0 2em;
+	padding:0 0em;
 }
-
+#contentwrapper {
+  margin: 0 auto;
+  margin:0 2.5em;
+}
 .current {
 	font-weight: bold;
 }
