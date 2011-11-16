@@ -18,12 +18,13 @@ import re
 
 PB_WIKI = 'dojowebsite'
 PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
-CACHE_ENABLED = 1
-CDN_ENABLED = 1
+CACHE_ENABLED = True
+CDN_ENABLED = True
 CDN_HOSTNAME = 'http://cdn.hackerdojo.com'
 
 if os.environ['SERVER_SOFTWARE'].startswith('Dev'):
-    CACHE_ENABLED = 0
+    CACHE_ENABLED = False
+    CDN_ENABLED = False
               
 def _request(url, cache_ttl=3600, force=False):
     request_cache_key = 'request:%s' % url

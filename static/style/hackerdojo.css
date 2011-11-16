@@ -100,6 +100,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 #content {
 	margin: 0 auto;
 	width: 980px;
+	padding:0 2em;
 }
 
 .current {
@@ -140,8 +141,8 @@ h1.logo {
 }
 
 h2.tagline {
-	font-size: 38px;
-	line-height: 38px;
+	font-size: 36px;
+	line-height: 36px;
 	font-weight: 600;
 	margin: 20px 0 0;
 }
