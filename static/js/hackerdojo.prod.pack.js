@@ -177,6 +177,10 @@ jQuery(document).ready(function() {
         });       
     };
     setTimeout("lazyload();",1000);
+    
+    $.easing.sin = function(x, t, b, c, d) {
+		return c * Math.sin(t/d * (Math.PI/2)) + b;
+	};
 
     jQuery("#mycarousel").jcarousel({
         wrap: 'circular',
@@ -192,7 +196,7 @@ jQuery(document).ready(function() {
         buttonPrevHTML: null,
         auto: 5,
         animation: 'slow',
-        easing: 'swing',
+        easing: 'sin',
     }); 
 
     $("#open").simpletip({
