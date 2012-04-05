@@ -78,20 +78,33 @@ class MainHandler(webapp.RequestHandler):
     def get(self, pagename, site = PB_WIKI):
         skip_cache = self.request.get('cache') == '0'
         version = os.environ['CURRENT_VERSION_ID']
-        if CDN_ENABLED:
-            cdn = CDN_HOSTNAME        
-        try:
-            if not(pagename):
-                pagename = 'FrontPage'
-            page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
-            if page and "name" in page:
-              self.response.out.write(template.render('templates/content.html', locals()))
-            else:
-              raise LookupError
-        except LookupError:
-            self.response.out.write(template.render('templates/404.html', locals()))
-            self.error(404)
-
+        
+        redirect_urls = {
+          # From: To
+          'Assemble': 'Give',
+          'key': 'http://signup.hackerdojo.com/key',
+        }
+        if pagename in redirect_urls:
+            url = redirect_urls[pagename]
+            self.redirect(url, permanent=True)
+        else:                
+            if CDN_ENABLED:
+                cdn = CDN_HOSTNAME        
+            try:
+                if not(pagename):
+                    pagename = 'FrontPage'
+                page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
+                # Convert quasi-camel-case to 
+                title = re.sub('([a-z])([A-Z])', r'\1 \2', pagename)
+                if page and "name" in page:
+                  self.response.out.write(template.render('templates/content.html', locals()))
+                else:
+                  raise LookupError
+            except LookupError:
+                self.response.out.write(template.render('templates/404.html', locals()))
+                self.error(404)
+            
+    
 def main():
     application = webapp.WSGIApplication([
         ('/api/pbwebhook', PBWebHookHandler),
