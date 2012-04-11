@@ -81,6 +81,7 @@ class MainHandler(webapp.RequestHandler):
         
         redirect_urls = {
           # From: To
+          'give': 'Give',
           'Assemble': 'Give',
           'key': 'http://signup.hackerdojo.com/key',
         }
