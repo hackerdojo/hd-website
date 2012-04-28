@@ -200,11 +200,10 @@ jQuery(document).ready(function() {
     }); 
 
     $("#open").simpletip({
-         onBeforeShow: function(){ this.load('/api/event_staff'); },
-         content:"<p>Hacker Dojo is currently open,<br> and being staffed by the following<br>volunteers:</p><p>loading...</p>"
+         content:"<p>Hacker Dojo is open 8AM-10PM daily.</p>"
     });
     $("#closed").simpletip({
-         content:"The Dojo is usually open 9AM-10PM<br/>on weekdays.  Weekend coverage will vary."
+         content:"<p>Hacker Dojo is open 8AM-10PM daily.</p>"
     });
     
 });

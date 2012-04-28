@@ -6,6 +6,8 @@ os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 from google.appengine.dist import use_library
 use_library('django', '1.2')
 
+import pytz
+from datetime import datetime
 from django.utils import simplejson
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
@@ -21,6 +23,7 @@ PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
 CACHE_ENABLED = True
 CDN_ENABLED = True
 CDN_HOSTNAME = 'http://cdn.hackerdojo.com'
+LOCAL_TZ = 'America/Los_Angeles'
 
 if os.environ['SERVER_SOFTWARE'].startswith('Dev'):
     CACHE_ENABLED = False
@@ -60,7 +63,11 @@ class PBWebHookHandler(webapp.RequestHandler):
             
 class IndexHandler(webapp.RequestHandler):
     def get(self):
-        staff = _request('http://hackerdojo-signin.appspot.com/staffjson')
+        utc_now = pytz.utc.localize(datetime.utcnow())
+        local_now = utc_now.astimezone(pytz.timezone(LOCAL_TZ))
+        hour = local_now.hour
+        if hour > 8 and hour < 22:
+          open = True
         version = os.environ['CURRENT_VERSION_ID']
         if CDN_ENABLED:
             cdn = CDN_HOSTNAME
