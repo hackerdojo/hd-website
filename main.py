@@ -90,6 +90,7 @@ class MainHandler(webapp.RequestHandler):
           # From: To
           'give': 'Give',
           'Assemble': 'Give',
+          'Mobile%20Device%20Lab': 'MobileDeviceLab',
           'key': 'http://signup.hackerdojo.com/key',
         }
         if pagename in redirect_urls:
