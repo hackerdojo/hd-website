@@ -89,6 +89,7 @@ class MainHandler(webapp.RequestHandler):
         redirect_urls = {
           # From: To
           'give': 'Give',
+          'auction': 'Auction',
           'Assemble': 'Give',
           'Mobile%20Device%20Lab': 'MobileDeviceLab',
           'kickstarter': 'http://www.kickstarter.com/projects/384590180/an-events-space-and-a-design-studio-for-hacker-doj',
