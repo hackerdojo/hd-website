@@ -108,7 +108,7 @@ class MainHandler(webapp.RequestHandler):
                     pagename = 'FrontPage'
                 page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
                 # Convert quasi-camel-case to spaced words
-                title = re.sub('([a-z])([A-Z])', r'\1 \2', pagename)
+                title = re.sub('([a-z]|[A-Z])([A-Z])', r'\1 \2', pagename)
                 if page and "name" in page:
                   self.response.out.write(template.render('templates/content.html', locals()))
                 else:
