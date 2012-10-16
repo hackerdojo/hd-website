@@ -16,7 +16,7 @@
 {% block content %}
      
   <section class="hero-image" >
-    <!--<a href="/Give" style="position:absolute; right:-105px; top:-70px; z-index:200"><img width="292" height="282" alt="Help save the Dojo!  Donate now" src="{{cdn}}/static/images/save2.png"  border="0"></a>-->
+    <a href="/ANewHomeForHackerDojo" style="position:absolute; right:-105px; top:-50px; z-index:200"><img width="281" height="279" alt="Help save the Dojo!  Donate now" src="{{cdn}}/static/images/omgmoving.png"  border="0"></a>
     <div id="mycarousel" style="overflow:hidden">
     <ul style="overflow:none">
         <li>
@@ -115,20 +115,4 @@
 	<hr class="clear">	
 	</article>
 
-<link href="{{cdn}}/static/style/jquery.interstitial.css" rel="stylesheet" type="text/css" />
-<script src="{{cdn}}/static/js/jquery.interstitial.min.js" type="text/javascript"></script>
-<script type="text/javascript">
-var ie = (function(){ var undef, v = 3, div = document.createElement('div'), all = div.getElementsByTagName('i');while ( div.innerHTML = '<!--[if gt IE ' + (++v) + ']><i></i><![endif]-->', all[0] ); return v > 4 ? v : undef; }());
-
-$(document).ready(function(){
-  if (!ie) {
-    $().interstitial('open', {
-      'url' : '/static/kickstarter.html?v=3',
-      'height': 610,
-      'width': 736,
-    });
-  }
-});
-</script>
-	  
 {% endblock %}
