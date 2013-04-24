@@ -3,12 +3,8 @@
 import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
-from google.appengine.dist import use_library
-use_library('django', '1.2')
-
 import pytz
 from datetime import datetime
-from django.utils import simplejson
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.ext import webapp
@@ -17,6 +13,7 @@ import logging
 import pprint
 import urllib
 import re
+import json
 
 PB_WIKI = 'dojowebsite'
 PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
@@ -37,11 +34,11 @@ def _request(url, cache_ttl=3600, force=False):
         try:
             data = urlfetch.fetch(url)
             if 'pbworks.com' in url:
-                resp = simplejson.loads(data.content[11:-3])
+                resp = json.loads(data.content[11:-3])
                 if "html" in resp:
                     resp["html"] = re.sub("/w/page/\d*", "", resp["html"])
             else:
-                resp = simplejson.loads(data.content)            
+                resp = json.loads(data.content)            
             memcache.set(request_cache_key, resp, cache_ttl)
             memcache.set(failure_cache_key, resp, cache_ttl*10)
         except (ValueError, urlfetch.DownloadError), e:
@@ -118,14 +115,9 @@ class MainHandler(webapp.RequestHandler):
                 self.error(404)
             
     
-def main():
-    application = webapp.WSGIApplication([
-        ('/api/pbwebhook', PBWebHookHandler),
-        ('/api/event_staff', StaffHandler),
-        ('/', IndexHandler),
-        ('/(.+)', MainHandler)],
-        debug=True)
-    util.run_wsgi_app(application)
-
-if __name__ == '__main__':
-    main()
+app = webapp.WSGIApplication([
+    ('/api/pbwebhook', PBWebHookHandler),
+    ('/api/event_staff', StaffHandler),
+    ('/', IndexHandler),
+    ('/(.+)', MainHandler)],
+    debug=True)
