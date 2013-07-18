@@ -112,7 +112,8 @@ class MainHandler(webapp.RequestHandler):
                   raise LookupError
             except LookupError:
                 self.response.out.write(template.render('templates/404.html', locals()))
-                self.error(404)
+                self.response.set_status(404)
+
             
     
 app = webapp.WSGIApplication([
