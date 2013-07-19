@@ -82,6 +82,7 @@ class MainHandler(webapp.RequestHandler):
     def get(self, pagename, site = PB_WIKI):
         skip_cache = self.request.get('cache') == '0'
         version = os.environ['CURRENT_VERSION_ID']
+        shouldRedirect = False
 
         redirect_urls = {
           # From: To
@@ -101,19 +102,25 @@ class MainHandler(webapp.RequestHandler):
             if CDN_ENABLED:
                 cdn = CDN_HOSTNAME
             try:
+                pageKey = 'page:%s' % pagename.lower()
                 if not(pagename):
                     pagename = 'FrontPage'
                 page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
                 # fetch a page where a lowercase version may exist
-                if not(page):
-                  pagename = memcache.get(pagename.lower())
-                  page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
+                if not(page and "name" in page):
+                  if memcache.get(pageKey):
+                    pagename = memcache.get(pageKey)
+                    page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
+                    shouldRedirect = True
                 # Convert quasi-camel-case to spaced words
                 title = re.sub('([a-z]|[A-Z])([A-Z])', r'\1 \2', pagename)
                 if page and "name" in page:
                   fiveDays = 432000
-                  memcache.set(pagename.lower(), pagename, fiveDays)
-                  self.response.out.write(template.render('templates/content.html', locals()))
+                  memcache.set(pageKey, pagename, fiveDays)
+                  if shouldRedirect:
+                    self.redirect(pagename, permanent=True)
+                  else:
+                    self.response.out.write(template.render('templates/content.html', locals()))
                 else:
                   raise LookupError
             except LookupError:
