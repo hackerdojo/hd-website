@@ -113,7 +113,8 @@ class MainHandler(webapp.RequestHandler):
                     page = _request(PB_API_URL % (site, pagename), cache_ttl=604800, force=skip_cache)
                     shouldRedirect = True
                 # Convert quasi-camel-case to spaced words
-                title = re.sub('([a-z]|[A-Z])([A-Z])', r'\1 \2', pagename)
+                title = re.sub('([A-Z])([A-Z][a-z])', r'\1 \2', pagename)
+                title = re.sub('([a-z])([A-Z])', r'\1 \2', title)
                 if page and "name" in page:
                   fiveDays = 432000
                   memcache.set(pageKey, pagename, fiveDays)
