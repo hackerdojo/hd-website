@@ -101,29 +101,28 @@
 		<section class="four">
 		<h3>Every Friday</h3>
 				<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Lightning Talks &amp; Happy Hour starts at 5:00 every Friday.Learn about new products &amp; companies at the Dojo. (Open to the Public)
-				</p>
+</p>
 				<a href="/lightningtalks" class="homepage-blurb">Find out more</a>
-		</section>
-		<section class = "six">
-			<h3><a href="/parking_directions">Visit Us</a></h3>
-				<p>We're located at 599 Fairchild Dr. in Mountain View, CA. Our phone number (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
 		</section>
 	<hr class="clear">
 	</article>
 	
 	<article class="callouts span-one">
 		<section class="five">
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-				fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));
-			</script>
-			<h3>Our Facebook Page</h3>
-			<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="400" data-width="288"></div>
+		  <div style="float:right; font-size:16px; margin-top:.8em"><!-- hour is {{hour}} -->
+		    {% if open %}
+		      <span id="open" style="color:green; cursor:help; font-weight:bold">OPEN</span>
+		    {% else %}
+		      <span id="closed" style="color:#999; cursor:help; font-weight:bold">CLOSED</span>
+		    {% endif %}
+		  </div>
+			<h3><a href="/parking_directions">Visit Us</a></h3>
+				
+				<img src="{{cdn}}/static/images/vertical-stripe-long.png" class="p-border">
+				<a href="/parking_directions">
+					<img height="175" width="288" src="{{cdn}}/static/images/map.gif?v=2" class="image-border map">
+				</a>
+				<p>We're located at 599 Fairchild Dr. in Mountain View, CA. Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
 		</section>
 		
 	<hr class="clear">	
