@@ -93,7 +93,7 @@ class MainHandler(webapp.RequestHandler):
           'give': 'Give',
           'auction': 'Auction',
           'Assemble': 'Give',
-          'Mobile%20Device%20Lab': 'MobileDeviceLab',
+          'Mobile Device Lab': 'MobileDeviceLab',
           'kickstarter': 'http://www.kickstarter.com/projects/384590180/an-events-space-and-a-design-studio-for-hacker-doj',
           'Kickstarter': 'http://www.kickstarter.com/projects/384590180/an-events-space-and-a-design-studio-for-hacker-doj',
           'KICKSTARTER': 'http://www.kickstarter.com/projects/384590180/an-events-space-and-a-design-studio-for-hacker-doj',
