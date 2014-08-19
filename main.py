@@ -47,6 +47,14 @@ def _request(url, cache_ttl=3600, force=False):
                 resp = {}
     return resp
 
+def _time(): #returns if hackerdojo is open; moved from IndexHandler
+    utc_now = pytz.utc.localize(datetime.utcnow())
+    local_now = utc_now.astimezone(pytz.timezone(LOCAL_TZ))
+    hour = local_now.hour
+    if hour > 8 and hour < 22:
+      open = True
+    return open
+
 class PBWebHookHandler(webapp.RequestHandler):
     def post(self):
         page = self.request.get('page')
@@ -60,11 +68,7 @@ class PBWebHookHandler(webapp.RequestHandler):
 
 class IndexHandler(webapp.RequestHandler):
     def get(self):
-        utc_now = pytz.utc.localize(datetime.utcnow())
-        local_now = utc_now.astimezone(pytz.timezone(LOCAL_TZ))
-        hour = local_now.hour
-        if hour > 8 and hour < 22:
-          open = True
+        open = _time()
         version = os.environ['CURRENT_VERSION_ID']
         if CDN_ENABLED:
             cdn = CDN_HOSTNAME
@@ -89,7 +93,7 @@ class MainHandler(webapp.RequestHandler):
           'give': 'Give',
           'auction': 'Auction',
           'Assemble': 'Give',
-          'Mobile%20Device%20Lab': 'MobileDeviceLab',
+          'Mobile Device Lab': 'MobileDeviceLab',
           'kickstarter': 'http://www.kickstarter.com/projects/384590180/an-events-space-and-a-design-studio-for-hacker-doj',
           'Kickstarter': 'http://www.kickstarter.com/projects/384590180/an-events-space-and-a-design-studio-for-hacker-doj',
           'KICKSTARTER': 'http://www.kickstarter.com/projects/384590180/an-events-space-and-a-design-studio-for-hacker-doj',
@@ -121,10 +125,18 @@ class MainHandler(webapp.RequestHandler):
                   if shouldRedirect:
                     self.redirect(pagename, permanent=True)
                   else:
+                    version = os.environ['CURRENT_VERSION_ID']
+                    if CDN_ENABLED:
+                        cdn = CDN_HOSTNAME
+                    open = _time()
                     self.response.out.write(template.render('templates/content.html', locals()))
                 else:
                   raise LookupError
             except LookupError:
+                version = os.environ['CURRENT_VERSION_ID']
+                if CDN_ENABLED:
+                    cdn = CDN_HOSTNAME
+                open = _time()
                 self.response.out.write(template.render('templates/404.html', locals()))
                 self.response.set_status(404)
 

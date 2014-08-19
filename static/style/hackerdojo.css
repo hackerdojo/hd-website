@@ -366,8 +366,11 @@ p.event {
 
 .one, .two, .three, .four, .five {
 	float: left;
-	height: 150px;
+	height: 165px;
 	width: 310px;
+}
+.six {
+	width: 620px;
 }
 
 .one, .three {
