@@ -200,10 +200,10 @@ jQuery(document).ready(function() {
     }); 
 
     $("#open").simpletip({
-         content:"<p>Hacker Dojo is open 8AM-10PM daily.</p>"
+         content:"<p>Hacker Dojo is open 10AM-9PM daily.</p>"
     });
     $("#closed").simpletip({
-         content:"<p>Hacker Dojo is open 8AM-10PM daily.</p>"
+         content:"<p>Hacker Dojo is open 10AM-9PM daily.</p>"
     });
     
 });
