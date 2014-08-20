@@ -13,13 +13,10 @@
         {% block extrahead %}{% endblock %}
     </head>
 <body>
-    <div id="contentwrapper">
-    <div id="content">
+    <div id ="header">
         <hr class="black"/>
-
         <section>
             <a href="/"><h1 class="logo">Hacker Dojo</h1></a>
-
             <nav>
                 {% comment %}<a href="http://signup.hackerdojo.com/dashboard">Login</a>{% endcomment %}
                 <a href="/Give">Give</a>
@@ -39,17 +36,24 @@
             </nav>
 
             <hr class="red"/>
-            <h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
         </section>
 
         <hr class="clear"/>
+    </div>
+
+    <div id="contentwrapper">
+    <div id="content">
 
         {% block content %}
         {% endblock %}
 
         <img src="{{cdn}}/static/images/footer-top-border.png" class="footer-top-border"/>
 
-        <footer>Hacker Dojo &bull; 599 Fairchild Dr, Mountain View, CA 94043 &bull; <a href="mailto:info@hackerdojo.com">info@hackerdojo.com</a> &bull; twitter: <a href="https://twitter.com/#!/hackerdojo">@hackerdojo</a></footer>
+        <div class ="fixed_footer">
+        <section id = "bottom footer">
+            Hacker Dojo &bull; 599 Fairchild Dr, Mountain View, CA 94043 &bull; <a href="mailto:info@hackerdojo.com">info@hackerdojo.com</a> &bull; twitter: <a href="https://twitter.com/#!/hackerdojo">@hackerdojo</a>
+        </section>
+        </div>
     </div>
     </div>
 <script type="text/javascript">

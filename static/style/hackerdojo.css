@@ -1,6 +1,6 @@
 body {
 	font-family: Verdana,Arial,sans-serif;
-	margin: 0px;
+	margin-top: 150px ;
 	font-size: 12px;
 }
 
@@ -352,10 +352,12 @@ p.event {
 .span-two {
 	float: left;
 	width: 640px;
+	z-index: 1;
 }
 
 .span-one {
 	float: right;
+	z-index: 1;
 }
 
 #tag-list {
@@ -517,6 +519,17 @@ ul {
    color:black;
    font-weight:normal;
    font-size:12px
+}
+
+#header{
+	z-index: 10;
+	margin-top: -150px;
+	margin-left: 140px;
+	margin-right: 40px;
+	width: 990px;
+	position: fixed;
+	background: #FFFFFF;
+	/*transition: bottom 0.4s ease-in-out*/
 }
 
 
