@@ -52,7 +52,9 @@ def _time(): #returns if hackerdojo is open; moved from IndexHandler
     local_now = utc_now.astimezone(pytz.timezone(LOCAL_TZ))
     hour = local_now.hour
     if hour > 8 and hour < 22:
-      open = True
+        open = True
+    else:
+        open = False
     return open
 
 class PBWebHookHandler(webapp.RequestHandler):
