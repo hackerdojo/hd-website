@@ -7,7 +7,8 @@ body {
 nav {
 	font-family: 'myriad pro', myriad, 'trebuchet ms',sans-serif;
 	float: right;
-	margin-top: 71px;
+	margin-top: 51px;
+	margin-bottom: 10px;
 	width: 80%;
 }
 
@@ -162,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
 h1.logo {
 	background: transparent url('../images/hacker-dojo.png') no-repeat;
 	float: left;
-	margin:20px 0;
+	margin: 5px 0;
 	text-indent: -5000px;
 	height: 71px;
 	width: 197px;
