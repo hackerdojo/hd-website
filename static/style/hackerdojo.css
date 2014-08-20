@@ -1,6 +1,6 @@
 body {
 	font-family: Verdana,Arial,sans-serif;
-	margin-top: 150px ;
+	margin-top: 120px ;
 	font-size: 12px;
 }
 
@@ -524,7 +524,7 @@ ul {
 
 #header_static{
 	z-index: 10;
-	margin-top: -150px;
+	margin-top: -120px;
 	margin-left: 10%;
 	margin-right: 10%;
 	min-width: 700px;
