@@ -8,7 +8,7 @@ nav {
 	font-family: 'myriad pro', myriad, 'trebuchet ms',sans-serif;
 	float: right;
 	margin-top: 71px;
-	width: 770px;
+	width: 80%;
 }
 
 nav a {
@@ -231,7 +231,7 @@ hr {
 	border: 0;
 	height: 14px;
 	margin: 0;
-	width: 980px;
+	width: 100%;
 }
 
 hr.black {
@@ -521,12 +521,13 @@ ul {
    font-size:12px
 }
 
-#header{
+#header_static{
 	z-index: 10;
 	margin-top: -150px;
-	margin-left: 140px;
-	margin-right: 40px;
-	width: 990px;
+	margin-left: 10%;
+	margin-right: 10%;
+	min-width: 700px;
+	width: 80%;
 	position: fixed;
 	background: #FFFFFF;
 	/*transition: bottom 0.4s ease-in-out*/
