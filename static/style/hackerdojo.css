@@ -124,13 +124,20 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 
 #content {
+	margin-left: 2px;
+	/*
 	margin: 0 auto;
 	width: 980px;
 	padding:0 0em;
+	*/
 }
 #contentwrapper {
+  margin-left: 10%;
+  margin-right: 10%;
+  /*
   margin: 0 auto;
   margin:0 0em;
+  */
 }
 .current {
 	font-weight: bold;
