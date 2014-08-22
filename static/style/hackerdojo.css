@@ -1,9 +1,10 @@
 body {
 	font-family: Verdana,Arial,sans-serif;
-	margin-top: 120px ;
+	margin-top: 109px ;
 	font-size: 12px;
 	margin-left: 0px;
 	margin-right: 0px;
+	margin-bottom: 0px;
 }
 
 nav {
@@ -126,20 +127,21 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 
 #content {
-	/*margin-left: 2px;
-	margin: 0 auto;*/
-	width: 980px;
+	margin-left: 10%;
+	margin-right: 10%;
 	/*
+	margin-left: 2px;
+	margin: 0 auto;
+	width: 980px;
 	padding:0 0em;
 	*/
 }
 #contentwrapper {
-  margin-left: 10%;
-  margin-right: 10%;
-  /*
-  margin: 0 auto;
-  margin:0 0em;
-  */
+	background-color: #ececec;
+	/*
+	margin: 0 auto;
+	margin:0 0em;
+	*/
 }
 .current {
 	font-weight: bold;
@@ -149,19 +151,24 @@ a.homepage-blurb:hover, a.read-more:hover {
 	margin-top: 0;
 }
 
-footer {
+.fixed_footer {
+	border-top: 5px #A9A9A9 dashed;
 	border-bottom: 5px #000 solid;
 	clear: both;
 	font-size: 11px;
 	margin:auto;
+	padding-top: 10px;
 	padding-bottom: 10px;
 	text-align: center;
+	/*
 	width: 980px;
+	*/
 	display: block;
 }
 
 .footer-top-border {
 	margin: 10px 0;
+	visibility: hidden;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -533,7 +540,7 @@ ul {
 
 #header_static{
 	z-index: 10;
-	margin-top: -120px;
+	margin-top: -109px;
 	margin-left: 10%;
 	margin-right: 10%;
 	min-width: 700px;
@@ -544,7 +551,7 @@ ul {
 }
 #header_background{
 	z-index: 9;
-	margin-top: -120px;
+	margin-top: -109px;
 	/*margin-left: 10%;
 	margin-right: 10%;*/
 	/*margin: 0 auto;*/
@@ -554,6 +561,14 @@ ul {
 	position: fixed;
 	background: #FFFFFF;
 	/*transition: bottom 0.4s ease-in-out*/
+}
+
+#main {
+	font-family: Helvetica;
+	font-size: 18px;
+}
+
+#test{
 }
 
 
