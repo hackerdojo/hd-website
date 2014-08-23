@@ -15,6 +15,17 @@ nav {
 	width: 80%;
 }
 
+.open{
+	float:right;
+	font-size: 23px;
+	position: relative;
+	margin-top:-70px;
+	margin-left: 100%;
+	margin-right: 0;
+	margin-bottom: 0;
+}
+
+
 nav a {
 	color: #000;
 	display: block;
@@ -540,7 +551,10 @@ ul {
 }
 
 .tooltip{
-   position: absolute;
+   position: fixed;
+   padding: .8em .5em .5em .5em;
+   z-index: 30;
+   /*
    top: 0;
    left: -150px;
    z-index: 3;
@@ -551,6 +565,7 @@ ul {
    border-radius: 12px; 
    background:white;
    padding:1.5em;
+   */
    color:black;
    font-weight:normal;
    font-size:12px
