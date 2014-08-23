@@ -1,6 +1,6 @@
 body {
 	font-family: Verdana,Arial,sans-serif;
-	margin-top: 109px ;
+	margin-top: 112px ;
 	font-size: 12px;
 	margin-left: 0px;
 	margin-right: 0px;
@@ -127,9 +127,9 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 
 #content {
+	/*
 	margin-left: 10%;
 	margin-right: 10%;
-	/*
 	margin-left: 2px;
 	margin: 0 auto;
 	width: 980px;
@@ -137,12 +137,30 @@ a.homepage-blurb:hover, a.read-more:hover {
 	*/
 }
 #contentwrapper {
-	background-color: #ececec;
+	margin-left: 10%;
+	margin-right: 10%;
 	/*
+	background-color: #ececec;
 	margin: 0 auto;
 	margin:0 0em;
 	*/
 }
+
+#main {
+	margin-left:5%;
+	margin-right:5%;
+	font-family: Helvetica;
+	font-size: 18px;
+}
+
+.page_one{
+	background-color: #ececec;
+}
+
+.page_two{
+	background-color: #9932CC;
+}
+
 .current {
 	font-weight: bold;
 }
@@ -540,7 +558,7 @@ ul {
 
 #header_static{
 	z-index: 10;
-	margin-top: -109px;
+	margin-top: -112px;
 	margin-left: 10%;
 	margin-right: 10%;
 	min-width: 700px;
@@ -551,7 +569,7 @@ ul {
 }
 #header_background{
 	z-index: 9;
-	margin-top: -109px;
+	margin-top: -112px;
 	/*margin-left: 10%;
 	margin-right: 10%;*/
 	/*margin: 0 auto;*/
@@ -562,15 +580,6 @@ ul {
 	background: #FFFFFF;
 	/*transition: bottom 0.4s ease-in-out*/
 }
-
-#main {
-	font-family: Helvetica;
-	font-size: 18px;
-}
-
-#test{
-}
-
 
 table.contact {
   width:100%;
