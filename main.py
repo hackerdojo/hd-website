@@ -91,7 +91,7 @@ class IndexHandler(webapp.RequestHandler):
         if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
             a = "Test"
             self.response.out.write(template.render('templates/mobile.html', locals()))
-            #self.response.out.write(template.render('templates/mobile_main.html', locals()))
+            #self.response.out.write(template.render('templates/mobile/main_mobile.html', locals()))
         else:
             self.response.out.write(template.render('templates/main_page.html', locals()))
             #self.response.out.write(template.render('templates/index.html', locals()))
@@ -163,7 +163,7 @@ class MainHandler(webapp.RequestHandler):
                     if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
                         a = "Test"
                         self.response.out.write(template.render('templates/mobile.html', locals()))
-                        #self.response.out.write(template.render('templates/mobile_content.html', locals()))
+                        #self.response.out.write(template.render('templates/mobile/content_mobile.html', locals()))
                     else:
                         self.response.out.write(template.render('templates/content.html', locals()))
                 else:
@@ -175,8 +175,8 @@ class MainHandler(webapp.RequestHandler):
                 open = _time()
                 if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
                         a = "Test"
-                        self.response.out.write(template.render('templates/mobile.html', locals()))
-                        #self.response.out.write(template.render('templates/mobile_404.html', locals()))
+                        #self.response.out.write(template.render('templates/mobile.html', locals()))
+                        self.response.out.write(template.render('templates/mobile/404_mobile.html', locals()))
                         self.response.set_status(404)
                 else:
                     self.response.out.write(template.render('templates/404.html', locals()))

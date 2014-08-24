@@ -14,13 +14,43 @@
         {% block extrahead %}{% endblock %}
     </head>
 <body>
-    <div>
+    <div id = "header">
     <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae eros at dolor cursus fermentum. Quisque nec mauris facilisis, interdum orci eget, semper urna. In a faucibus sem. Sed lacinia gravida fermentum. Vivamus dapibus tincidunt mi eget consectetur. Phasellus sed gravida nisl. Vestibulum rutrum tempus vestibulum. Proin eu justo ligula. Duis eget dui vitae turpis pretium molestie. In accumsan lectus orci, in ultrices felis finibus in. Quisque varius, quam vitae sodales faucibus, ante urna feugiat erat, id blandit magna elit vitae nibh. Cras quis tortor nec sem commodo iaculis. Integer in viverra enim.
 
         Sed consequat lectus sagittis ultricies dapibus. Phasellus auctor velit risus, et efficitur nibh iaculis ut. Etiam hendrerit mattis nisi ut iaculis. Curabitur in tincidunt nunc, et feugiat nulla. Nulla ultrices blandit semper. Praesent cursus elementum felis eget auctor. Sed purus leo, porttitor quis leo eu, pharetra porta augue. Pellentesque vehicula at erat quis commodo. Praesent imperdiet eros lectus, eu eleifend nibh ornare et. Mauris malesuada metus erat, vitae sodales augue accumsan nec. Vivamus ac sapien varius, pharetra sapien sit amet, finibus odio. Fusce ut ex eget quam semper gravida vitae in lorem. Vivamus rutrum tellus non mollis bibendum. Proin ipsum ex, aliquet eu tristique nec, semper commodo nisl. Morbi metus ante, lacinia vitae urna sed, semper bibendum metus.
     </p>
-</div>
+    </div>
+    <div id="main_m">
+        {% block main %}
+        {% endblock %}
+    </div>
+    <div id="contentwrapper_m">
+    <div id="content_m">
+
+        {% block content %}
+        {% endblock %}
+        <div class ="fixed_footer">
+        <section id = "bottom footer">
+            Hacker Dojo &bull; 599 Fairchild Dr, Mountain View, CA 94043 &bull; <a href="mailto:info@hackerdojo.com">info@hackerdojo.com</a> &bull; twitter: <a href="https://twitter.com/#!/hackerdojo">@hackerdojo</a>
+        </section>
+        </div>
+    </div>
+    </div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-27117910-1']);
+  _gaq.push(['_setDomainName', '.hackerdojo.com']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
 </body>
 </html>
 {% endspaceless %}

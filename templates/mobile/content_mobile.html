@@ -1,0 +1,12 @@
+{% extends 'base_mobile.html' %}
+{% block title %}{{title|title}}{% endblock %}
+{% block content %}
+
+  <style>h2.tagline {display:none}</style>
+  
+  <div id="content" class="wikihtml">
+    <p style="margin-top:1em; padding-bottom:1em; margin-bottom:2em; border-bottom:1px dotted #ccc; font-size:12px; font-weight:bold"><a href="/">Home</a> &gt; {{title|title}}</p>
+    {% autoescape off %}{{page.html}}{% endautoescape %}
+  </div>
+
+{% endblock %}
