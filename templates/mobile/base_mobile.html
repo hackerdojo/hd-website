@@ -1,21 +1,45 @@
-{% spaceless %}<!doctype html><html lang="en" public "l☺lz">
+{% spaceless %}<!doctype html><html lang="en">
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Hacker Dojo{% endblock %}</title>
         <link rel="icon" type="image/ico" href="{{cdn}}/favicon.ico" />
         <link rel="alternate" type="application/rss+xml" title="Hacker Dojo Events" href="http://events.hackerdojo.com/events.rss" />
+        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
         <link href="{{cdn}}/static/style/mobile.css?v=v{{version}}" type="text/css" rel="stylesheet">
         <!-- make mobile style sheet here; or add div id to main stylesheet?-->
-        <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
         {% block extrahead %}{% endblock %}
     </head>
 <body>
 <div id="contentwrapper_m">
-    <div class = "header_m">
-        <p>
-            Header
-        </p>
+    <header id="top-nav" class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hd-navbar-collapse">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">
+                   <span>Hacker Dojo</span>
+                </a>
+             </div>
+
+             <nav class="navbar-collapse navbar-right collapse" id = "hd-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-right" role = "menu">
+                {% comment %}<li><a href="http://signup.hackerdojo.com/dashboard">Login</a></li>{% endcomment %}
+                <li><a href="http://dashboard.hackerdojo.com">My Dashboard</a></li>
+                <li><a href="http://events.hackerdojo.com/">Events</a></li>
+                <li><a href="/Membership">Membership</a></li>
+                <li><a href="/About">About</a></li>
+                <li><a href="http://wiki.hackerdojo.com/">Wiki</a></li>
+                <li><a href="/Contact">Contact</a></li>
+                <li><a href="/Give">Give</a></li>
+                </ul>
+             </nav>
     </div>
+    </header>
     <div class="main_m">
         {% block main %}
         {% endblock %}
@@ -44,6 +68,8 @@
   })();
 
 </script>
+<script type='text/javascript' async src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' async src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 </body>
 </html>
 {% endspaceless %}
