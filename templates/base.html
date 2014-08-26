@@ -5,15 +5,47 @@
         <link rel="icon" type="image/ico" href="{{cdn}}/favicon.ico" />
         <link rel="alternate" type="application/rss+xml" title="Hacker Dojo Events" href="http://events.hackerdojo.com/events.rss" />
         <link href="{{cdn}}/static/style/hackerdojo.css?v=v{{version}}" type="text/css" rel="stylesheet">
+        <link rel="stylesheet" href="{{cdn}}/static/style/bootstrap.min.css">
+        <!--
         <script async type="text/javascript" src="{{cdn}}/static/js/jquery-1.4.2.min.js"></script>
         <script async type="text/javascript" src="{{cdn}}/static/js/jquery.simpletip-1.3.1.pack.js"></script>
         <script async type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>
+        -->
         {% comment %}<link href="{{cdn}}/static/style/mobile.css?v=v{{version}}" media="screen and (max-width: 480px)" type="text/css" rel="stylesheet">{% endcomment %}        
         <!--[if lt IE 9]><script src="{{cdn}}/static/js/ie.html5.shim.js"></script><![endif]-->
         {% block extrahead %}{% endblock %}
     </head>
 <body>
-    <div id ="header_static">
+    <header id="top-nav" class="navbar navbar-inverse navbar-fixed-top" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#hd-navbar-collapse">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">
+                    <span id ="name">Hacker Dojo</span>
+                </a>
+             </div>
+
+             <nav class="navbar-collapse navbar-right collapse" id = "hd-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-right" role = "menu">
+                    {% comment %}<li><a href="http://signup.hackerdojo.com/dashboard">Login</a></li>{% endcomment %}
+                    <li><a href="http://dashboard.hackerdojo.com">My Dashboard</a></li>
+                    <li><a href="http://events.hackerdojo.com/">Events</a></li>
+                    <li><a href="/Membership">Membership</a></li>
+                    <li><a href="/About">About</a></li>
+                    <li><a href="http://wiki.hackerdojo.com/">Wiki</a></li>
+                    <li><a href="/Contact">Contact</a></li>
+                    <li><a href="/Give">Give</a></li>
+                </ul>
+             </nav>
+    </div>
+    </header>
+   <!--
+   <div id ="header_static">
         <hr class="black"/>
         <section>
             <a href="/"><h1 class="logo">Hacker Dojo</h1></a>
@@ -28,7 +60,7 @@
                 <a href="http://dashboard.hackerdojo.com">My Dashboard</a>
             </nav>
             <div class = "open">
-                <!--hour is {{hour}}-->
+               <!- -hour is {{hour}}- ->
                 {% if open %}
                   <span id="open" style="color:green; cursor:help; font-weight:bold">OPEN</span>
                 {% else %}
@@ -41,7 +73,7 @@
 
     </div>
     <div id = "header_background"></div>
-
+    -->
     <div id="main">
         {% block main %}
         {% endblock %}
@@ -75,6 +107,14 @@
   })();
 
 </script>
+<script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type='text/javascript' src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+    $('a[href="/' + location.pathname.split("/")[1] + '"]').parent().addClass('active');
+});
+</script>
+
 </body>
 </html>
 {% endspaceless %}

@@ -1,18 +1,26 @@
 body {
 	font-family: Verdana,Arial,sans-serif;
+	/*
 	margin-top: 112px ;
+	*/
 	font-size: 12px;
 	margin-left: 0px;
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
 
+/*
 nav {
 	font-family: 'myriad pro', myriad, 'trebuchet ms',sans-serif;
 	float: right;
 	margin-top: 51px;
 	margin-bottom: 10px;
 	width: 80%;
+}
+*/
+
+#name{
+	color: #FFFFFF;
 }
 
 .open{
@@ -25,13 +33,15 @@ nav {
 	margin-bottom: 0;
 }
 
-
+/*todo:*/
 nav a {
+	/*
 	color: #000;
 	display: block;
 	float: right;
 	font-size: 14px;
 	font-weight: 10000;
+	*/
 	margin-left: 55px;
 	text-transform: uppercase;
 }
@@ -102,7 +112,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 	right: 0px;
 	top: 0px;
 }
-
+/*
 .carousel-bullets ul {
 	margin: 0;
 	padding: 0;
@@ -119,7 +129,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 
 .carousel-bullets ul li.selected {
 	color: #009cd3;
-}
+}*/
 
 .column-one {
 	float:left;
@@ -148,6 +158,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 	*/
 }
 #contentwrapper {
+	margin-top: 55px;
 	margin-left: 10%;
 	margin-right: 10%;
 	/*
@@ -158,6 +169,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 
 #main {
+	margin-top: 55px;
 	margin-left:5%;
 	margin-right:5%;
 	font-family: Helvetica;
@@ -377,7 +389,7 @@ p.event {
 	list-style: none;
 	width: 975px;
 }
-
+/*
 #page-info-tab li {
 	display: block;
 	float: left;
@@ -385,7 +397,7 @@ p.event {
 	margin-right: 25px;
 	text-transform: uppercase;
 }
-
+*/
 .past-events {
 	font-weight: bold;
 }

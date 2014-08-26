@@ -4,10 +4,11 @@
         <title>{% block title %}Hacker Dojo{% endblock %}</title>
         <link rel="icon" type="image/ico" href="{{cdn}}/favicon.ico" />
         <link rel="alternate" type="application/rss+xml" title="Hacker Dojo Events" href="http://events.hackerdojo.com/events.rss" />
-        <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{{cdn}}/static/style/bootstrap.min.css">
+        <!--<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">-->
         <link href="{{cdn}}/static/style/mobile.css?v=v{{version}}" type="text/css" rel="stylesheet">
         <!-- make mobile style sheet here; or add div id to main stylesheet?-->
-        <meta name="viewport" content="width=device-width, target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
         {% block extrahead %}{% endblock %}
     </head>
 <body>
@@ -22,7 +23,7 @@
                 </button>
 
                 <a class="navbar-brand" href="/">
-                   <span>Hacker Dojo</span>
+                   <span id= "name">Hacker Dojo</span>
                 </a>
              </div>
 
