@@ -19,10 +19,6 @@ nav {
 }
 */
 
-#name{
-	color: #FFFFFF;
-}
-
 .open{
 	float:right;
 	font-size: 23px;
@@ -158,7 +154,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 	*/
 }
 #contentwrapper {
-	margin-top: 55px;
+	margin-top: 60px;
 	margin-left: 10%;
 	margin-right: 10%;
 	/*
