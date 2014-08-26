@@ -1,6 +1,6 @@
 body {
 	font-family: Verdana,Arial,sans-serif;
-	/*
+	/* for old navbar
 	margin-top: 112px ;
 	*/
 	font-size: 12px;
@@ -9,7 +9,7 @@ body {
 	margin-bottom: 0px;
 }
 
-/*
+/* for old navbar
 nav {
 	font-family: 'myriad pro', myriad, 'trebuchet ms',sans-serif;
 	float: right;
@@ -31,7 +31,7 @@ nav {
 
 /*todo:*/
 nav a {
-	/*
+	/* for old navbar
 	color: #000;
 	display: block;
 	float: right;
