@@ -18,7 +18,6 @@ nav {
 	width: 80%;
 }
 */
-
 .open{
 	float:right;
 	font-size: 23px;
@@ -29,7 +28,55 @@ nav {
 	margin-bottom: 0;
 }
 
-/*todo:*/
+/* blue navbar
+.navbar-custom {
+	background-color: #ffffff;
+	border-color: #0222ad;
+}
+.navbar-custom .navbar-brand {
+	color: #ac0036;
+}
+.navbar-custom .navbar-brand:hover, .navbar-custom .navbar-brand:focus {
+	color: #000000;
+}
+.navbar-custom .navbar-text {
+	color: #0430f1;
+}
+.navbar-custom .navbar-nav > li > a {
+	color: #0430f1;
+}
+.navbar-custom .navbar-nav > li > a:hover, .navbar-custom .navbar-nav > li > a:focus {
+	color: #000000;
+}
+.navbar-custom .navbar-nav > .active > a, .navbar-custom .navbar-nav > .active > a:hover, .navbar-custom .navbar-nav > .active > a:focus {
+	color: #ffffff;
+	background-color: #0222ad;
+}
+.navbar-custom .navbar-nav > .open > a, .navbar-custom .navbar-nav > .open > a:hover, .navbar-custom .navbar-nav > .open > a:focus {
+	color: #000000;
+	background-color: #0222ad;
+}
+.navbar-custom .navbar-toggle {
+	border-color: #0222ad;
+}
+.navbar-custom .navbar-toggle:hover, .navbar-custom .navbar-toggle:focus {
+	background-color: #0222ad;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+	background-color: #0430f1;
+}
+.navbar-custom .navbar-collapse,
+.navbar-custom .navbar-form {
+	border-color: #0430f1;
+}
+.navbar-custom .navbar-link {
+	color: #0430f1;
+}
+.navbar-custom .navbar-link:hover {
+	color: #000000;
+}
+*/
+
 nav a {
 	/* for old navbar
 	color: #000;
