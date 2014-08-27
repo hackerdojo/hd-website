@@ -16,7 +16,7 @@
         {% block extrahead %}{% endblock %}
     </head>
 <body>
-    <header id="top-nav" class="navbar navbar-inverse navbar-fixed-top" role="banner"style="font-size:14px;">
+    <header id="top-nav" class="navbar navbar-custom navbar-fixed-top" role="banner"style="font-size:14px;">
         <!--background-color: black; navbar-inverse or navbar-custom-->
         <div class="container" style="">
             <div class="navbar-header" style="">
@@ -26,7 +26,7 @@
                    <span class="icon-bar"></span>
                 </button>
 
-                <a class="navbar-brand" href="/" style="padding:0; color: #FFFFFF;">
+                <a class="navbar-brand" href="/" style="padding:0;">
                     <!--color: #FFFFFF; -->
                     <img src="{{cdn}}/static/images/hacker-dojo-icon.png" style = "height: 50px; padding-right: 6px;"></img>Hacker Dojo
                 </a>
@@ -76,11 +76,11 @@
     </div>
     <div id = "header_background"></div>
     -->
-    <div id="contentwrapper">
-        <div id="main">
+    <div id="main">
             {% block main %}
             {% endblock %}
-        </div>
+    </div>
+    <div id="contentwrapper">
         <div id="content">
             {% block content %}
             {% endblock %}
@@ -112,7 +112,28 @@ $(document).ready(function () {
     $('a[href="/' + location.pathname.split("/")[1] + '"]').parent().addClass('active');
 });
 </script>
-
+<script async type="text/javascript">
+$(document).ready(function () {
+    $( ".close_button" ).click(function(e) {
+        e.preventDefault();
+        $(".join").hide();
+    });
+    $(window).scroll(function() {
+        var scrollPosition = window.pageYOffset;
+        var windowSize     = window.innerHeight;
+        var bodyHeight     = document.body.offsetHeight;
+        if ($(window).scrollTop() > 50) { // > 100px from top - show div
+            $(".join").addClass('visible');
+        }
+        else { // <= 100px from top - hide div
+            $(".join").removeClass('visible');
+        }
+        if ((Math.max(bodyHeight - (scrollPosition + windowSize), 0) < 10)) { // scroll from bottom - hides to show footer
+            $(".join").removeClass('visible');
+        }
+    });
+});
+</script>
 </body>
 </html>
 {% endspaceless %}

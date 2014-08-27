@@ -28,7 +28,7 @@ nav {
 	margin-bottom: 0;
 }
 
-/* blue navbar
+/* blue navbar*/
 .navbar-custom {
 	background-color: #ffffff;
 	border-color: #0222ad;
@@ -52,7 +52,7 @@ nav {
 	color: #ffffff;
 	background-color: #0222ad;
 }
-*/
+
 
 /* for smaller screens only
 .navbar-custom .navbar-toggle {
@@ -206,20 +206,23 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 
 #main {
-	/*
 	margin-top: 55px;
+	/*
 	margin-left:5%;
 	margin-right:5%;
 	*/
 	font-family: Helvetica;
 	font-size: 18px;
 }
-
 .page_one{
+	margin-left: 5%;
+	margin-right: 5%;
 	background-color: #ececec;
 }
 
 .page_two{
+	margin-left: 5%;
+	margin-right: 5%;
 	background-color: #9932CC;
 }
 
@@ -229,6 +232,35 @@ a.homepage-blurb:hover, a.read-more:hover {
 
 .first {
 	margin-top: 0;
+}
+
+.join {
+	font-size: 18px;
+	background-color: black;
+	height: 80px;
+	width: 100%;
+	position: fixed;
+	z-index: 1000;
+	bottom: -8rem;
+	-webkit-transition: bottom 0.3s ease-in-out;
+	-moz-transition: bottom 0.3s ease-in-out;
+	-o-transition: bottom 0.3s ease-in-out;
+	transition: bottom 0.3s ease-in-out;
+}
+.join #join_content {
+	margin-top: 2%;
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.join .text {
+	color: #dadada;
+	/*padding: 5em;*/
+}
+.visible {
+	bottom: 0;
+}
+.close_button{
+	padding-left: 30%;
 }
 
 .fixed_footer {
