@@ -155,8 +155,9 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 #contentwrapper {
 	margin-top: 60px;
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-bottom: 10px;
+	margin-left: 5%;
+	margin-right: 5%;
 	/*
 	background-color: #ececec;
 	margin: 0 auto;
@@ -165,9 +166,11 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 
 #main {
+	/*
 	margin-top: 55px;
 	margin-left:5%;
 	margin-right:5%;
+	*/
 	font-family: Helvetica;
 	font-size: 18px;
 }
