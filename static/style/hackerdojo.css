@@ -52,10 +52,9 @@ nav {
 	color: #ffffff;
 	background-color: #0222ad;
 }
-.navbar-custom .navbar-nav > .open > a, .navbar-custom .navbar-nav > .open > a:hover, .navbar-custom .navbar-nav > .open > a:focus {
-	color: #000000;
-	background-color: #0222ad;
-}
+*/
+
+/* for smaller screens only
 .navbar-custom .navbar-toggle {
 	border-color: #0222ad;
 }
@@ -68,12 +67,6 @@ nav {
 .navbar-custom .navbar-collapse,
 .navbar-custom .navbar-form {
 	border-color: #0430f1;
-}
-.navbar-custom .navbar-link {
-	color: #0430f1;
-}
-.navbar-custom .navbar-link:hover {
-	color: #000000;
 }
 */
 
