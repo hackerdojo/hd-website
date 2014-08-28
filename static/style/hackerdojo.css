@@ -29,9 +29,12 @@ nav {
 }
 
 /* blue navbar*/
+#top-nav {
+	border-style: solid;
+	border-color: #0222ad;
+}
 .navbar-custom {
 	background-color: #ffffff;
-	border-color: #0222ad;
 }
 .navbar-custom .navbar-brand {
 	color: #ac0036;
