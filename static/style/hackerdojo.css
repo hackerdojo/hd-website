@@ -197,7 +197,6 @@ a.homepage-blurb:hover, a.read-more:hover {
 	*/
 }
 #contentwrapper {
-	margin-top: 60px;
 	margin-bottom: 10px;
 	margin-left: 5%;
 	margin-right: 5%;
@@ -207,9 +206,11 @@ a.homepage-blurb:hover, a.read-more:hover {
 	margin:0 0em;
 	*/
 }
+#all {
+	margin-top: 60px;
+}
 
 #main {
-	margin-top: 55px;
 	/*
 	margin-left:5%;
 	margin-right:5%;
@@ -217,16 +218,25 @@ a.homepage-blurb:hover, a.read-more:hover {
 	font-family: Helvetica;
 	font-size: 18px;
 }
-.page_one{
-	margin-left: 5%;
-	margin-right: 5%;
+.page-one{
+	padding-bottom: 1px;
+	padding-top: 1px;
 	background-color: #ececec;
 }
-
-.page_two{
+.page-one .content{
 	margin-left: 5%;
 	margin-right: 5%;
+}
+
+.page-two{
+	padding-bottom: 1px;
+	padding-top: 1px;
 	background-color: #9932CC;
+}
+
+.page-two .content{
+	margin-left: 5%;
+	margin-right: 5%;
 }
 
 .current {
