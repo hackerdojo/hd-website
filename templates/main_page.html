@@ -3,9 +3,9 @@
 <script type="text/javascript" src="{{cdn}}/static/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.simpletip-1.3.1.pack.js"></script>
+<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>
 {% endcomment %}
 {% block extrahead %}
-<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>
 <meta property="og:site_name" content="Hacker Dojo"/>
 <meta property="og:title" content="Hacker Dojo - Welcome to Silicon Valley's Tech Hub"/>
 <meta property="og:type" content="website"/>
@@ -47,7 +47,31 @@
 			</p>
 		</div>
 	</div>
-	<div class = "join">
+	<div class = "page-three">
+		<div class = "content">
+			<h2 style = "-webkit-margin-after: 0;">Connect with Us</h2>
+			<div class = "left-span">
+				<!--<h4>Our Facebook Page</h4>-->
+				<div id="fb-root"></div>
+				<script>(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+					fjs.parentNode.insertBefore(js, fjs);
+					}(document, 'script', 'facebook-jssdk'));
+				</script>
+				<div style="width: 575px; height:380px; overflow-y:hidden;">
+					<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="400" data-width="575"></div> <!--style="margin-top:-71px;"-->
+				</div>
+			</div>
+			<div class = "right-span">
+				<iframe src="http://events.hackerdojo.com/" style = "width: 575px; height:380px; border: 0px none;"></iframe>
+			</div>
+		<div class = "clear"></div>
+		</div>
+	</div>
+	<div class = "join"> <!-- currently hidden with js in base.html-->
 		<div id ="join_content">
 		    <span class = "text"> <a href="http://signup.hackerdojo.com/?"> Join Hackerdojo Today</a> and get all these Benefits: Better Internet, Come in anytime, etc...</span>
 		    <a class = "close_button" href = "">Close</a>

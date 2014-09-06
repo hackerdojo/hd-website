@@ -238,7 +238,28 @@ a.homepage-blurb:hover, a.read-more:hover {
 	margin-left: 5%;
 	margin-right: 5%;
 }
-
+.page-three{
+	padding-bottom: 1px;
+	padding-top: 1px;
+	background-color: orange;
+}
+.page-three > .content{
+	margin-left: 5%;
+	margin-right: 5%;
+}
+.page-three > .content > .left-span{
+	float: left;
+	width: 50%;
+}
+.page-three > .content > .right-span{
+	float: left;
+	width: 50%;
+}.page-three > .content > .clear{
+	clear: both;
+}
+.fb_iframe_widget, .fb_iframe_widget span, .fb_iframe_widget span iframe[style] {
+    width: 100% !important;
+}
 .current {
 	font-weight: bold;
 }
