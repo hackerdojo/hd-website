@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% comment %}
-<script type="text/javascript" src="{{cdn}}/static/js/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.jcarousel.min.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/jquery.simpletip-1.3.1.pack.js"></script>
 <script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>
 {% endcomment %}
 {% block extrahead %}
+<script type="text/javascript" src="{{cdn}}/static/js/jquery-1.4.2.min.js"></script>
 <meta property="og:site_name" content="Hacker Dojo"/>
 <meta property="og:title" content="Hacker Dojo - Welcome to Silicon Valley's Tech Hub"/>
 <meta property="og:type" content="website"/>
@@ -17,22 +17,36 @@
   <h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
 	<div class = "page-one">
 		<div class = "content">
-			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae eros at dolor cursus fermentum. Quisque nec mauris facilisis, interdum orci eget, semper urna. In a faucibus sem. Sed lacinia gravida fermentum. Vivamus dapibus tincidunt mi eget consectetur. Phasellus sed gravida nisl. Vestibulum rutrum tempus vestibulum. Proin eu justo ligula. Duis eget dui vitae turpis pretium molestie. In accumsan lectus orci, in ultrices felis finibus in. Quisque varius, quam vitae sodales faucibus, ante urna feugiat erat, id blandit magna elit vitae nibh. Cras quis tortor nec sem commodo iaculis. Integer in viverra enim.
-
-			Sed consequat lectus sagittis ultricies dapibus. Phasellus auctor velit risus, et efficitur nibh iaculis ut. Etiam hendrerit mattis nisi ut iaculis. Curabitur in tincidunt nunc, et feugiat nulla. Nulla ultrices blandit semper. Praesent cursus elementum felis eget auctor. Sed purus leo, porttitor quis leo eu, pharetra porta augue. Pellentesque vehicula at erat quis commodo. Praesent imperdiet eros lectus, eu eleifend nibh ornare et. Mauris malesuada metus erat, vitae sodales augue accumsan nec. Vivamus ac sapien varius, pharetra sapien sit amet, finibus odio. Fusce ut ex eget quam semper gravida vitae in lorem. Vivamus rutrum tellus non mollis bibendum. Proin ipsum ex, aliquet eu tristique nec, semper commodo nisl. Morbi metus ante, lacinia vitae urna sed, semper bibendum metus.
-
-			Integer in nibh nulla. Morbi mollis pellentesque porttitor. Fusce porttitor arcu nunc, quis faucibus arcu sollicitudin laoreet. Curabitur venenatis lacinia tellus, vel ultricies erat gravida vehicula. Mauris tristique ultrices augue, nec pellentesque purus efficitur in. Nullam mi mi, pretium nec euismod venenatis, bibendum ac metus. Praesent in mi arcu. Maecenas vel purus quis sem tempor consequat. Proin at justo nec nulla lacinia malesuada. Fusce aliquet convallis neque. Suspendisse ut felis venenatis, commodo odio nec, ultrices orci. Quisque gravida elementum quam, a sodales enim semper id. Maecenas interdum tortor nec luctus vulputate. Phasellus feugiat commodo orci, at mattis ligula volutpat eleifend. Integer fringilla lacus sit amet lacus hendrerit, non pharetra purus tempor. Donec vel orci placerat leo laoreet tempus.
-
-			Pellentesque vel dictum diam. Praesent eget lacus pulvinar, varius neque dictum, eleifend augue. Morbi sagittis augue sagittis tellus rhoncus, ut imperdiet ex placerat. Suspendisse sed metus dictum, efficitur dolor vitae, fringilla velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget orci purus. Aenean commodo sed turpis quis luctus. Aliquam lobortis tellus a vehicula euismod. Vivamus egestas ante non nibh ultricies convallis. Praesent et lectus ultrices, semper elit non, maximus ligula. Pellentesque ac mattis ex, nec vehicula dolor. Nulla vel commodo nibh, consectetur faucibus lacus. Vestibulum ut pulvinar eros. Aliquam rhoncus id mi sed pellentesque. Sed vel tempus elit, sed dapibus urna.
-
-			Aliquam tristique vel metus ut elementum. Nullam gravida elementum dignissim. Nunc feugiat magna a mi cursus dignissim. Nulla quis nibh diam. Maecenas aliquet tristique sapien, vitae sodales eros commodo vel. Vestibulum nibh diam, sollicitudin iaculis pharetra elementum, consectetur at sem. Aenean rhoncus consectetur rhoncus. Vivamus id dolor a lorem bibendum condimentum et in nibh. In nec mattis orci. Mauris semper, ante sit amet auctor aliquet, massa mauris consectetur arcu, a posuere nulla ligula ut turpis. Suspendisse faucibus ornare ipsum eu imperdiet. Nam gravida venenatis justo faucibus eleifend. Integer vitae massa dapibus, tincidunt turpis eget, vehicula lorem.
-
-			Vestibulum vel euismod metus. Ut sed placerat lacus. Sed hendrerit lorem nisl, ac malesuada massa pharetra nec. Nulla commodo in velit ac pharetra. Vestibulum nec nibh placerat, tempor dolor a, condimentum nulla. Nunc consectetur velit nec nisl ultrices commodo. Donec tincidunt placerat nunc a feugiat. Sed scelerisque faucibus est ut ultrices. Aenean sodales purus tellus, ac porttitor magna facilisis nec. Aliquam at turpis lectus.
-			</p>
+			<h2 style = "margin: 0;">About Us</h2><!-- add margin above-->
+			<article>
+				<section class="one">
+					<h3>An Innovation Center</h3>
+						<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Welcome to Hacker Dojo! We're a community of hackers and startups located in Mountain View. Hacker Dojo is a place for building robots, businesses, and holding events.</p>
+						<a href="/About" class="homepage-blurb">About us</a>
+				</section>
+				<!--<section class="two">
+				<h3>Become a Member</h3>
+						<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">For $125 a month you can get your own RFID-key 24/7 access, the ability to host events, and more. Try us out for up to a week. Guest hours are 10:00am – 9:00pm.</p>
+						<a href="/Membership" class="homepage-blurb">Join now</a>
+				</section>-->
+				<section class="two">
+					<h3>We Have Events</h3>
+						<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Events, lectures, parties, BarCamps, DevHouses, LAN parties, hackathons, knitting circles, tinkering, brainstorming and coworking: you name it, we got it.</p>
+						<a href="http://events.hackerdojo.com/" class="homepage-blurb">See the full calendar</a>
+				</section>
+				<section class="four">
+				<h3>Every Friday</h3>
+						<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Lightning Talks &amp; Happy Hour starts at 5:00 every Friday.Learn about new products &amp; companies at the Dojo. (Open to the Public)
+						</p>
+						<a href="/lightningtalks" class="homepage-blurb">Find out more</a>
+				</section>
+			<hr class="clear">
+			</article>
 		</div>
 	</div>
 	<div class = "page-two">
 		<div class = "content">
+			<h2 style = "margin: 0;">Visit Us</h2><!-- add margin above-->
 			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae eros at dolor cursus fermentum. Quisque nec mauris facilisis, interdum orci eget, semper urna. In a faucibus sem. Sed lacinia gravida fermentum. Vivamus dapibus tincidunt mi eget consectetur. Phasellus sed gravida nisl. Vestibulum rutrum tempus vestibulum. Proin eu justo ligula. Duis eget dui vitae turpis pretium molestie. In accumsan lectus orci, in ultrices felis finibus in. Quisque varius, quam vitae sodales faucibus, ante urna feugiat erat, id blandit magna elit vitae nibh. Cras quis tortor nec sem commodo iaculis. Integer in viverra enim.
 
 			Sed consequat lectus sagittis ultricies dapibus. Phasellus auctor velit risus, et efficitur nibh iaculis ut. Etiam hendrerit mattis nisi ut iaculis. Curabitur in tincidunt nunc, et feugiat nulla. Nulla ultrices blandit semper. Praesent cursus elementum felis eget auctor. Sed purus leo, porttitor quis leo eu, pharetra porta augue. Pellentesque vehicula at erat quis commodo. Praesent imperdiet eros lectus, eu eleifend nibh ornare et. Mauris malesuada metus erat, vitae sodales augue accumsan nec. Vivamus ac sapien varius, pharetra sapien sit amet, finibus odio. Fusce ut ex eget quam semper gravida vitae in lorem. Vivamus rutrum tellus non mollis bibendum. Proin ipsum ex, aliquet eu tristique nec, semper commodo nisl. Morbi metus ante, lacinia vitae urna sed, semper bibendum metus.
@@ -49,7 +63,7 @@
 	</div>
 	<div class = "page-three">
 		<div class = "content">
-			<h2 style = "-webkit-margin-after: 0;">Connect with Us</h2>
+			<h2 style = "margin: 0;">Connect with Us</h2><!-- add margin above-->
 			<div class = "left-span">
 				<!--<h4>Our Facebook Page</h4>-->
 				<div id="fb-root"></div>
@@ -65,16 +79,19 @@
 					<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="400" data-width="575"></div> <!--style="margin-top:-71px;"-->
 				</div>
 			</div>
-			<div class = "right-span">
-				<iframe src="http://events.hackerdojo.com/" style = "width: 575px; height:380px; border: 0px none;"></iframe>
+			<div class = "right-span"><!--iframe is very slow-->
+				<!--<iframe src="http://events.hackerdojo.com/" style = "width: 575px; height:380px; border: 0px none;"></iframe>-->
 			</div>
 		<div class = "clear"></div>
 		</div>
 	</div>
 	<div class = "join"> <!-- currently hidden with js in base.html-->
 		<div id ="join_content">
-		    <span class = "text"> <a href="http://signup.hackerdojo.com/?"> Join Hackerdojo Today</a> and get all these Benefits: Better Internet, Come in anytime, etc...</span>
-		    <a class = "close_button" href = "">Close</a>
+			<form style = "float:left; padding: 10px;"action="http://signup.hackerdojo.com/?">
+				<input type="submit" value="Join Hackerdojo Today">
+			</form>
+		    <p class = "text">For $125 a month you can get your own RFID-key 24/7 access, the ability to host events, and more. Try us out for up to a week. Guest hours are 10:00am – 9:00pm.</p>
 		</div>
+		<button class = "close_button" href = "">x</button>
 	</div>
 {% endblock %}

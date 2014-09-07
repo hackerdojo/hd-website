@@ -55,9 +55,7 @@ nav {
 	color: #ffffff;
 	background-color: #0222ad;
 }
-
-
-/* for smaller screens only
+/* for smaller screens only*/
 .navbar-custom .navbar-toggle {
 	border-color: #0222ad;
 }
@@ -71,8 +69,6 @@ nav {
 .navbar-custom .navbar-form {
 	border-color: #0430f1;
 }
-*/
-
 nav a {
 	/* for old navbar
 	color: #000;
@@ -80,19 +76,10 @@ nav a {
 	float: right;
 	font-size: 14px;
 	font-weight: 10000;
-	*/
 	margin-left: 55px;
+	*/
 	text-transform: uppercase;
 }
-nav a:visited {
-  color:black;
-}  
-nav a.selected {
-	color: #009cd3;
-	font-weight: bold;
-}
-
-
 a {
 	color: #009cd3;
 	text-decoration: none;
@@ -271,7 +258,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 .join {
 	font-size: 18px;
 	background-color: black;
-	height: 80px;
+	height: 70px;
 	width: 100%;
 	position: fixed;
 	z-index: 1000;
@@ -281,21 +268,32 @@ a.homepage-blurb:hover, a.read-more:hover {
 	-o-transition: bottom 0.3s ease-in-out;
 	transition: bottom 0.3s ease-in-out;
 }
-.join #join_content {
-	margin-top: 2%;
+.join > #join_content {
+	margin-top: .5%;
 	margin-left: 5%;
 	margin-right: 5%;
 }
-.join .text {
-	color: #dadada;
-	/*padding: 5em;*/
+.text {
+	color: white;
+	text-align: center;
+	padding: 0.5em;
 }
 .visible {
 	bottom: 0;
 }
 .close_button{
-	padding-left: 30%;
+	padding: 0px 6px 3px;
+	float: right;
+	position: relative;
+	margin-top: -65px;
+	margin-right: 15px;
+	border: 0px none;
+	cursor: pointer;
+	opacity: 0.3;
+	background: none repeat scroll 0px 0px transparent;
+	color: white;
 }
+.close_button:hover{opacity: 1;}
 
 .fixed_footer {
 	border-top: 5px #A9A9A9 dashed;

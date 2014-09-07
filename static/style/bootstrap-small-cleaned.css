@@ -196,17 +196,27 @@ hr {
   padding-left: 15px;
   padding-right: 15px;
 }
-@media (min-width: 768px) {
+
+@media (min-width: 768px) and (max-width: 992px;) {
+  nav a {
+    margin-left: 10px ;
+  }
   .container {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
+  nav a {
+    margin-left: 25px ;
+  }
   .container {
     width: 970px;
   }
 }
 @media (min-width: 1200px) {
+  nav a {
+    margin-left: 55px ;
+  }
   .container {
     width: 1170px;
   }

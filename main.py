@@ -89,8 +89,6 @@ class IndexHandler(webapp.RequestHandler):
         if CDN_ENABLED:
             cdn = CDN_HOSTNAME
         if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
-            a = "Test"
-            #self.response.out.write(template.render('templates/mobile.html', locals()))
             self.response.out.write(template.render('templates/mobile/main_mobile.html', locals()))
         else:
             self.response.out.write(template.render('templates/main_page.html', locals()))
@@ -161,8 +159,6 @@ class MainHandler(webapp.RequestHandler):
                         cdn = CDN_HOSTNAME
                     open = _time()
                     if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
-                        a = "Test"
-                        #self.response.out.write(template.render('templates/mobile.html', locals()))
                         self.response.out.write(template.render('templates/mobile/content_mobile.html', locals()))
                     else:
                         self.response.out.write(template.render('templates/content.html', locals()))
