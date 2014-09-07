@@ -121,13 +121,6 @@ class MainHandler(webapp.RequestHandler):
           'key': 'http://signup.hackerdojo.com/key',
         }
 
-        #if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
-        #    open = _time()
-        #    a = "Test"
-        #    version = os.environ['CURRENT_VERSION_ID']
-        #    if CDN_ENABLED:
-        #        cdn = CDN_HOSTNAME
-        #    self.response.out.write(template.render('templates/mobile.html', locals()))
         if pagename in redirect_urls:
             url = redirect_urls[pagename]
             self.redirect(url, permanent=True)
@@ -170,8 +163,6 @@ class MainHandler(webapp.RequestHandler):
                     cdn = CDN_HOSTNAME
                 open = _time()
                 if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
-                        a = "Test"
-                        #self.response.out.write(template.render('templates/mobile.html', locals()))
                         self.response.out.write(template.render('templates/mobile/404_mobile.html', locals()))
                         self.response.set_status(404)
                 else:
