@@ -245,7 +245,20 @@ a.homepage-blurb:hover, a.read-more:hover {
 	float: left;
 	height: 490px;
 	width: 50%;
-	overflow-y:auto;
+}
+#outeriframe {
+	float: left;
+	height: 490px;
+	width: 100%;
+	overflow:hidden;
+    position:relative;
+}
+#inneriframe {
+	position:absolute;
+	top:-240px;
+	left:-20px;
+	width:685px;
+	height:800px;
 }
 .page-three > .content > .clear{
 	clear: both;
