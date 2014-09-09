@@ -84,6 +84,26 @@ class PBWebHookHandler(webapp.RequestHandler):
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         open = _time()
+        test = False
+        if test == True:
+            response = urllib.urlopen('http://events.hackerdojo.com/events.json') #gets json data from hackerdojo events
+            data = json.load(response)
+            sep = '@' #used for stripping @hackerdojo.com
+            events2 = [list([]) for _ in xrange(len(data))] #create empty events file in format [[event1][event2]]
+            for i in range(len(data)): #each event is [member,name,id,room,start time, date]
+                a = data[i]['start_time'] # for coded; is used for b
+                b = datetime.strptime(a, '%Y-%m-%dT%H:%M:%S') #converts start_time to datetime
+                if datetime.now(pytz.timezone(LOCAL_TZ)).date() <= b.date(): #only shows events on or after todays date
+                    events2[i].append(str(data[i]['member']).split(sep, 1)[0]) #append member with @hackerdojo.com
+                    events2[i].append(str(data[i]['name'])) #append name of events
+                    events2[i].append(str(data[i]['id'])) #append id of event, so people can click on it
+                    if data[i]['rooms']: #checks if room exists, if not just returns empty string
+                        events2[i].append(str(data[i]['rooms'][0]))
+                    else:
+                        events2[i].append(str(''))
+                    events2[i].append(str(b.time().strftime("%I:%M%p"))) #appends time in 12 hr format
+                    events2[i].append(str(b.strftime("%A, %B %d"))) #appends day, month and day of the month
+            events = [x for x in events2 if x != []]
         mobileRedirect = isMobile(self)
         version = os.environ['CURRENT_VERSION_ID']
         if CDN_ENABLED:

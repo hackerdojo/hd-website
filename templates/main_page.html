@@ -76,14 +76,31 @@
 					fjs.parentNode.insertBefore(js, fjs);
 					}(document, 'script', 'facebook-jssdk'));
 				</script>
-				<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="500" data-width="575"></div> <!--style="margin-top:-71px;"-->
+				<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="500" data-width="550"></div> <!--style="margin-top:-71px;"-->
 			</div>
 			<div class = "right-span">
 				<h3 style = "margin:0;">Events</h3>
 				<!--iframe is very slow; loading with script does not work because of security reasons-->
 				<div id = "outeriframe">
-					<iframe src="http://events.hackerdojo.com/" id='inneriframe' scrolling=no ></iframe>
+					<iframe src="" id="inneriframe" scrolling=no ></iframe>
 				</div>
+				<!--using python and django is also slow-->
+				{% for item in events %}
+				{% ifchanged item.5 %}
+				<h4>{{item.5}}</h4>
+				{% endifchanged %}
+				<table>
+					<tr>
+						<td width="75">{{item.4}}</td>
+						<td>
+					    <a href="http://events.hackerdojo.com/event/{{item.2}}">
+					      {{item.1}}
+						</a>
+					  <div style="font-size:80%">Hosted by <a href="mailto:{{item.0}}@hackerdojo.com">{{item.0}}</a> 
+						{% if item.3|length > 0 %}in {{item.3}}{% endif %}</div></td>
+					</tr>
+				</table>
+				{% endfor %}
 			</div>
 		<div class = "clear"></div>
 		</div>

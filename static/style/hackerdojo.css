@@ -228,7 +228,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 .page-three{
 	padding-bottom: 1px;
 	padding-top: 1px;
-	background-color: orange;
+	background-color: white;
 }
 .page-three > .content{
 	margin-left: 5%;
@@ -245,20 +245,23 @@ a.homepage-blurb:hover, a.read-more:hover {
 	float: left;
 	height: 490px;
 	width: 50%;
+	margin-left: 5px;
+	margin-right: -5px;
 }
 #outeriframe {
 	float: left;
-	height: 490px;
+	height: 92%;
 	width: 100%;
-	overflow:hidden;
-    position:relative;
+	overflow-x: hidden;
+	overflow-y: scroll;
+    position: relative;
 }
 #inneriframe {
 	position:absolute;
 	top:-240px;
 	left:-20px;
 	width:685px;
-	height:800px;
+	height:1000px;
 }
 .page-three > .content > .clear{
 	clear: both;

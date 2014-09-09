@@ -1,5 +1,6 @@
 $(document).ready(function () {
     //$(".right-span").load("http://events.hackerdojo.com #primary");
+    $('#inneriframe').attr('src', 'http://events.hackerdojo.com/');
     var test = true;
     if (test == true){
         $(".join").hide();
