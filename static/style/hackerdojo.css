@@ -323,6 +323,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 	border: 0;
 	border-radius: 3px;
 	padding: 16px 16px;
+	transition: all 0.3s ease 0s;
 }
 .join-button:hover{background-color: white; color: #be0201;}
 .fixed_footer {
