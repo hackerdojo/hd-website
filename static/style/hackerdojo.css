@@ -100,14 +100,13 @@ a:active {
 
 a.homepage-blurb, a.read-more {
 	font-weight: bold;
-	background: transparent url('../images/circle-arrow.png') 1 right no-repeat;
 	display: block;
 	float: left;
 	padding-right: 20px;
 }
 
 a.homepage-blurb:hover, a.read-more:hover {
-	background: transparent url('../images/circle-arrow-hover.png') top right no-repeat;
+	background: transparent url('../images/circle-arrow-hover-transparent.png') center right no-repeat;
 }
 
 .big-butt {
