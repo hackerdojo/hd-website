@@ -15,6 +15,7 @@
 <meta property="fb:admins" content="556346067"/>
 {% endblock %}
 {% block main %}
+<!-- each page has its own div with a background color; content div is so that there is a 5% margin on both sides-->
   <h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
 	<div class = "page-one">
 		<div class = "content">
@@ -25,11 +26,6 @@
 						<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Welcome to Hacker Dojo! We're a community of hackers and startups located in Mountain View. Hacker Dojo is a place for building robots, businesses, and holding events.</p>
 						<a href="/About" class="homepage-blurb">About us</a>
 				</section>
-				<!--<section class="two">
-				<h3>Become a Member</h3>
-						<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">For $125 a month you can get your own RFID-key 24/7 access, the ability to host events, and more. Try us out for up to a week. Guest hours are 10:00am – 9:00pm.</p>
-						<a href="/Membership" class="homepage-blurb">Join now</a>
-				</section>-->
 				<section class="two">
 					<h3>We Have Events</h3>
 						<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Events, lectures, parties, BarCamps, DevHouses, LAN parties, hackathons, knitting circles, tinkering, brainstorming and coworking: you name it, we got it.</p>
@@ -48,18 +44,11 @@
 	<div class = "page-two">
 		<div class = "content">
 			<h2 style = "margin: 0;">Visit Us</h2><!-- add margin above-->
-			<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae eros at dolor cursus fermentum. Quisque nec mauris facilisis, interdum orci eget, semper urna. In a faucibus sem. Sed lacinia gravida fermentum. Vivamus dapibus tincidunt mi eget consectetur. Phasellus sed gravida nisl. Vestibulum rutrum tempus vestibulum. Proin eu justo ligula. Duis eget dui vitae turpis pretium molestie. In accumsan lectus orci, in ultrices felis finibus in. Quisque varius, quam vitae sodales faucibus, ante urna feugiat erat, id blandit magna elit vitae nibh. Cras quis tortor nec sem commodo iaculis. Integer in viverra enim.
-
-			Sed consequat lectus sagittis ultricies dapibus. Phasellus auctor velit risus, et efficitur nibh iaculis ut. Etiam hendrerit mattis nisi ut iaculis. Curabitur in tincidunt nunc, et feugiat nulla. Nulla ultrices blandit semper. Praesent cursus elementum felis eget auctor. Sed purus leo, porttitor quis leo eu, pharetra porta augue. Pellentesque vehicula at erat quis commodo. Praesent imperdiet eros lectus, eu eleifend nibh ornare et. Mauris malesuada metus erat, vitae sodales augue accumsan nec. Vivamus ac sapien varius, pharetra sapien sit amet, finibus odio. Fusce ut ex eget quam semper gravida vitae in lorem. Vivamus rutrum tellus non mollis bibendum. Proin ipsum ex, aliquet eu tristique nec, semper commodo nisl. Morbi metus ante, lacinia vitae urna sed, semper bibendum metus.
-
-			Integer in nibh nulla. Morbi mollis pellentesque porttitor. Fusce porttitor arcu nunc, quis faucibus arcu sollicitudin laoreet. Curabitur venenatis lacinia tellus, vel ultricies erat gravida vehicula. Mauris tristique ultrices augue, nec pellentesque purus efficitur in. Nullam mi mi, pretium nec euismod venenatis, bibendum ac metus. Praesent in mi arcu. Maecenas vel purus quis sem tempor consequat. Proin at justo nec nulla lacinia malesuada. Fusce aliquet convallis neque. Suspendisse ut felis venenatis, commodo odio nec, ultrices orci. Quisque gravida elementum quam, a sodales enim semper id. Maecenas interdum tortor nec luctus vulputate. Phasellus feugiat commodo orci, at mattis ligula volutpat eleifend. Integer fringilla lacus sit amet lacus hendrerit, non pharetra purus tempor. Donec vel orci placerat leo laoreet tempus.
-
-			Pellentesque vel dictum diam. Praesent eget lacus pulvinar, varius neque dictum, eleifend augue. Morbi sagittis augue sagittis tellus rhoncus, ut imperdiet ex placerat. Suspendisse sed metus dictum, efficitur dolor vitae, fringilla velit. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget orci purus. Aenean commodo sed turpis quis luctus. Aliquam lobortis tellus a vehicula euismod. Vivamus egestas ante non nibh ultricies convallis. Praesent et lectus ultrices, semper elit non, maximus ligula. Pellentesque ac mattis ex, nec vehicula dolor. Nulla vel commodo nibh, consectetur faucibus lacus. Vestibulum ut pulvinar eros. Aliquam rhoncus id mi sed pellentesque. Sed vel tempus elit, sed dapibus urna.
-
-			Aliquam tristique vel metus ut elementum. Nullam gravida elementum dignissim. Nunc feugiat magna a mi cursus dignissim. Nulla quis nibh diam. Maecenas aliquet tristique sapien, vitae sodales eros commodo vel. Vestibulum nibh diam, sollicitudin iaculis pharetra elementum, consectetur at sem. Aenean rhoncus consectetur rhoncus. Vivamus id dolor a lorem bibendum condimentum et in nibh. In nec mattis orci. Mauris semper, ante sit amet auctor aliquet, massa mauris consectetur arcu, a posuere nulla ligula ut turpis. Suspendisse faucibus ornare ipsum eu imperdiet. Nam gravida venenatis justo faucibus eleifend. Integer vitae massa dapibus, tincidunt turpis eget, vehicula lorem.
-
-			Vestibulum vel euismod metus. Ut sed placerat lacus. Sed hendrerit lorem nisl, ac malesuada massa pharetra nec. Nulla commodo in velit ac pharetra. Vestibulum nec nibh placerat, tempor dolor a, condimentum nulla. Nunc consectetur velit nec nisl ultrices commodo. Donec tincidunt placerat nunc a feugiat. Sed scelerisque faucibus est ut ultrices. Aenean sodales purus tellus, ac porttitor magna facilisis nec. Aliquam at turpis lectus.
-			</p>
+			<a href="/parking_directions">
+			<img height="175" width="288" src="{{cdn}}/static/images/map.gif?v=2" class="image-border map">
+			</a>
+			<p>We're located at <a href='https://www.google.com/maps/place/Hacker+Dojo/@37.403057,-122.049845,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x9f6f7e2c42ca6e51'>599 Fairchild Dr. in Mountain View, CA.</a> Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
+			<hr class="clear">
 		</div>
 	</div>
 	<div class = "page-three">
@@ -80,27 +69,10 @@
 			</div>
 			<div class = "right-span">
 				<h3 style = "margin:0;">Events</h3>
-				<!--iframe is very slow; loading with script does not work because of security reasons-->
+				<!--iframe is slow, but faster than json on desktop; currently loads iframe after the rest of the page is loaded with iframe-->
 				<div id = "outeriframe">
 					<iframe src="" id="inneriframe" scrolling=no ></iframe>
 				</div>
-				<!--using python and django is also slow-->
-				{% for item in events %}
-				{% ifchanged item.5 %}
-				<h4>{{item.5}}</h4>
-				{% endifchanged %}
-				<table>
-					<tr>
-						<td width="75">{{item.4}}</td>
-						<td>
-					    <a href="http://events.hackerdojo.com/event/{{item.2}}">
-					      {{item.1}}
-						</a>
-					  <div style="font-size:80%">Hosted by <a href="mailto:{{item.0}}@hackerdojo.com">{{item.0}}</a> 
-						{% if item.3|length > 0 %}in {{item.3}}{% endif %}</div></td>
-					</tr>
-				</table>
-				{% endfor %}
 			</div>
 		<div class = "clear"></div>
 		</div>

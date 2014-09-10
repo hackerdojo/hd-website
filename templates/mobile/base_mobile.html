@@ -26,7 +26,7 @@
              </div>
 
              <nav class="navbar-collapse navbar-right collapse" id = "hd-navbar-collapse" role="navigation">
-                <ul class="nav navbar-nav navbar-right" role = "menu">
+                <ul class="nav navbar-nav navbar-right" role = "menu" style = "font-size: 16px;">
                 {% comment %}<li><a href="http://signup.hackerdojo.com/dashboard">Login</a></li>{% endcomment %}
                 <li><a href="http://dashboard.hackerdojo.com">My Dashboard</a></li>
                 <li><a href="http://events.hackerdojo.com/">Events</a></li>
@@ -68,6 +68,13 @@
 
 </script>
 <script type='text/javascript' src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript">
+$('.wikihtml').find('*').each(function () {
+  //removes any style from wikicontent
+  $(this).removeAttr('style');
+  //console.log('removing style from first level element: ' + this);
+});
+</script>
 <script type="text/javascript" async src="{{cdn}}/static/js/bootstrap.min.js"></script>
 </body>
 </html>
