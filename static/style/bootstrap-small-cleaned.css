@@ -205,6 +205,9 @@ hr {
   }
 }
 @media (min-width: 992px) {
+  .one, .two, .three, .four {
+  width: 31%;
+  }
   nav a {
     margin-left: 25px ;
   }
