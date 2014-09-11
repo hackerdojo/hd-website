@@ -116,7 +116,7 @@ class IndexHandler(webapp.RequestHandler):
                         events2[i].append(str(''))
                     events2[i].append(str(b.strftime("%I:%M%p"))) #appends time in 12 hr format
                     events2[i].append(str(b.strftime("%A, %B %d"))) #appends day, month and day of the month
-                elif (b.date() > c + timedelta(days=num_days)): #ends for loop to increase speed
+                elif (b.date() > d)): #ends for loop to increase speed
                     break
             events = [x for x in events2 if x != []] #cleans out any empty []
             self.response.out.write(template.render('templates/mobile/main_mobile.html', locals()))
