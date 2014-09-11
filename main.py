@@ -4,7 +4,7 @@ import os
 os.environ['DJANGO_SETTINGS_MODULE'] = 'settings'
 
 import pytz
-from datetime import datetime
+from datetime import datetime, timedelta
 from google.appengine.api import memcache
 from google.appengine.api import urlfetch
 from google.appengine.ext import webapp
@@ -84,7 +84,7 @@ class PBWebHookHandler(webapp.RequestHandler):
 
 class IndexHandler(webapp.RequestHandler):
     def get(self):
-        open = _time()
+        #open = _time()
         mobileRedirect = isMobile(self)
         version = os.environ['CURRENT_VERSION_ID']
         if CDN_ENABLED:
@@ -92,26 +92,32 @@ class IndexHandler(webapp.RequestHandler):
         if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
             #this is only done for mobile,
             #because loading an iframe would be much slower and cropping it would be hard with different screen sizes
+            #most of the latency currently comes from the slowness of getting events.json
+            #Todo: upload events.json to blobstore every hour and then read it from there
             response = urllib.urlopen('http://events.hackerdojo.com/events.json') #gets json data from hackerdojo events
             data = json.load(response)
             sep = '@' #used for stripping @hackerdojo.com
-            num_events = 14 #set the amount of events it should get
-            #currently is abitrary; should be changed so it does not cut of events for a day
+            num_days = 3 #set the amount of days of events it should get
+            num_events = len(data)/4 #calculates 1/4 of the length of all events, so the speed is increased
+            c = datetime.now(pytz.timezone(LOCAL_TZ)).date() #local date in LOCAL_TZ
+            d = c + timedelta(days=num_days) #calculates todays date + num_days
             events2 = [list([]) for _ in xrange(num_events)] #empty events list to be filled in format [[event1][event2]]
-            for i in range(num_events):
+            for i in range(num_events): #runs through the events
                 #each event is [member,name of event,id,room,start time,date]
-                a = data[i]['start_time'] #is used for b
-                b = datetime.strptime(a, '%Y-%m-%dT%H:%M:%S') #converts start_time to datetime format
-                if datetime.now(pytz.timezone(LOCAL_TZ)).date() <= b.date(): #only shows events on or after todays date
+                b = datetime.strptime(data[i]['start_time'], '%Y-%m-%dT%H:%M:%S') #converts start_time to datetime format
+                if (c <= b.date()) and (b.date() <= d):
+                    #only shows events on or after todays date and before or on todays date + num_days
                     events2[i].append(str(data[i]['member']).split(sep, 1)[0]) #append member without @hackerdojo.com
                     events2[i].append(str(data[i]['name'])) #append name of events
-                    events2[i].append(str(data[i]['id'])) #append id of event, so people can click on it
+                    events2[i].append(str(data[i]['id'])) #append id of event, which is for href
                     if data[i]['rooms']: #checks if room exists, if not just returns empty string
                         events2[i].append(str(data[i]['rooms'][0]))
                     else:
                         events2[i].append(str(''))
-                    events2[i].append(str(b.time().strftime("%I:%M%p"))) #appends time in 12 hr format
+                    events2[i].append(str(b.strftime("%I:%M%p"))) #appends time in 12 hr format
                     events2[i].append(str(b.strftime("%A, %B %d"))) #appends day, month and day of the month
+                elif (b.date() > c + timedelta(days=num_days)): #ends for loop to increase speed
+                    break
             events = [x for x in events2 if x != []] #cleans out any empty []
             self.response.out.write(template.render('templates/mobile/main_mobile.html', locals()))
         else:
