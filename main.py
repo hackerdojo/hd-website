@@ -92,7 +92,7 @@ class IndexHandler(webapp.RequestHandler):
         if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
             #this is only done for mobile,
             #because loading an iframe would be much slower and cropping it would be hard with different screen sizes
-            #most of the latency currently comes from the slowness of getting events.json
+            #most of the latency currently comes from the slowness of getting events.json; the differences is about 1s
             #Todo: upload events.json to blobstore every hour and then read it from there
             response = urllib.urlopen('http://events.hackerdojo.com/events.json') #gets json data from hackerdojo events
             data = json.load(response)
