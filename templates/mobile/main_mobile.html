@@ -43,7 +43,7 @@
 	</div>
 	<div class = "page-three">
 		<div class = "content">
-			<h2 style = "margin: 0;">Events</h2><!-- add margin above-->
+			<a href="http://events.hackerdojo.com"><h2 style = "margin: 0;">Events</h2></a><!-- add margin above-->
 			{% for item in events %}
 				{% ifchanged item.5 %}
 				<h4>{{item.5}}</h4>
@@ -52,9 +52,16 @@
 					<tr>
 					<td width="75" style ="padding-left: 5px;" >{{item.4}}</td>
 					<td>
+					{% ifnotequal item.6 "approved" %}
+					<a style = "text-decoration: line-through;" href="http://events.hackerdojo.com/event/{{item.2}}">
+					     {{item.1}}
+					</a>
+					<span style = "color: red; margin-left: 2px;">Cancelled</span>
+					{% else %}
 						<a href="http://events.hackerdojo.com/event/{{item.2}}">
 					      {{item.1}}
 						</a>
+					{% endifnotequal %}
 					  <div style="font-size:80%">Hosted by <a href="mailto:{{item.0}}@hackerdojo.com">{{item.0}}</a> 
 						{% if item.3|length > 0 %}in {{item.3}}{% endif %}</div>
 					</td>

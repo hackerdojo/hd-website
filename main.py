@@ -28,7 +28,8 @@ reg_b = re.compile(r"(android|bb\\d+|meego).+mobile|avantgo|bada\\/|blackberry|b
 reg_v = re.compile(r"1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\\-(n|u)|c55\\/|capi|ccwa|cdm\\-|cell|chtm|cldc|cmd\\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\\-s|devi|dica|dmob|do(c|p)o|ds(12|\\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\\-|_)|g1 u|g560|gene|gf\\-5|g\\-mo|go(\\.w|od)|gr(ad|un)|haie|hcit|hd\\-(m|p|t)|hei\\-|hi(pt|ta)|hp( i|ip)|hs\\-c|ht(c(\\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\\-(20|go|ma)|i230|iac( |\\-|\\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\\/)|klon|kpt |kwc\\-|kyo(c|k)|le(no|xi)|lg( g|\\/(k|l|u)|50|54|\\-[a-w])|libw|lynx|m1\\-w|m3ga|m50\\/|ma(te|ui|xo)|mc(01|21|ca)|m\\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\\-2|po(ck|rt|se)|prox|psio|pt\\-g|qa\\-a|qc(07|12|21|32|60|\\-[2-7]|i\\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\\-|oo|p\\-)|sdk\\/|se(c(\\-|0|1)|47|mc|nd|ri)|sgh\\-|shar|sie(\\-|m)|sk\\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\\-|v\\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\\-|tdg\\-|tel(i|m)|tim\\-|t\\-mo|to(pl|sh)|ts(70|m\\-|m3|m5)|tx\\-9|up(\\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\\-|your|zeto|zte\\-", re.I|re.M)
 
 #todo: test with actual cloud storage code
-#google cloud storage according to documentation
+#google cloud storage according to documentation:
+doc= "events.json"
 FullFileUrl = "http://storage.googleapis.com/%s.appspot.com/%s/events.json" \
     % (app_identity.get_application_id(),app_identity.get_default_gcs_bucket_name())
 
@@ -79,6 +80,32 @@ def isMobile(self): #checks if browser is mobile; returns True or False
         mobileRedirect = True
     return mobileRedirect
 
+def EventToList(data):
+    sep = '@' #used for stripping @hackerdojo.com
+    num_days = 3 #set the amount of days of events it should get
+    num_events = len(data)/4 #calculates 1/4 of the length of all events, so the speed is increased
+    c = datetime.now(pytz.timezone(LOCAL_TZ)).date() #local date in LOCAL_TZ
+    d = c + timedelta(days=num_days) #calculates todays date + num_days
+    events2 = [list([]) for _ in xrange(num_events)] #empty events list to be filled in format [[event1][event2]]
+    for i in range(num_events): #runs through the events
+        #each event is [member,name of event,id,room,start time,date,status]
+        b = datetime.strptime(data[i]['start_time'], '%Y-%m-%dT%H:%M:%S') #converts start_time to datetime format
+        if (c <= b.date()) and (b.date() <= d):
+            #only shows events on or after todays date and before or on todays date + num_days
+            events2[i].append(str(data[i]['member']).split(sep, 1)[0]) #append member without @hackerdojo.com
+            events2[i].append(str(data[i]['name'])) #append name of events
+            events2[i].append(str(data[i]['id'])) #append id of event, which is for href
+            if data[i]['rooms']: #checks if room exists, if not just returns empty string
+                events2[i].append(str(data[i]['rooms'][0]))
+            else:
+                events2[i].append(str(''))
+            events2[i].append(str(b.strftime("%I:%M%p"))) #appends time in 12 hr format
+            events2[i].append(str(b.strftime("%A, %B %d"))) #appends day, month and day of the month
+            events2[i].append(str(data[i]['status'])) #appends status of event
+        elif (b.date() > d): #ends for loop to increase speed
+            break
+    events = [x for x in events2 if x != []] #cleans out any empty []
+    return events
 
 class PBWebHookHandler(webapp.RequestHandler):
     def post(self):
@@ -99,9 +126,13 @@ class UpdateHandler(webapp.RequestHandler):
             data = json.load(_file)
             with gcs.open(gcs_file_name, 'w') as f:
                 json.dump(data,f)
-            #todo: write _file to cloud storage
-            #link todo: https://gist.github.com/voscausa/9541133
-            logging.info("JSON File Update")
+            logging.info("JSON File Updated")
+            #todo: create text file with compiled list
+            #events = EventToList(data)
+            #gcs_file_name_2 = '/%s/%s' % (app_identity.get_default_gcs_bucket_name(), "events.txt")
+            #with gcs.open(gcs_file_name_2, 'w') as f:
+            #    json.dump(data,f)
+            #logging.info("Text File Update")
         except:
              logging.warning("Failed to update JSON file")
 
@@ -116,8 +147,7 @@ class IndexHandler(webapp.RequestHandler):
         if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
             #this is only done for mobile,
             #because loading an iframe would be much slower and cropping it would be hard with different screen sizes
-            #most of the latency currently comes from the slowness of getting events.json; the difference is about 1s
-            #Todo: update events.json to google cloud storage every hour and then read it from there
+            #a little latency from calling EventToList every time instead of doing it in cron job
             try: #get file from online storage location
                 response = urllib.urlopen(FullFileUrl)
                 data = json.load(response)
@@ -126,29 +156,7 @@ class IndexHandler(webapp.RequestHandler):
                 response = urllib.urlopen('http://events.hackerdojo.com/events.json')
                 data = json.load(response)
                 logging.warning("JSON data not on storage")
-            sep = '@' #used for stripping @hackerdojo.com
-            num_days = 3 #set the amount of days of events it should get
-            num_events = len(data)/4 #calculates 1/4 of the length of all events, so the speed is increased
-            c = datetime.now(pytz.timezone(LOCAL_TZ)).date() #local date in LOCAL_TZ
-            d = c + timedelta(days=num_days) #calculates todays date + num_days
-            events2 = [list([]) for _ in xrange(num_events)] #empty events list to be filled in format [[event1][event2]]
-            for i in range(num_events): #runs through the events
-                #each event is [member,name of event,id,room,start time,date]
-                b = datetime.strptime(data[i]['start_time'], '%Y-%m-%dT%H:%M:%S') #converts start_time to datetime format
-                if (c <= b.date()) and (b.date() <= d):
-                    #only shows events on or after todays date and before or on todays date + num_days
-                    events2[i].append(str(data[i]['member']).split(sep, 1)[0]) #append member without @hackerdojo.com
-                    events2[i].append(str(data[i]['name'])) #append name of events
-                    events2[i].append(str(data[i]['id'])) #append id of event, which is for href
-                    if data[i]['rooms']: #checks if room exists, if not just returns empty string
-                        events2[i].append(str(data[i]['rooms'][0]))
-                    else:
-                        events2[i].append(str(''))
-                    events2[i].append(str(b.strftime("%I:%M%p"))) #appends time in 12 hr format
-                    events2[i].append(str(b.strftime("%A, %B %d"))) #appends day, month and day of the month
-                elif (b.date() > d): #ends for loop to increase speed
-                    break
-            events = [x for x in events2 if x != []] #cleans out any empty []
+            events = EventToList(data)
             self.response.out.write(template.render('templates/mobile/main_mobile.html', locals()))
         else:
             self.response.out.write(template.render('templates/main_page.html', locals()))

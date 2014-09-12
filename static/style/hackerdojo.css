@@ -207,7 +207,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 .page-one{
 	padding-bottom: 1px;
 	padding-top: 1px;
-	background-color: #ececec;
+	background-color: white;
 }
 .page-one .content{
 	margin-left: 5%;
@@ -217,7 +217,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 .page-two{
 	padding-bottom: 1px;
 	padding-top: 1px;
-	background-color: #ccc032;
+	background-color: #F2F2F2;
 }
 
 .page-two .content{
