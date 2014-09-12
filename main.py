@@ -30,14 +30,14 @@ reg_v = re.compile(r"1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er
 #todo: test with actual cloud storage code
 #google cloud storage according to documentation:
 doc= "events.json"
-FullFileUrl = "http://storage.googleapis.com/%s.appspot.com/%s/events.json" \
-    % (app_identity.get_application_id(),app_identity.get_default_gcs_bucket_name())
+FullFileUrl = "http://storage.googleapis.com/%s.appspot.com/%s/%s" \
+    % (app_identity.get_application_id(),app_identity.get_default_gcs_bucket_name(),doc)
 
 if os.environ['SERVER_SOFTWARE'].startswith('Dev'):
     CACHE_ENABLED = False
     CDN_ENABLED = False
     #used to get from bucket in sdk:
-    FullFileUrl = "http://localhost:10080/_ah/gcs/%s/events.json" % (app_identity.get_default_gcs_bucket_name())
+    FullFileUrl = "http://localhost:10080/_ah/gcs/%s/%s" % (app_identity.get_default_gcs_bucket_name(),doc)
 
 def _request(url, cache_ttl=3600, force=False):
     request_cache_key = 'request:%s' % url
@@ -92,16 +92,16 @@ def EventToList(data):
         b = datetime.strptime(data[i]['start_time'], '%Y-%m-%dT%H:%M:%S') #converts start_time to datetime format
         if (c <= b.date()) and (b.date() <= d):
             #only shows events on or after todays date and before or on todays date + num_days
-            events2[i].append(str(data[i]['member']).split(sep, 1)[0]) #append member without @hackerdojo.com
-            events2[i].append(str(data[i]['name'])) #append name of events
+            events2[i].append((data[i]['member']).encode('utf-8').split(sep, 1)[0]) #append member without @hackerdojo.com
+            events2[i].append((data[i]['name']).encode('utf-8')) #append name of events
             events2[i].append(str(data[i]['id'])) #append id of event, which is for href
             if data[i]['rooms']: #checks if room exists, if not just returns empty string
-                events2[i].append(str(data[i]['rooms'][0]))
+                events2[i].append((data[i]['rooms'][0]).encode('utf-8'))
             else:
-                events2[i].append(str(''))
-            events2[i].append(str(b.strftime("%I:%M%p"))) #appends time in 12 hr format
-            events2[i].append(str(b.strftime("%A, %B %d"))) #appends day, month and day of the month
-            events2[i].append(str(data[i]['status'])) #appends status of event
+                events2[i].append(('').encode('utf-8'))
+            events2[i].append((b.strftime("%I:%M%p")).encode('utf-8')) #appends time in 12 hr format
+            events2[i].append((b.strftime("%A, %B %d")).encode('utf-8')) #appends day, month and day of the month
+            events2[i].append((data[i]['status']).encode('utf-8')) #appends status of event
         elif (b.date() > d): #ends for loop to increase speed
             break
     events = [x for x in events2 if x != []] #cleans out any empty []
