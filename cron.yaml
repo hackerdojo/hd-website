@@ -1,4 +1,4 @@
 cron:
-#- description: get json file from events.hackerdojo 
+#- description: get json file from events.hackerdojo
 #  url: /cron/eventjson
 #  schedule: every 1 hours
