@@ -82,7 +82,7 @@ def isMobile(self): #checks if browser is mobile; returns True or False
 
 def EventToList(data):
     sep = '@' #used for stripping @hackerdojo.com
-    num_days = 3 #set the amount of days of events it should get
+    num_days = 1 #set the amount of days of events it should get
     num_events = len(data)/4 #calculates 1/4 of the length of all events, so the speed is increased
     c = datetime.now(pytz.timezone(LOCAL_TZ)).date() #local date in LOCAL_TZ
     d = c + timedelta(days=num_days) #calculates todays date + num_days
@@ -152,7 +152,7 @@ class IndexHandler(webapp.RequestHandler):
                 response = urllib.urlopen(FullFileUrl)
                 data = json.load(response)
                 logging.info("Done from storage")
-            except ValueError: #gets json data live if corrupted or file does not exist in storage location
+            except: #gets json data live if corrupted or file does not exist in storage location
                 response = urllib.urlopen('http://events.hackerdojo.com/events.json')
                 data = json.load(response)
                 logging.warning("JSON data not on storage")

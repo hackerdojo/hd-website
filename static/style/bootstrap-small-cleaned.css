@@ -384,7 +384,7 @@ output {
 }
 .navbar-fixed-top {
   top: 0;
-  border-width: 0 0 1px;
+  border-width: 14px 0 14px;
 }
 .navbar-brand {
   float: left;

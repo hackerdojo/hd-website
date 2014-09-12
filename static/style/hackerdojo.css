@@ -31,7 +31,8 @@ nav {
 /* blue navbar*/
 #top-nav {
 	border-style: solid;
-	border-color: #0222ad;
+	border-top-color: #000;
+	border-bottom-color: #a3203f;
 }
 .navbar-custom {
 	background-color: #ffffff;
@@ -43,17 +44,17 @@ nav {
 	color: #000000;
 }
 .navbar-custom .navbar-text {
-	color: #0430f1;
+	color: #c02350;
 }
 .navbar-custom .navbar-nav > li > a {
-	color: #0430f1;
+	color: #000000;
 }
 .navbar-custom .navbar-nav > li > a:hover, .navbar-custom .navbar-nav > li > a:focus {
-	color: #000000;
+	color: #c02350;
 }
 .navbar-custom .navbar-nav > .active > a, .navbar-custom .navbar-nav > .active > a:hover, .navbar-custom .navbar-nav > .active > a:focus {
 	color: #ffffff;
-	background-color: #0222ad;
+	background-color:  #a3203f;
 }
 /* for smaller screens only*/
 .navbar-custom .navbar-toggle {
@@ -193,7 +194,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 	*/
 }
 #all {
-	margin-top: 60px;
+	margin-top: 80px;
 }
 
 #main {
