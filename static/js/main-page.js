@@ -5,12 +5,12 @@ $(document).ready(function () {
         dots: true,
         slidesToScroll: 1,
         infinite: true,
-        speed: 300,
+        speed: 500,
         cssEase: 'linear',
-        fade: true,
-        autoplay: true
+        //fade: true,
+        autoplay: true,
     });
-    var test = true;
+    var test = false;
     if (test == true){
         $(".join").hide();
     }
