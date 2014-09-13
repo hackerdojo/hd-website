@@ -1,7 +1,7 @@
 $(document).ready(function () {
     //$('#inneriframe').attr('src', 'http://events.hackerdojo.com/');
     //loads the iframe after the rest of the page is loaded
-    $('.slide').slick({
+    $('.slide').slick({ //the carousel code
         dots: true,
         slidesToScroll: 1,
         infinite: true,
