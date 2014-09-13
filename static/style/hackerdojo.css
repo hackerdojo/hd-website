@@ -214,6 +214,16 @@ a.homepage-blurb:hover, a.read-more:hover {
 	margin-left: 5%;
 	margin-right: 5%;
 }
+.page-one > .content > .left-span{
+	float: left;
+	height: auto;
+	overflow-y:hidden;
+
+}
+.page-one > .content > .right-span{
+	float: left;
+	height: auto;
+}
 
 .page-two{
 	padding-bottom: 1px;
@@ -236,17 +246,12 @@ a.homepage-blurb:hover, a.read-more:hover {
 }
 .page-three > .content > .left-span{
 	float: left;
-	height: 500px;
-	width: 50%;
+	height: auto;
 	overflow-y:hidden;
-
 }
 .page-three > .content > .right-span{
 	float: left;
-	height: 490px;
-	width: 50%;
-	margin-left: 5px;
-	margin-right: -5px;
+	height: auto;
 }
 #outeriframe {
 	float: left;
@@ -261,7 +266,7 @@ a.homepage-blurb:hover, a.read-more:hover {
 	top:-240px;
 	left:-20px;
 	width:685px;
-	height:1000px;
+	height:625px;
 }
 .page-three > .content > .clear{
 	clear: both;
@@ -561,11 +566,11 @@ p.event {
 .one, .two, .three, .four, .five {
 	display: inline-block;
 	/*float: left;*/
-	height: 165px;
+	height: auto;
 }
 
-.six {
-	width: 620px;
+.five {
+	margin-top: -20px;
 }
 
 .one, .two, .three, .four {

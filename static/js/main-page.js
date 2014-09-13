@@ -1,8 +1,7 @@
 $(document).ready(function () {
-    //$(".right-span").load("http://events.hackerdojo.com #primary");
-    $('#inneriframe').attr('src', 'http://events.hackerdojo.com/');
+    //$('#inneriframe').attr('src', 'http://events.hackerdojo.com/');
     //loads the iframe after the rest of the page is loaded
-    var test = false;
+    var test = true;
     if (test == true){
         $(".join").hide();
     }

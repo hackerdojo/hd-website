@@ -80,7 +80,15 @@ def isMobile(self): #checks if browser is mobile; returns True or False
         mobileRedirect = True
     return mobileRedirect
 
-def EventToList(data):
+def EventToList():
+    try: #get file from online storage location
+        response = urllib.urlopen(FullFileUrl)
+        data = json.load(response)
+        logging.info("Done from storage")
+    except: #gets json data live if corrupted or file does not exist in storage location
+        response = urllib.urlopen('http://events.hackerdojo.com/events.json')
+        data = json.load(response)
+        logging.warning("JSON data not on storage")
     sep = '@' #used for stripping @hackerdojo.com
     num_days = 1 #set the amount of days of events it should get
     num_events = len(data)/4 #calculates 1/4 of the length of all events, so the speed is increased
@@ -145,20 +153,11 @@ class IndexHandler(webapp.RequestHandler):
         if CDN_ENABLED:
             cdn = CDN_HOSTNAME
         if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
-            #this is only done for mobile,
-            #because loading an iframe would be much slower and cropping it would be hard with different screen sizes
             #a little latency from calling EventToList every time instead of doing it in cron job
-            try: #get file from online storage location
-                response = urllib.urlopen(FullFileUrl)
-                data = json.load(response)
-                logging.info("Done from storage")
-            except: #gets json data live if corrupted or file does not exist in storage location
-                response = urllib.urlopen('http://events.hackerdojo.com/events.json')
-                data = json.load(response)
-                logging.warning("JSON data not on storage")
-            events = EventToList(data)
+            events = EventToList()
             self.response.out.write(template.render('templates/mobile/main_mobile.html', locals()))
         else:
+            events = EventToList()
             self.response.out.write(template.render('templates/main_page.html', locals()))
             #self.response.out.write(template.render('templates/index.html', locals()))
 

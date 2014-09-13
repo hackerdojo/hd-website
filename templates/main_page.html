@@ -20,6 +20,52 @@
 	<div class = "page-one">
 		<div class = "content">
 			<h2 style = "margin: 0;">About Us</h2><!-- add margin above-->
+			<div class = "left-span">
+				<h3 style = "margin: 0;">Images</h3>
+				<div class ="slick-slider scroll-images">
+					<div><h3>1</h3></div>
+					<div><h3>2</h3></div>
+					<div><h3>3</h3></div>
+					<div><h3>4</h3></div>
+					<div><h3>5</h3></div>
+					<div><h3>6</h3></div>
+				</div>
+			</div>
+			<div class = "right-span">
+				<a href="http://events.hackerdojo.com" style="text-decoration: none;">
+					<h3 style = "margin: 0;">Events</h3>
+				</a>
+				{% for item in events %}
+				{% ifchanged item.5 %}
+				<h4>{{item.5}}</h4>
+				{% endifchanged %}
+				<table style = "display:inline-block; padding-left: 5px;">
+					<tr>
+					<td width="75" style ="padding-left: 5px;" >{{item.4}}</td>
+					<td>
+					{% ifnotequal item.6 "approved" %}
+					<a style = "text-decoration: line-through;" href="http://events.hackerdojo.com/event/{{item.2}}">
+					     {{item.1}}
+					</a>
+					<span style = "color: red; margin-left: 2px;">Cancelled</span>
+					{% else %}
+						<a href="http://events.hackerdojo.com/event/{{item.2}}">
+					      {{item.1}}
+						</a>
+					{% endifnotequal %}
+					  <div style="font-size:80%">Hosted by <a href="mailto:{{item.0}}@hackerdojo.com">{{item.0}}</a> 
+						{% if item.3|length > 0 %}in {{item.3}}{% endif %}</div>
+					</td>
+					</tr>
+				</table>
+				{% endfor %}
+			</div>
+		<hr class="clear">
+		</div>
+	</div>
+	<div class = "page-two">
+		<div class = "content">
+			<h2 style = "margin: 0;">About Us</h2><!-- add margin above-->
 			<article>
 				<section class="one">
 					<h3>An Innovation Center</h3>
@@ -37,18 +83,13 @@
 						</p>
 						<a href="/lightningtalks" class="homepage-blurb">Find out more</a>
 				</section>
+				<section class="five">
+					<h3><a href="/parking_directions" style="text-decoration: none;">Visit Us</a></h3>
+					<!--<img height="175" width="288" src="{{cdn}}/static/images/map.gif?v=2" class="image-border map">-->
+					<p>We're located at <a href='https://www.google.com/maps/place/Hacker+Dojo/@37.403057,-122.049845,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x9f6f7e2c42ca6e51'>599 Fairchild Dr. in Mountain View, CA.</a> Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</span>
+				</section>
 			<hr class="clear">
 			</article>
-		</div>
-	</div>
-	<div class = "page-two">
-		<div class = "content">
-			<h2 style = "margin: 0;">Visit Us</h2><!-- add margin above-->
-			<a href="/parking_directions">
-			<img height="175" width="288" src="{{cdn}}/static/images/map.gif?v=2" class="image-border map">
-			</a>
-			<p>We're located at <a href='https://www.google.com/maps/place/Hacker+Dojo/@37.403057,-122.049845,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x9f6f7e2c42ca6e51'>599 Fairchild Dr. in Mountain View, CA.</a> Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
-			<hr class="clear">
 		</div>
 	</div>
 	<div class = "page-three">
@@ -68,13 +109,12 @@
 				<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="500" data-width="550"></div> <!--style="margin-top:-71px;"-->
 			</div>
 			<div class = "right-span">
-				<h3 style = "margin:0;">Events</h3>
-				<!--iframe is slow, but faster than json on desktop; currently loads iframe after the rest of the page is loaded with iframe-->
-				<div id = "outeriframe">
-					<iframe src="" id="inneriframe" scrolling=no ></iframe>
-				</div>
+				<h3 style = "margin:0;">Test</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque, urna in bibendum cursus, tortor massa pulvinar quam, a finibus nisi urna et libero. Cras posuere, nunc eu laoreet lobortis, velit sem tincidunt metus, non tempus odio est quis ipsum. Donec sapien augue, pharetra vel consequat auctor, dictum eget sapien. Maecenas libero justo, vulputate nec maximus sit amet, aliquet sed sem. Vivamus tempor at ligula ac ornare. Phasellus ac egestas orci, sed porttitor lectus. Aenean suscipit dolor neque, ut tempus arcu egestas vitae. Praesent justo nisl, hendrerit et vulputate a, mollis quis dui. Nullam bibendum euismod risus at placerat. Duis congue posuere quam, at mattis arcu consequat at. Ut tincidunt fermentum aliquet. Etiam consectetur sagittis eros, vitae commodo sem aliquet sit amet. Aliquam volutpat enim orci, nec auctor velit viverra vel.
+
+				Vestibulum dapibus posuere quam at accumsan. Fusce sit amet pretium arcu. Praesent laoreet lorem eu elementum pellentesque. Nulla ut tempus massa, at auctor magna. Etiam tincidunt nulla non efficitur malesuada. Nam scelerisque ipsum at sem pulvinar dapibus. Sed ut dui tellus. Morbi non dignissim eros. Nulla at mattis ex. Curabitur rhoncus lorem quis odio ullamcorper, in sodales odio tincidunt.</p>
 			</div>
-		<div class = "clear"></div>
+		<hr class="clear">
 		</div>
 	</div>
 	<div class = "join"> <!-- currently hidden with js in base.html-->
