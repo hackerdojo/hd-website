@@ -220,6 +220,27 @@ a.homepage-blurb:hover, a.read-more:hover {
 	overflow-y:hidden;
 
 }
+.slide {
+    margin: 50px;
+    background-color: white;
+    width: auto;
+}
+
+.slick-prev:before {
+    color: black !important;
+}
+.slick-next:before {
+    color: black !important;
+}
+.slick-dots {
+	bottom: -35px !important;
+}
+.img {
+    margin: 0;
+    width: auto;
+    height: auto;
+    background-color: white;
+}
 .page-one > .content > .right-span{
 	float: left;
 	height: auto;

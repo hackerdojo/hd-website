@@ -1,6 +1,15 @@
 $(document).ready(function () {
     //$('#inneriframe').attr('src', 'http://events.hackerdojo.com/');
     //loads the iframe after the rest of the page is loaded
+    $('.slide').slick({
+        dots: true,
+        slidesToScroll: 1,
+        infinite: true,
+        speed: 300,
+        cssEase: 'linear',
+        fade: true,
+        autoplay: true
+    });
     var test = true;
     if (test == true){
         $(".join").hide();
