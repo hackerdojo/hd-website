@@ -1,0 +1,249 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265\cocoasubrtf210
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid2\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\})}{\leveltext\leveltemplateid101\'02\'00);}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid102\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid2}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww18140\viewh13940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs28 \cf0 main_page.html: 
+\fs24 (example html at the bottom of document; everything in bold italics should be replaced with something specific)
+\fs28 \
+
+\fs26 \
+General:
+\b0\fs24 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}Each page should be started with <div class = "page-
+\i\b number
+\i0\b0 \'94>, where number is the number of the page\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
+\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}Each div page has one style and should be used for one type of content\
+{\listtext	\uc0\u8259 	}All content for the page should be put into the content div <div class = "content">\
+{\listtext	\uc0\u8259 	}A general title for this page should be in style: <h2 style = "margin: 0;">
+\i\b Title
+\i0\b0 </h2>\
+{\listtext	\uc0\u8259 	}After each page, right before the closing content </div>, include <hr class="clear">, which keeps content inside the page\
+{\listtext	\uc0\u8259 	}Images in the carousel:\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural
+\ls1\ilvl1\cf0 {\listtext	\uc0\u8259 	}image dimensions should be around 450px by 450px\
+{\listtext	\uc0\u8259 	}the width of the carousel is set by the width of the page\
+{\listtext	\uc0\u8259 	}the height of the carousel is automatic, it is based on the largest height of all images shown \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b\fs26 \cf0 \
+CSS Style:
+\b0\fs24 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 for each new page, the following should be added to 
+\b hackerdojo.css
+\b0 :\
+.page-
+\i\b number
+\i0\b0 \{\
+	padding-bottom: 1px;\
+	padding-top: 1px;\
+	background-color: 
+\i\b color
+\i0\b0 ;\
+\}\
+\
+.page-
+\i\b number
+\i0\b0  .content\{\
+	margin-left: 5%;\
+	margin-right: 5%;\
+\}\
+
+\b for \'93background-color:\'94:
+\b0 \
+ each page with an even number should have the background color of 
+\b #F2F2F2
+\b0 \
+ each page with an odd number should have the background color of 
+\b white
+\b0 \
+the content pages have 5% margins, to better center the content\
+\
+
+\b There are 3 different built in styles for the content (see examples in structures below):
+\b0 \
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	1)	}Two side by side columns (see structures below)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}use <div class="left-span"> and <div class="right-span"> for the left and right columns\
+{\listtext	\uc0\u8259 	}these columns can also have Titles in the style: <h3 style = "margin:0;">
+\i\b Title
+\i0\b0 </h3>\
+\pard\tx220\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li720\fi-720\pardirnatural
+\ls2\ilvl0\cf0 {\listtext	2)	}One column, just put everything in the content div (see structures below)\
+{\listtext	3)	}Multiple small sections inside an article with <section class = "
+\i\b number
+\i0\b0 "> (see structures below)\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural
+\ls2\ilvl1\cf0 {\listtext	\uc0\u8259 	}section class one, two and three are small, have a title, text paragraph and a link at the bottom(optional). \
+{\listtext	\uc0\u8259 	}the heights for section class one, two and three are currently set at 200px in 
+\b bootstrap-small-cleaned.css
+\b0 , so that the link is at the bottom of the section, this height can be changed if the paragraphs becomes larger\
+{\listtext	\uc0\u8259 	}after three, the next section is on a new line and its class should again be one. \
+{\listtext	\uc0\u8259 	}so it goes:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0  		one two three\
+ 		one two three \
+ 		(etc...) \
+		f      i      v    e\
+\pard\tx940\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\li1440\fi-1440\pardirnatural
+\cf0 	\uc0\u8259 	section class five is as wide as the class one through three 
+\b combined 
+\b0 and is at the bottom.\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+
+\b\fs28 Structures(Example HTML): (the comments (<!--comment-->) can be deleted)
+\b0\fs24 \
+\
+
+\b\fs26 Structure for two side by side (1): 
+\b0\fs24 \
+<div class = "page-number">\
+	<div class = "content">\
+		<h2 style = "margin: 0;">
+\i\b Title
+\i0\b0 </h2><!--Title for page--> \
+		<div class = "left-span">\
+			<h3 style = "margin:0;">
+\i\b Title
+\i0\b0 </h3> <!--Title for span--> \
+			
+\i\b content
+\i0\b0 \
+		</div>\
+		<div class = "right-span">\
+			<h3 style = "margin:0;">
+\i\b Title
+\i0\b0 </h3> <!--Title for span--> \
+			
+\i\b content
+\i0\b0 \
+		</div>\
+	<hr class="clear">\
+	</div>\
+</div>\
+\
+
+\b\fs26 Structure for one single (2): 
+\fs24 \
+
+\b0 <div class = "page-number">\
+	<div class = "content">\
+		<h2 style = "margin: 0;">
+\i\b Title
+\i0\b0 </h2> <!--Title for page--> \
+		
+\i\b content
+\i0\b0 \
+	<hr class="clear">\
+	</div>\
+</div>\
+\
+
+\b\fs26 Structure for multiple smaller sections(3):
+\fs24 \
+
+\b0 <div class = "page-number">\
+	<div class = "content">\
+		<h2 style = "margin: 0;">
+\i\b Title
+\i0\b0 </h2> <!--Title for page--> \
+		<article>\
+			<section class="one">\
+				<h3>
+\i\b Title
+\i0\b0 </h3>\
+				<p>
+\i\b Content
+\i0\b0 </p>\
+				<a href="
+\i\b /page
+\i0\b0 " class="homepage-blurb">Link</a>\
+			</section>\
+			<section class="two">\
+				<h3>
+\i\b Title
+\i0\b0 </h3>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 				<p>
+\i\b Content
+\i0\b0 </p>\
+				<a href="
+\i\b /page
+\i0\b0 " class="homepage-blurb">Link</a>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 			</section>\
+			<section class="three">\
+				<h3>
+\i\b Title
+\i0\b0 </h3>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 				<p>
+\i\b Content
+\i0\b0 </p>\
+				<a href="
+\i\b /page
+\i0\b0 " class="homepage-blurb">Link</a>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 			</section>\
+			<section class="one">\
+				<h3>
+\i\b Title
+\i0\b0 </h3>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 				<p>
+\i\b Content
+\i0\b0 </p>\
+				<a href="
+\i\b /page
+\i0\b0 " class="homepage-blurb">Link</a>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 			</section>\
+			<section class="two">\
+				<h3>
+\i\b Title
+\i0\b0 </h3>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 				<p>
+\i\b Content
+\i0\b0 </p>\
+				<a href="
+\i\b /page
+\i0\b0 " class="homepage-blurb">Link</a>\
+			</section>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 			<section class="three">\
+				<h3>
+\i\b Title
+\i0\b0 </h3>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 				<p>
+\i\b Content
+\i0\b0 </p>\
+				<a href="
+\i\b /page
+\i0\b0 " class="homepage-blurb">Link</a>\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 			</section>\
+			<section class="five"> <!--extra wide section at the bottom -->\
+				<h3><a href="
+\i\b /page
+\i0\b0 " style="text-decoration: none;">
+\i\b Title
+\i0\b0 </a></h3>\
+				<p>
+\i\b Content
+\i0\b0 </p>\
+			</section>\
+		</article>\
+	<hr class="clear">\
+	</div>\
+</div>}
