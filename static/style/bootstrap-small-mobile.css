@@ -205,6 +205,10 @@ hr {
   .container {
     width: 970px;
   }
+  .one, .two, .three {
+  width: 31%;
+  height: 200px;
+  }
 }
 @media (min-width: 1200px) {
   .container {

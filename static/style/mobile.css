@@ -47,7 +47,21 @@ html,body{
 	width: 100%;
 	padding: 0;
 }
+.one, .two, .three, .five {
+	display: inline-block;
+	height: auto;
+}
 
+.five {
+	margin-top: 10px;
+}
+.img {
+    margin: 0;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    overflow: hidden;
+}
 table.contact {
     width: 100%;
     font-size: 12px;

@@ -202,14 +202,17 @@ hr {
   nav a {
     margin-left: 10px ;
   }
+  a.homepage-blurb, a.read-more {position: static;}
   .container {
     width: 750px;
   }
 }
 @media (min-width: 992px) {
-  .one, .two, .three, .four {
+  .one, .two, .three {
   width: 31%;
+  height: 200px;
   }
+  a.homepage-blurb, a.read-more {position: absolute;}
   nav a {
     margin-left: 25px ;
   }

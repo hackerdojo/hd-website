@@ -9,8 +9,14 @@
 {% endblock %}
 {% block main %}
   <h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
-	<div class = "page_one">
-		<h2 style = "margin: 0;">About Us</h2><!-- add margin above-->
+	<div class = "page-one">
+		<div class = "content">
+			<div class="img"><img src="{{cdn}}/static/images/hero1.jpeg"></div>
+		<hr class="clear">
+		</div>
+	</div>
+	<div class = "page_two">
+		<h2 style = "margin: 0;">About Us</h2>
 		<article>
 			<section class="one">
 				<h3>An Innovation Center</h3>
@@ -22,28 +28,22 @@
 					<p>Events, lectures, parties, BarCamps, DevHouses, LAN parties, hackathons, knitting circles, tinkering, brainstorming and coworking: you name it, we got it.</p>
 					<a href="http://events.hackerdojo.com/" class="homepage-blurb">See the full calendar</a>
 			</section>
-			<section class="four">
+			<section class="three">
 			<h3>Every Friday</h3>
 					<p>Lightning Talks &amp; Happy Hour starts at 5:00 every Friday.Learn about new products &amp; companies at the Dojo. (Open to the Public)
 					</p>
 					<a href="/lightningtalks" class="homepage-blurb">Find out more</a>
 			</section>
+			<section class="five">
+					<h3><a href="/parking_directions" style="text-decoration: none;">Visit Us</a></h3>
+					<p>We're located at <a href='https://www.google.com/maps/place/Hacker+Dojo/@37.403057,-122.049845,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x9f6f7e2c42ca6e51'>599 Fairchild Dr. in Mountain View, CA.</a> Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
+				</section>
 		<hr class="clear">
 		</article>
 	</div>
-	<div class = "page-two">
-		<div class = "content">
-			<h2 style = "margin-bottom: 5px; margin-top:-5px;">Visit Us</h2><!-- add margin above-->
-			<a style = "height:175px; width:288px;"href="/parking_directions">
-			<img height="175" width="288" src="{{cdn}}/static/images/map.gif?v=2" class="image-border map">
-			</a>
-			<p>We're located at <a href='https://www.google.com/maps/place/Hacker+Dojo/@37.403057,-122.049845,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x9f6f7e2c42ca6e51'>599 Fairchild Dr. in Mountain View, CA.</a> Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
-			<hr class="clear">
-		</div>
-	</div>
 	<div class = "page-three">
 		<div class = "content">
-			<a href="http://events.hackerdojo.com"><h2 style = "margin: 0;">Events</h2></a><!-- add margin above-->
+			<a href="http://events.hackerdojo.com"><h2 style = "margin: 0;">Events</h2></a>
 			{% for item in events %}
 				{% ifchanged item.5 %}
 				<h4>{{item.5}}</h4>
