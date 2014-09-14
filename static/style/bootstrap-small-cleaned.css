@@ -18,28 +18,10 @@ body {
   margin: 0;
 }
 article,
-aside,
-details,
-figcaption,
-figure,
-footer,
 header,
-hgroup,
-main,
 nav,
-section,
-summary {
+section {
   display: block;
-}
-audio,
-canvas,
-progress,
-video {
-  display: inline-block;
-  vertical-align: baseline;
-}
-template {
-  display: none;
 }
 a {
   background: transparent;
@@ -48,63 +30,16 @@ a:active,
 a:hover {
   outline: 0;
 }
-b,
-strong {
-  font-weight: bold;
-}
-dfn {
-  font-style: italic;
-}
-h1 {
-  font-size: 2em;
-  margin: 0.67em 0;
-}
-mark {
-  background: #ff0;
-  color: #000;
-}
-small {
-  font-size: 80%;
-}
-sub,
-sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-sup {
-  top: -0.5em;
-}
-sub {
-  bottom: -0.25em;
-}
 img {
   border: 0;
-}
-figure {
-  margin: 1em 40px;
 }
 hr {
   -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
-pre {
-  overflow: auto;
-}
-code,
-kbd,
-pre,
-samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
-}
 button,
-input,
-optgroup,
-select,
-textarea {
+input {
   color: inherit;
   font: inherit;
   margin: 0;
@@ -112,31 +47,12 @@ textarea {
 button {
   overflow: visible;
 }
-button,
-select {
+button {
   text-transform: none;
-}
-fieldset {
-  border: 1px solid #c0c0c0;
-  margin: 0 2px;
-  padding: 0.35em 0.625em 0.75em;
-}
-legend {
-  border: 0;
-  padding: 0;
-}
-textarea {
-  overflow: auto;
-}
-optgroup {
-  font-weight: bold;
 }
 table {
   border-collapse: collapse;
   border-spacing: 0;
-}
-th {
-  padding: 0;
 }
 *:before,
 *:after {
@@ -156,9 +72,7 @@ body {
   background-color: #ffffff;
 }
 input,
-button,
-select,
-textarea {
+button {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -176,9 +90,6 @@ a:focus {
   outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
-}
-figure {
-  margin: 0;
 }
 img {
   vertical-align: middle;
@@ -237,36 +148,6 @@ hr {
   .left-span{width: 50%;}
 }
 @media (min-width: 1200px) {
-}
-fieldset {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  min-width: 0;
-}
-legend {
-  display: block;
-  width: 100%;
-  padding: 0;
-  margin-bottom: 20px;
-  font-size: 21px;
-  line-height: inherit;
-  color: #333333;
-  border: 0;
-  border-bottom: 1px solid #e5e5e5;
-}
-label {
-  display: inline-block;
-  max-width: 100%;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
-output {
-  display: block;
-  padding-top: 7px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #555555;
 }
 .form-control:-ms-input-placeholder {
   color: #777777;
