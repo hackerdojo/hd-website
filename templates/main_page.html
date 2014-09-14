@@ -16,117 +16,116 @@
 <meta property="fb:admins" content="556346067"/>
 {% endblock %}
 {% block main %}
-<!-- each page has its own div with a background color; content div is so that there is a 5% margin on both sides-->
-  <h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
-	<div class = "page-one">
-		<div class = "content">
-			<!--<h2 style = "margin: 0;">About Us</h2>-->
-			<div class = "left-span">
-				<h3 style = "margin: 0;">Images</h3>
-				<div class ="slide">
-				<div>
-					<div class="img"><img src="{{cdn}}/static/images/hero3.jpeg"></div>
-				</div>
-				<div>
-					<div class="img"><img src="{{cdn}}/static/images/hero-pan.jpg"></div>
-				</div>
-				<div>
-					<div class="img"><img src="{{cdn}}/static/images/hero1.jpeg"></div>
-				</div>
-				</div>
+<h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
+<div class = "page-one">
+	<div class = "content">
+		<!--<h2 style = "margin: 0;">About Us</h2>-->
+		<div class = "left-span">
+			<h3 style = "margin: 0;">Images</h3>
+			<div class ="slide">
+			<div>
+				<div class="img"><img src="{{cdn}}/static/images/hero3.jpeg"></div>
 			</div>
-			<div class = "right-span">
-				<a href="http://events.hackerdojo.com" style="text-decoration: none;">
-					<h3 style = "margin: 0;">Events</h3>
+			<div>
+				<div class="img"><img src="{{cdn}}/static/images/hero-pan.jpg"></div>
+			</div>
+			<div>
+				<div class="img"><img src="{{cdn}}/static/images/hero1.jpeg"></div>
+			</div>
+			</div>
+		</div>
+		<div class = "right-span">
+			<a href="http://events.hackerdojo.com" style="text-decoration: none;">
+				<h3 style = "margin: 0;">Events</h3>
+			</a>
+			{% for item in events %}
+			{% ifchanged item.5 %}
+			<h4>{{item.5}}</h4>
+			{% endifchanged %}
+			<table style = "display:inline-block; padding-left: 5px;">
+				<tr>
+				<td width="75" style ="padding-left: 5px;" >{{item.4}}</td>
+				<td>
+				{% ifnotequal item.6 "approved" %}
+				<a style = "text-decoration: line-through;" href="http://events.hackerdojo.com/event/{{item.2}}">
+				     {{item.1}}
 				</a>
-				{% for item in events %}
-				{% ifchanged item.5 %}
-				<h4>{{item.5}}</h4>
-				{% endifchanged %}
-				<table style = "display:inline-block; padding-left: 5px;">
-					<tr>
-					<td width="75" style ="padding-left: 5px;" >{{item.4}}</td>
-					<td>
-					{% ifnotequal item.6 "approved" %}
-					<a style = "text-decoration: line-through;" href="http://events.hackerdojo.com/event/{{item.2}}">
-					     {{item.1}}
+				<span style = "color: red; margin-left: 2px;">Cancelled</span>
+				{% else %}
+					<a href="http://events.hackerdojo.com/event/{{item.2}}">
+				      {{item.1}}
 					</a>
-					<span style = "color: red; margin-left: 2px;">Cancelled</span>
-					{% else %}
-						<a href="http://events.hackerdojo.com/event/{{item.2}}">
-					      {{item.1}}
-						</a>
-					{% endifnotequal %}
-					  <div style="font-size:80%">Hosted by <a href="mailto:{{item.0}}@hackerdojo.com">{{item.0}}</a> 
-						{% if item.3|length > 0 %}in {{item.3}}{% endif %}</div>
-					</td>
-					</tr>
-				</table>
-				{% endfor %}
-			</div>
+				{% endifnotequal %}
+				  <div style="font-size:80%">Hosted by <a href="mailto:{{item.0}}@hackerdojo.com">{{item.0}}</a> 
+					{% if item.3|length > 0 %}in {{item.3}}{% endif %}</div>
+				</td>
+				</tr>
+			</table>
+			{% endfor %}
+		</div>
+	<hr class="clear">
+	</div>
+</div>
+<div class = "page-two">
+	<div class = "content">
+		<h2 style = "margin: 0;">About Us</h2>
+		<article>
+			<section class="one">
+				<h3>An Innovation Center</h3>
+				<p>Welcome to Hacker Dojo! We're a community of hackers and startups located in Mountain View. Hacker Dojo is a place for building robots, businesses, and holding events.</p>
+				<a href="/About" class="homepage-blurb">About us</a>
+			</section>
+			<section class="two">
+				<h3>We Have Events</h3>
+				<p>Events, lectures, parties, BarCamps, DevHouses, LAN parties, hackathons, knitting circles, tinkering, brainstorming and coworking: you name it, we got it.</p>
+				<a href="http://events.hackerdojo.com/" class="homepage-blurb">See the full calendar</a>
+			</section>
+			<section class="three">
+				<h3>Every Friday</h3>
+				<p>Lightning Talks &amp; Happy Hour starts at 5:00 every Friday.Learn about new products &amp; companies at the Dojo. (Open to the Public)
+				</p>
+				<a href="/lightningtalks" class="homepage-blurb">Find out more</a>
+			</section>
+			<section class="five">
+				<h3><a href="/parking_directions" style="text-decoration: none;">Visit Us</a></h3>
+				<p>We're located at <a href='https://www.google.com/maps/place/Hacker+Dojo/@37.403057,-122.049845,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x9f6f7e2c42ca6e51'>599 Fairchild Dr. in Mountain View, CA.</a> Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
+			</section>
+		</article>
 		<hr class="clear">
-		</div>
 	</div>
-	<div class = "page-two">
-		<div class = "content">
-			<h2 style = "margin: 0;">About Us</h2>
-			<article>
-				<section class="one">
-					<h3>An Innovation Center</h3>
-					<p>Welcome to Hacker Dojo! We're a community of hackers and startups located in Mountain View. Hacker Dojo is a place for building robots, businesses, and holding events.</p>
-					<a href="/About" class="homepage-blurb">About us</a>
-				</section>
-				<section class="two">
-					<h3>We Have Events</h3>
-					<p>Events, lectures, parties, BarCamps, DevHouses, LAN parties, hackathons, knitting circles, tinkering, brainstorming and coworking: you name it, we got it.</p>
-					<a href="http://events.hackerdojo.com/" class="homepage-blurb">See the full calendar</a>
-				</section>
-				<section class="three">
-					<h3>Every Friday</h3>
-					<p>Lightning Talks &amp; Happy Hour starts at 5:00 every Friday.Learn about new products &amp; companies at the Dojo. (Open to the Public)
-					</p>
-					<a href="/lightningtalks" class="homepage-blurb">Find out more</a>
-				</section>
-				<section class="five">
-					<h3><a href="/parking_directions" style="text-decoration: none;">Visit Us</a></h3>
-					<p>We're located at <a href='https://www.google.com/maps/place/Hacker+Dojo/@37.403057,-122.049845,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x9f6f7e2c42ca6e51'>599 Fairchild Dr. in Mountain View, CA.</a> Our phone number is (559)-827-8282, and you can <a href="/Contact">contact us</a> or <a href="https://twitter.com/#!/hackerdojo">follow us on Twitter</a>.</p>
-				</section>
-			</article>
-			<hr class="clear">
+</div>
+<div class = "page-three">
+	<div class = "content">
+		<h2 style = "margin: 0;">Connect with Us</h2>
+		<div class = "left-span">
+			<!--<h4>Our Facebook Page</h4>-->
+			<div id="fb-root"></div>
+			<script>(function(d, s, id) {
+				var js, fjs = d.getElementsByTagName(s)[0];
+				if (d.getElementById(id)) return;
+				js = d.createElement(s); js.id = id;
+				js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+				fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));
+			</script>
+			<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="500" data-width="550"></div> <!--style="margin-top:-71px;"-->
 		</div>
-	</div>
-	<div class = "page-three">
-		<div class = "content">
-			<h2 style = "margin: 0;">Connect with Us</h2>
-			<div class = "left-span">
-				<!--<h4>Our Facebook Page</h4>-->
-				<div id="fb-root"></div>
-				<script>(function(d, s, id) {
-					var js, fjs = d.getElementsByTagName(s)[0];
-					if (d.getElementById(id)) return;
-					js = d.createElement(s); js.id = id;
-					js.src = "http://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-					fjs.parentNode.insertBefore(js, fjs);
-					}(document, 'script', 'facebook-jssdk'));
-				</script>
-				<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="500" data-width="550"></div> <!--style="margin-top:-71px;"-->
-			</div>
-			<div class = "right-span">
-				<h3 style = "margin:0;">Test</h3>
-				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque, urna in bibendum cursus, tortor massa pulvinar quam, a finibus nisi urna et libero. Cras posuere, nunc eu laoreet lobortis, velit sem tincidunt metus, non tempus odio est quis ipsum. Donec sapien augue, pharetra vel consequat auctor, dictum eget sapien. Maecenas libero justo, vulputate nec maximus sit amet, aliquet sed sem. Vivamus tempor at ligula ac ornare. Phasellus ac egestas orci, sed porttitor lectus. Aenean suscipit dolor neque, ut tempus arcu egestas vitae. Praesent justo nisl, hendrerit et vulputate a, mollis quis dui. Nullam bibendum euismod risus at placerat. Duis congue posuere quam, at mattis arcu consequat at. Ut tincidunt fermentum aliquet. Etiam consectetur sagittis eros, vitae commodo sem aliquet sit amet. Aliquam volutpat enim orci, nec auctor velit viverra vel.
+		<div class = "right-span">
+			<h3 style = "margin:0;">Test</h3>
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla scelerisque, urna in bibendum cursus, tortor massa pulvinar quam, a finibus nisi urna et libero. Cras posuere, nunc eu laoreet lobortis, velit sem tincidunt metus, non tempus odio est quis ipsum. Donec sapien augue, pharetra vel consequat auctor, dictum eget sapien. Maecenas libero justo, vulputate nec maximus sit amet, aliquet sed sem. Vivamus tempor at ligula ac ornare. Phasellus ac egestas orci, sed porttitor lectus. Aenean suscipit dolor neque, ut tempus arcu egestas vitae. Praesent justo nisl, hendrerit et vulputate a, mollis quis dui. Nullam bibendum euismod risus at placerat. Duis congue posuere quam, at mattis arcu consequat at. Ut tincidunt fermentum aliquet. Etiam consectetur sagittis eros, vitae commodo sem aliquet sit amet. Aliquam volutpat enim orci, nec auctor velit viverra vel.
 
-				Vestibulum dapibus posuere quam at accumsan. Fusce sit amet pretium arcu. Praesent laoreet lorem eu elementum pellentesque. Nulla ut tempus massa, at auctor magna. Etiam tincidunt nulla non efficitur malesuada. Nam scelerisque ipsum at sem pulvinar dapibus. Sed ut dui tellus. Morbi non dignissim eros. Nulla at mattis ex. Curabitur rhoncus lorem quis odio ullamcorper, in sodales odio tincidunt.</p>
-			</div>
-		<hr class="clear">
+			Vestibulum dapibus posuere quam at accumsan. Fusce sit amet pretium arcu. Praesent laoreet lorem eu elementum pellentesque. Nulla ut tempus massa, at auctor magna. Etiam tincidunt nulla non efficitur malesuada. Nam scelerisque ipsum at sem pulvinar dapibus. Sed ut dui tellus. Morbi non dignissim eros. Nulla at mattis ex. Curabitur rhoncus lorem quis odio ullamcorper, in sodales odio tincidunt.</p>
 		</div>
+	<hr class="clear">
 	</div>
-	<div class = "join">
-		<div id ="join_content">
-			<form style = "float:left;"action="http://signup.hackerdojo.com/?">
-				<input class = "join-button" type="submit" value="Join Hackerdojo Today">
-			</form>
-		    <p class = "text">For $125 a month you can get your own RFID-key 24/7 access, the ability to host events, and more. Try us out for up to a week. Guest hours are 10:00am – 9:00pm.</p>
-		</div>
-		<button class = "close_button" href = "">x</button>
+</div>
+<div class = "join">
+	<div id ="join_content">
+		<form style = "float:left;"action="http://signup.hackerdojo.com/?">
+			<input class = "join-button" type="submit" value="Join Hackerdojo Today">
+		</form>
+	    <p class = "text">For $125 a month you can get your own RFID-key 24/7 access, the ability to host events, and more. Try us out for up to a week. Guest hours are 10:00am – 9:00pm.</p>
 	</div>
+	<button class = "close_button" href = "">x</button>
+</div>
 {% endblock %}
