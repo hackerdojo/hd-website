@@ -170,7 +170,6 @@ class IndexHandler(webapp.RequestHandler):
         else:
             events = EventToList()
             self.response.out.write(template.render('templates/main_page.html', locals()))
-            #self.response.out.write(template.render('templates/index.html', locals()))
 
 class StaffHandler(webapp.RequestHandler):
     def get(self):
