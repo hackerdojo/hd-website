@@ -80,7 +80,7 @@ def isMobile(self): #checks if browser is mobile; returns True or False
         mobileRedirect = True
     return mobileRedirect
 
-def EventToList():
+def EventToList(): #converts json file to python list
     try: #get file from online storage location
         response = urllib.urlopen(FullFileUrl)
         data = json.load(response)
@@ -101,9 +101,9 @@ def EventToList():
         if (c <= b.date()) and (b.date() <= d):
             #only shows events on or after todays date and before or on todays date + num_days
             events2[i].append((data[i]['member']).encode('utf-8').split(sep, 1)[0]) #append member without @hackerdojo.com
-            events2[i].append((data[i]['name']).encode('utf-8')) #append name of events
+            events2[i].append((data[i]['name']).encode('utf-8')) #append name of event
             events2[i].append(str(data[i]['id'])) #append id of event, which is for href
-            if data[i]['rooms']: #checks if room exists, if not just returns empty string
+            if data[i]['rooms']: #checks if a room is specified, if not just returns empty string
                 events2[i].append((data[i]['rooms'][0]).encode('utf-8'))
             else:
                 events2[i].append(('').encode('utf-8'))
@@ -135,12 +135,6 @@ class UpdateHandler(webapp.RequestHandler):
             with gcs.open(gcs_file_name, 'w') as f:
                 json.dump(data,f)
             logging.info("JSON File Updated")
-            #todo: create text file with compiled list
-            #events = EventToList(data)
-            #gcs_file_name_2 = '/%s/%s' % (app_identity.get_default_gcs_bucket_name(), "events.txt")
-            #with gcs.open(gcs_file_name_2, 'w') as f:
-            #    json.dump(data,f)
-            #logging.info("Text File Update")
         except:
              logging.warning("Failed to update JSON file")
 
@@ -153,7 +147,7 @@ class IndexHandler(webapp.RequestHandler):
         if CDN_ENABLED:
             cdn = CDN_HOSTNAME
         if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
-            #a little latency from calling EventToList every time instead of doing it in cron job
+            #a little latency from calling EventToList every time
             events = EventToList()
             self.response.out.write(template.render('templates/mobile/main_mobile.html', locals()))
         else:
