@@ -210,7 +210,7 @@ class MainHandler(webapp.RequestHandler):
                     version = os.environ['CURRENT_VERSION_ID']
                     if CDN_ENABLED:
                         cdn = CDN_HOSTNAME
-                    open = _time()
+                    #open = _time()
                     if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
                         self.response.out.write(template.render('templates/mobile/content_mobile.html', locals()))
                     else:
@@ -221,10 +221,10 @@ class MainHandler(webapp.RequestHandler):
                 version = os.environ['CURRENT_VERSION_ID']
                 if CDN_ENABLED:
                     cdn = CDN_HOSTNAME
-                open = _time()
+                #open = _time()
                 if mobileRedirect == True: #checks if browser is mobile; else shows desktop site
-                        self.response.out.write(template.render('templates/mobile/404_mobile.html', locals()))
-                        self.response.set_status(404)
+                    self.response.out.write(template.render('templates/mobile/404_mobile.html', locals()))
+                    self.response.set_status(404)
                 else:
                     self.response.out.write(template.render('templates/404.html', locals()))
                     self.response.set_status(404)
