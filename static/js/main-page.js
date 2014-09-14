@@ -1,17 +1,15 @@
 $(document).ready(function () {
-    //$('#inneriframe').attr('src', 'http://events.hackerdojo.com/');
-    //loads the iframe after the rest of the page is loaded
     $('.slide').slick({ //the carousel code
         dots: true,
         slidesToScroll: 1,
         infinite: true,
         speed: 500,
         cssEase: 'linear',
-        //fade: true,
         autoplay: true,
     });
     var test = false;
     if (test == true){
+        //this hides the join hackerdojo popin for testing
         $(".join").hide();
     }
     $( ".close_button" ).click(function(e) {

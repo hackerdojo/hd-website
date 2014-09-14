@@ -138,7 +138,6 @@ class UpdateHandler(webapp.RequestHandler):
         except:
              logging.warning("Failed to update JSON file")
 
-
 class IndexHandler(webapp.RequestHandler):
     def get(self):
         #open = _time()
