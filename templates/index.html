@@ -1,141 +1,95 @@
 {% extends 'base.html' %}
 {% comment %}
-<script type="text/javascript" src="{{cdn}}/static/js/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="{{cdn}}/static/js/jquery.jcarousel.min.js"></script>
-<script type="text/javascript" src="{{cdn}}/static/js/jquery.simpletip-1.3.1.pack.js"></script>
+    <script type="text/javascript" src="{{ cdn }}/static/js/jquery-1.4.2.min.js"></script>
+    <script type="text/javascript" src="{{ cdn }}/static/js/jquery.simpletip-1.3.1.pack.js"></script>
 {% endcomment %}
 {% block extrahead %}
-<script type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>
-<meta property="og:site_name" content="Hacker Dojo"/>
-<meta property="og:title" content="Hacker Dojo - Welcome to Silicon Valley's Tech Hub"/>
-<meta property="og:type" content="website"/>
-<meta property="og:image" content="static/images/hacker-dojo.png"/>
-<meta property="og:url" content="https://www.hackerdojo.com/"/>
-<meta property="fb:admins" content="556346067"/>
+    <script type="text/javascript" src="{{ cdn }}/static/js/hackerdojo.prod.pack.js?v=v{{ version }}"></script>
+    <meta property="og:site_name" content="Hacker Dojo"/>
+    <meta property="og:title" content="Hacker Dojo - Welcome to Silicon Valley's Tech Hub"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:image" content="static/images/hacker-dojo.png"/>
+    <meta property="og:url" content="https://www.hackerdojo.com/"/>
+    <meta property="fb:admins" content="556346067"/>
 {% endblock %}
 {% block content %}
-    
-{% comment %}
-    <div id="mycarousel" style="overflow:hidden">
-    <ul style="overflow:none">
-    	<li>
-            <img width="960" height="235" src="{{cdn}}/static/images/hero-pan.jpg" alt="" />
-            <div class="hero-caption">599 Fairchild Building</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero-aerial.jpg" alt="" />
-            <div class="hero-caption">Aerial Silks</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero1.jpeg" alt="" />
-            <div class="hero-caption">Group hack day, March 11, 2010</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero2.jpeg" alt="" />
-            <div class="hero-caption">Opening Party</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero3.jpeg" alt="" />
-            <div class="hero-caption">TIGJam: Indie Game Developers Conference</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero4.jpeg" alt="" />
-            <div class="hero-caption">Interaction Design Class</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero5.jpeg" alt="" />
-            <div class="hero-caption">Hackers getting some sunshine =D</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero6.jpg" alt="" />
-            <div class="hero-caption">Our Official Policy Bear Meeting</div>
-        </li>
-        <li>
-            <img width="960" height="235" class="lazyload" src="{{cdn}}/static/images/transparent-80.png" futuresrc="{{cdn}}/static/images/hero7.jpg" alt="" />
-            <div class="hero-caption">Designing a TARDIS - wanna help?</div>
-        </li>
-    </ul>
+    <div align="center">
+        <iframe src="https://docs.google.com/presentation/d/1r5iZV8kkqucx0l2czZoHhIII-TcyVlsworstawHZYMM/embed?start=true&loop=true&delayms=3000"
+                frameborder="0" width="720" height="449" allowfullscreen="true" mozallowfullscreen="true"
+                webkitallowfullscreen="true"></iframe>
+        <section class="hero-image2"/>
     </div>
-  </section>
-    
-  <div class="carousel-bullets">
-	<ul>
-		<li value="1" class="selected">&bull;</li>
-		<li value="2">&bull;</li>
-		<li value="3">&bull;</li>
-		<li value="4">&bull;</li>
-		<li value="5">&bull;</li>
-		<li value="6">&bull;</li>
-		<li value="7">&bull;</li>
-	</ul>
-  </div>
-{% endcomment %}
-
-<div align="center">
-	<iframe src="https://docs.google.com/presentation/d/1r5iZV8kkqucx0l2czZoHhIII-TcyVlsworstawHZYMM/embed?start=true&loop=true&delayms=3000" frameborder="0" width="720" height="449" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe><section class="hero-image2">
-{% comment %}
-    <a href="https://www.facebook.com/events/1654165554875367/" style="position:absolute; right:10px; top:240px; z-index:200"><img width="250" height="250" src="http://i.imgur.com/D1tCqzG.jpg"; border="2", color="Crimson"></a>
-{% endcomment %}
-</div>
 
 
-  <div style="clear:both">&nbsp;</div>
-	
-	<hr class="clear">
-	
-	<article class="callouts span-two">
-	
-		<section class="one">
-			<h3>An Innovation Center</h3>
-				<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Welcome to Hacker Dojo! We're a community of hackers and startups located in Silicon Valley. Hacker Dojo is a place for learning to build robots, startups, and holding events.</p>
-				<a href="/About" class="homepage-blurb">About us</a>
-		</section>
-	
-		<section class="two">
-		<h3>Become a Member</h3>
-				<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Starting at $100 a month you can get your own RFID-key 24/7 access, high speed wifi, ability to attend all open events and more.  If you are not a Dojo member, Visiting hours are 10am - 9pm</p>
-				<a href="/Membership" class="homepage-blurb">Join now</a>
-		</section>
-	
-		<section class="three">
-			<h3>We Have Events</h3>
-				<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border">Events, lectures, parties, BarCamps, DevHouses, LAN parties, hackathons, knitting circles, tinkering, brainstorming and coworking: you name it, we got it.</p>
-				<a href="https://events.hackerdojo.com/" class="homepage-blurb">See the full calendar</a>
-		</section>
-	
-		<section class="four">
-		<h3>Help - Donate</h3>
-				<p><img src="{{cdn}}/static/images/vertical-stripe.png" class="p-border"> Hacker Dojo is a 501c3 non-profit.
-				We depend on the generous donations of the membership and public to keep running.	
-				</p>
-				<a href="/Give" class="homepage-blurb">Find out more</a>
-		</section>
-		<section class = "six">
-			<h3><a href="/parking_directions">Visit Us</a></h3>
-				<p>We're located at 3350 Thomas rd, Santa Clara 95054, CA.<a href="/Contact">contact us</a> or <a href="https://www.facebook.com/hackerdojo/">follow us on Facebook for the latest news</a>.</p>
-		</section>
-	<hr class="clear">
-	</article>
-	
-	<article class="callouts span-one">
-		<section class="five">
-			<div id="fb-root"></div>
-			<script>(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
-				fjs.parentNode.insertBefore(js, fjs);
-				}(document, 'script', 'facebook-jssdk'));
-			</script>
-			<h3>Our Facebook Page</h3>
-			<div style="width: 288px;height:380px;overflow-y:hidden;">
-				<div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="true" data-show-border="false" data-height="400" data-width="288" style="margin-top:-71px;" ></div>
-			</div>
-		</section>
-		
-	<hr class="clear">	
-	</article>
+    <div style="clear:both">&nbsp;</div>
+
+    <hr class="clear">
+
+    <article class="callouts span-two">
+
+        <section class="one">
+            <h3>An Innovation Center</h3>
+            <p><img src="{{ cdn }}/static/images/vertical-stripe.png" class="p-border">Welcome to Hacker Dojo! We're a
+                community of hackers and startups located in Silicon Valley. Hacker Dojo is a place for learning to
+                build robots, startups, and holding events.</p>
+            <a href="/About" class="homepage-blurb">About us</a>
+        </section>
+
+        <section class="two">
+            <h3>Become a Member</h3>
+            <p><img src="{{ cdn }}/static/images/vertical-stripe.png" class="p-border">Starting at $100 a month you can
+                get your own RFID-key 24/7 access, high speed wifi, ability to attend all open events and more. If you
+                are not a Dojo member, Visiting hours are 10am - 9pm</p>
+            <a href="/Membership" class="homepage-blurb">Join now</a>
+        </section>
+
+        <section class="three">
+            <h3>We Have Events</h3>
+            <p><img src="{{ cdn }}/static/images/vertical-stripe.png" class="p-border">Events, lectures, parties,
+                BarCamps, DevHouses, LAN parties, hackathons, knitting circles, tinkering, brainstorming and coworking:
+                you name it, we got it.</p>
+            <a href="https://events.hackerdojo.com/" class="homepage-blurb">See the full calendar</a>
+        </section>
+
+        <section class="four">
+            <h3>Help - Donate</h3>
+            <p><img src="{{ cdn }}/static/images/vertical-stripe.png" class="p-border"> Hacker Dojo is a 501c3
+                non-profit.
+                We depend on the generous donations of the membership and public to keep running.
+            </p>
+            <a href="/Give" class="homepage-blurb">Find out more</a>
+        </section>
+        <section class="six">
+            <h3><a href="/parking_directions">Visit Us</a></h3>
+            <p>We're located at 3350 Thomas rd, Santa Clara 95054, CA. <br/>
+                You can <a href="/Contact">contact us</a> or <a
+                    href="https://www.facebook.com/hackerdojo/">follow us on Facebook for the latest news</a>.</p>
+        </section>
+        <hr class="clear">
+    </article>
+
+    <article class="callouts span-one">
+        <section class="five">
+            <div id="fb-root"></div>
+            <script>(function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.0";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            </script>
+            <h3>Our Facebook Page</h3>
+            <div style="width: 288px;height:380px;overflow-y:hidden;">
+                <div class="fb-like-box" data-href="https://www.facebook.com/80950130546" data-colorscheme="light"
+                     data-show-faces="false" data-header="false" data-stream="true" data-show-border="false"
+                     data-height="400" data-width="288" style="margin-top:-71px;"></div>
+            </div>
+        </section>
+
+        <hr class="clear">
+    </article>
 
 {% endblock %}
  

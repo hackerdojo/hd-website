@@ -12,7 +12,7 @@ import re
 import json
 
 PB_WIKI = 'dojowebsite'
-PB_API_URL = 'http://%s.pbworks.com/api_v2/op/GetPage/page/%s'
+PB_API_URL = 'https://%s.pbworks.com/api_v2/op/GetPage/page/%s'
 CACHE_ENABLED = True
 CDN_ENABLED = False
 CDN_HOSTNAME = 'http://cdn.hackerdojo.com'
