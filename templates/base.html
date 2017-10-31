@@ -1,61 +1,84 @@
-{% spaceless %}<!doctype html><html lang="en" public "l☺lz">
+{% spaceless %}<!doctype html>
+    <html lang="en" public "l☺lz">
     <head>
         <meta charset="utf-8">
         <title>{% block title %}Hacker Dojo{% endblock %}</title>
-        <link rel="icon" type="image/ico" href="{{cdn}}/favicon.ico" />
-        <link rel="alternate" type="application/rss+xml" title="Hacker Dojo Events" href="https://events.hackerdojo.com/events.rss" />
-        <link href="{{cdn}}/static/style/hackerdojo.css?v=v{{version}}" type="text/css" rel="stylesheet">
-        <script async type="text/javascript" src="{{cdn}}/static/js/jquery-1.4.2.min.js"></script>
-        <script async type="text/javascript" src="{{cdn}}/static/js/hackerdojo.prod.pack.js?v=v{{version}}"></script>
-        {% comment %}<link href="{{cdn}}/static/style/mobile.css?v=v{{version}}" media="screen and (max-width: 480px)" type="text/css" rel="stylesheet">{% endcomment %}        
+        <link rel="icon" type="image/ico" href="{{ cdn }}/favicon.ico"/>
+        <link rel="alternate" type="application/rss+xml" title="Hacker Dojo Events"
+              href="https://events.hackerdojo.com/events.rss"/>
+        <link href="{{ cdn }}/static/style/hackerdojo.css?v=v{{ version }}" type="text/css" rel="stylesheet">
+        <script async type="text/javascript" src="{{ cdn }}/static/js/jquery-1.4.2.min.js"></script>
+        <script async type="text/javascript"
+                src="{{ cdn }}/static/js/hackerdojo.prod.pack.js?v=v{{ version }}"></script>
+        {% comment %}
+            <link href="{{ cdn }}/static/style/mobile.css?v=v{{ version }}" media="screen and (max-width: 480px)"
+                  type="text/css" rel="stylesheet">{% endcomment %}
         <!--[if lt IE 9]><script src="{{cdn}}/static/js/ie.html5.shim.js"></script><![endif]-->
         {% block extrahead %}{% endblock %}
     </head>
-<body>
+    <body>
     <div id="contentwrapper">
-    <div id="content">
-        <hr class="black"/>
+        <div id="content">
+            <hr class="black"/>
 
-        <section>
-            <a href="/"><h1 class="logo">Hacker Dojo</h1></a>
+            <section>
+                <a href="/"><h1 class="logo">Hacker Dojo</h1></a>
 
-            <nav>
-                {% comment %}<a href="http://signup.hackerdojo.com/dashboard">Login</a>{% endcomment %}
-                <a href="/Give">Give</a>
-                <a href="/Contact">Contact</a>
-                <a href="/About">About</a>
-                <a href="/Membership">Membership</a>
-                <a href="https://events.hackerdojo.com/">Events</a>
-                <a href="https://dashboard.hackerdojo.com">My Dashboard</a>
-            </nav>
+                <nav>
+                    {% comment %}<a href="http://signup.hackerdojo.com/dashboard">Login</a>{% endcomment %}
+                    <a href="/Give">Give</a>
+                    <a href="/Contact">Contact</a>
+                    <a href="/About">About</a>
+                    <a href="/Membership">Membership</a>
+                    <a href="https://events.hackerdojo.com/">Events</a>
+                    <a href="https://dashboard.hackerdojo.com">My Dashboard</a>
+                </nav>
 
-            <hr class="red"/>
-            <h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
-        </section>
+                <hr class="red"/>
+                <h2 class="tagline">Welcome to Silicon Valley's Tech Hub</h2>
+            </section>
 
-        <hr class="clear"/>
+            <hr class="clear"/>
 
-        {% block content %}
-        {% endblock %}
+            {% block content %}
+            {% endblock %}
 
-        <img src="{{cdn}}/static/images/footer-top-border.png" class="footer-top-border"/>
+            <img src="{{ cdn }}/static/images/footer-top-border.png" class="footer-top-border"/>
 
-        <footer>Hacker Dojo &bull; 3350 Thomas rd, Suite 150, Santa Clara CA 95054 &bull; <a href="mailto:info@hackerdojo.com">info@hackerdojo.com</a> &bull; Follow: <a href="https://www.facebook.com/hackerdojo/">Facebook Page</a></footer>
+            <footer>Hacker Dojo &bull; 3350 Thomas rd, Suite 150, Santa Clara CA 95054 &bull; <a
+                    href="mailto:info@hackerdojo.com">info@hackerdojo.com</a> &bull; Follow: <a
+                    href="https://www.facebook.com/hackerdojo/">Facebook Page</a></footer>
+        </div>
     </div>
-    </div>
+    <div data-genie-id="hacker-dojo-faq" style="position: fixed; bottom: 20px; right: 20px; z-index: 100;"> </div>
+    <script>
+        (function (d, s, u, a, b) {
+            a = d.createElement(s);
+            b = d.getElementsByTagName(s)[0];
+            a.async = 1;
+            a.src = u;
+            b.parentNode.insertBefore(a, b);
+            a.onload = function () {
+                loadGenie(/*accountUuid*/'hacker-dojo-account');
+            };
+        })(document, 'script', 'https://s3-us-west-2.amazonaws.com/genie-squad-scripts/genie_loader.js');
+    </script>
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-<!--symphony--><script type="text/javascript">(function(){var d=document,s=d.createElement('script');s.src='https://storage.googleapis.com/symphonywidgets/2c048b5a-78e2-4f3d-b7c4-d498bc6d0599';s.type='text/javascript';s.async='true';var sc=d.getElementsByTagName('script')[0];sc.parentNode.insertBefore(s,sc);})();</script>
-<!--/symphony-->
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-78620710-1', 'auto');
-  ga('send', 'pageview');
-</script>
-</body>
-</html>
+        ga('create', 'UA-78620710-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+    </body>
+    </html>
 {% endspaceless %}
