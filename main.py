@@ -136,3 +136,4 @@ app = webapp.WSGIApplication([
     ('/', IndexHandler),
     ('/(.+)', MainHandler)],
     debug=True)
+print ("thanks for using")
